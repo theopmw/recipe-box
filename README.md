@@ -1,59 +1,49 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Recipe Box
 
-Welcome USER_NAME,
+## UX
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+### Site Goals
 
-## Gitpod Reminders
+This project is part of my [Code Institute](https://codeinstitute.net/) Full Stack Software Development Diploma, specifically for the **Data Centric Development** Module. The objective of this project is to "build a full-stack site that allows users to manage a common dataset about a particular domain" using **CRUD** operations - **C**reate, **R**ead, **U**pdate and **D**elete.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+I love to cook and have various recipes all over the place (in folders or books around the kitchen, saved online, printed, in emails etc) most of which I have modified in some way. Creating this project is a great way to finally store all my favourite recipes in one place in a way that can easily be shared with others or printed. It also allows other users to share and store recipes securely.
 
-`python3 -m http.server`
+### User Stories
 
-A blue button should appear to click: _Make Public_,
+As a user, I would like to:
 
-Another blue button should appear to click: _Open Browser_.
+- [x] Access the site from mobile, tablet and desktop devices.
+- [x] Easily register to have my own profile
+- [x] Easily log in to my profile
+- [x] Easily log out of my profile
+- [x] Receive feedback when I Log In/Log Out
+- [x] Be able to browse all recipes submitted to the website
+- [x] Search recipes by ingredient, name or category
+- [x] Add my own recipes
+- [x] Edit my own recipes
+- [x] Delete my own recipes
+- [x] Be given feedback when I have added, edited, or deleted a recipe
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- [x] Save recipes to my favourites
+- [x] Revove/delete recipes from my favourites
+- [x] Have simple instructions on how to add a recipe
+- [x] Easily print a recipe
+- [x] Easily share a recipe
+- [x] Rate other users recipes
 
-A blue button should appear to click: _Make Public_,
 
-Another blue button should appear to click: _Open Browser_.
+As an admin I would like to do all of the above and additionally:
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- [x] Access, edit and delete ALL recipes
+- [x] Add, edit and delete ALL recipe categories
 
-To log into the Heroku toolbelt CLI:
+### Developer goals
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidently make it public then you can create a new one with _Regenerate API Key_.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
----
-
-Happy coding!
+Create a easy to use, online cookbook where users can utilise CRUD (Create, Read, Update, Delete) functionality to  post, view, edit and delete recipies
+Allow only the owner of the recipe or an admin/superuser the ability to edit or delete a recipe.
+Provide users with the ability to filter recipies by category.
+Provide users with the ability to search recipes by name or or ingredient.
+Further develop understanding of Python, Flask, Jinja & MongoDB (non-relational database).
+Improve knowledge of HTML, CSS & JavaScript.
+Use Materialize CSS to develop a website.
+Use Heroku to deploy the app.
