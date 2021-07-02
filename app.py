@@ -22,9 +22,9 @@ mongo = PyMongo(app)
 # ------------------- #
 
 # Create index.html file in templates directory and extend from base
-# @app.route("/")
-# def index():
-#     return render_template("index.html")
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 # ------------------- #
 #    Recipe Pages     #
