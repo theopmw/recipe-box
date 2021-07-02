@@ -18,10 +18,20 @@ mongo = PyMongo(app)
 
 
 # ------------------- #
+#      Home Page      #
+# ------------------- #
+
+# Create index.html file in templates directory and extend from base
+# @app.route("/")
+# def index():
+#     return render_template("index.html")
+
+# ------------------- #
 #    Recipe Pages     #
 # ------------------- #
 
 
+# Remove line below once index.html file is commplete
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():

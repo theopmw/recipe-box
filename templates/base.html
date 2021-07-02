@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css"/>
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
@@ -16,6 +17,38 @@
 </head>
 
 <body>
+
+    <header>
+        <!-- Main navbar -->
+        <nav class="nav-extended text-shadow white black-text z-depth-0">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo black-text">Logo</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right black-text"><i class="fas fa-bars"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#" class="black-text">Home</a></li>
+                    <li><a href="#" class="black-text">Profile</a></li>
+                    <li><a href="#" class="black-text">Recipes</a></li>
+                    <li><a href="#" class="black-text">Manage Categories</a></li>
+                    <li><a href="#" class="black-text">Sign Out</a></li>
+                    <li><a href="#" class="black-text">Sign In</a></li>
+                    <li><a href="#" class="black-text">Register</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Mobile sidenav -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><h4 class="center-align black-text">ADD LOGO HERE</h4>
+            </li>
+            <li><a href="#" class="black-text">Home</a></li>
+            <li><a href="#" class="black-text">Profile</a></li>
+            <li><a href="#" class="black-text">Recipes</a></li>
+            <li><a href="#" class="black-text">Manage Categories</a></li>
+            <li><a href="#" class="black-text">Sign Out</a></li>
+            <li><a href="#" class="black-text">Sign In</a></li>
+            <li><a href="#" class="black-text">Register</a></li>
+        </ul>
+    </header>
 
     {% block content %}
 
