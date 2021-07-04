@@ -1,12 +1,10 @@
-/* .text-shadow {
-    text-shadow: 0.125rem 0.125rem 0.125rem rgba(0, 0, 0, 0.5);
-} */
-
 /*
 ------------------------------------------
-Footer positioning
+General Positioning, Fonts, Headings
 ------------------------------------------
 */
+
+/* Footer positioning */
 
 body {
     display: flex;
@@ -18,6 +16,8 @@ body {
     flex: 1 0 auto;
   }
 
+  /* Inline list positioning */
+
   .list-inline {
     padding-left: 0;
     margin-left: -5px;
@@ -28,6 +28,18 @@ body {
     padding-right: 5px;
     padding-left: 5px;
   }
+
+/* Text shadows */
+
+.text-shadow {
+    text-shadow: 0.125rem 0.125rem 0.125rem rgba(0, 0, 0, 0.5);
+}
+
+/*
+------------------------------------------
+Header
+------------------------------------------
+*/
 
 /*
 ------------------------------------------
@@ -46,26 +58,23 @@ MEDIA QUERIES
 */
 
 /* <600px - Materialize Mobile devices (s) */
-@media screen and (max-width: 600px) {
-  footer {
-    text-align: center;
-  }
 
+@media screen and (max-width: 600px) {
+  footer,
   .footer-social-links {
     text-align: center;
   }
+}
 
+/* >600px - Materialize Tablet devices (m) */
+
+@media screen and (min-width: 600px) {
 
 }
 
 
-/* >600px - Materialize Tablet devices (m) */
-
-
 /* >992px - Materialize Mobile devices (l) */
 
-
-
-
-
-
+@media screen and (min-width: 992px) {
+  
+}
