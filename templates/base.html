@@ -10,6 +10,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
@@ -20,7 +22,7 @@
 
     <header>
         <!-- Main navbar -->
-        <nav class="nav-extended text-shadow white black-text z-depth-0">
+        <nav class="nav-extended text-shadow white black-text z-depth-2">
             <div class="nav-wrapper">
                 <a href="#!" class="brand-logo black-text">Logo</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right black-text"><i
@@ -60,20 +62,26 @@
 
     </main>
 
-    <footer class="page-footer">
+    <footer class="page-footer white z-depth-2">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row footer-content">
                 <div class="col m6 s12 footer-mailing-list">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer
-                        content.</p>
+                    <h6 class="black-text">Sign up for weekly recipe ideas:</h6>
+                    <div class="input-field col s12 footer-email-input">
+                        <input id="email" type="email" class="validate" required>
+                        <label class="email-label" for="email">Email</label>
+                    </div>
+                    <button class="btn-small waves-effect waves-light mail-submit-btn" type="submit"
+                        name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
                 </div>
                 <div class="col m4 offset-m2 s12">
-                    <ul class="list-inline footer-social-links right-align">
-                        <li><a class="grey-text text-lighten-3" href="#!"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!"><i class="fab fa-instagram"></i></a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!"><i class="fab fa-twitter"></i></a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!"><i class="fab fa-youtube"></i></a></li>
+                    <ul class="list-inline footer-social-links">
+                        <li><a class="black-text text-shadow" href="#!"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a class="black-text text-shadow" href="#!"><i class="fab fa-instagram"></i></a></li>
+                        <li><a class="black-text text-shadow" href="#!"><i class="fab fa-twitter"></i></a></li>
+                        <li><a class="black-text text-shadow" href="#!"><i class="fab fa-youtube"></i></a></li>
                     </ul>
                 </div>
             </div>

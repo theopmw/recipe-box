@@ -31,9 +31,70 @@ body {
 
 /* Text shadows */
 
-/* .text-shadow {
+.text-shadow {
     text-shadow: 0.125rem 0.125rem 0.125rem rgba(0, 0, 0, 0.5);
-} */
+}
+
+/* Inputs */
+
+/* Credit: modified from https://stackoverflow.com/questions/37127123/change-color-of-underline-input-and-label-in-materialize-css-framework */
+/* Inactive/Active Default input field color */
+.input-field input[type=email]:not([readonly]),
+.input-field input[type=email]:focus:not([readonly]),
+.input-field textarea:not([readonly]),
+.input-field textarea:focus:not([readonly])
+.input-field>label {
+  /* ------------------Color not working for .input-field>label. Only works if put outside statement but then only stays that colour */
+    color: #000 !important; 
+    border-bottom: 1px solid #000 !important;
+    box-shadow: 0 1px 0 0 #000 !important;
+}
+
+/* Inactive/Active Default input label color */
+.input-field input[type=email]:focus:not([readonly])+label,
+.input-field textarea:focus:not([readonly])+label {
+    color: #000 !important;
+}
+
+/* Active/Inactive Invalid input field colors */
+.input-field input[type=email].invalid,
+.input-field input[type=email].invalid:focus,
+.input-field textarea.invalid,
+.input-field textarea.invalid:focus {
+    color: red !important;
+    border-bottom: 1px solid red !important;
+    box-shadow: 0 1px 0 0 red !important;
+}
+
+/* Active/Inactive Invalid input label color */
+.input-field input[type=email].invalid:focus+label,
+.input-field input[type=email].invalid~.helper-text::after,
+.input-field input[type=email].invalid:focus~.helper-text::after, 
+.input-field textarea.invalid:focus+label,
+.input-field textarea.invalid~.helper-text::after,
+.input-field textarea.invalid:focus~.helper-text::after {
+    color: red !important;
+}
+
+/* Active/Inactive Valid input field color */
+.input-field input[type=email].valid,
+.input-field input[type=email].valid:focus,
+.input-field textarea.valid,
+.input-field textarea.valid:focus {
+    color: #26a69a !important;
+    border-bottom: 1px solid #26a69a !important;
+    box-shadow: 0 1px 0 0 #26a69a !important;
+}
+
+/* Active/Inactive Valid input label color */
+.input-field input[type=email].valid:focus+label,
+.input-field input[type=email].valid~.helper-text::after,
+.input-field input[type=email].valid:focus~.helper-text::after,
+.input-field textarea.valid:focus+label,
+.input-field textarea.valid~.helper-text::after,
+.input-field textarea.valid:focus~.helper-text::after {
+    color: #26a69a !important;
+}
 
 /*
 ------------------------------------------
@@ -47,10 +108,6 @@ Footer
 ------------------------------------------
 */
 
-.copyright-text {
-  padding-left: 0.625rem;
-}
-
 footer,
 .footer-social-links {
   text-align: center;
@@ -59,6 +116,14 @@ footer,
 .footer-social-links i {
   font-size: 2.5rem;
   padding: 0.9375rem;
+}
+
+.footer-copyright {
+  padding: 0 !important;
+}
+
+.copyright-text {
+  padding-left: 0.625rem;
 }
 
 /*
@@ -74,7 +139,7 @@ MEDIA QUERIES
 
 /* >600px - Materialize Tablet devices (m) */
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 601px) {
   .footer-social-links i {
     font-size: 1.875rem;
     padding: 0.3125rem;
@@ -83,15 +148,41 @@ MEDIA QUERIES
   .footer-mailing-list {
     text-align: left;
   }
+
+  .footer-social-links {
+    text-align: right;
+  }
+
+  .mail-submit-btn {
+    top: 1.375rem
+  }
+
+  .footer-email-input {
+    width: 90% !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+  }
 }
 
-
-/* >992px - Materialize Mobile devices (l) */
+/* >992px - Materialize Desktop devices (l) */
 
 @media screen and (min-width: 992px) {
   .footer-social-links i {
     font-size: 2.5rem;
     padding: 0.9375rem;
+  }
+
+  .footer-email-input {
+    width: 75% !important;
+  }
+}
+
+/* >1200px - Materialize Large Desktop devices (l) */
+
+@media screen and (min-width: 1200px) {
+
+  .footer-email-input {
+    width: 50% !important;
   }
   
 }
