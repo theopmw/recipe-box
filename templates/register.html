@@ -1,35 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">Register</h3>
+<h2 class="center-align">Register</h2>
 
-<div class="row">
-    <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
-        <div class="card-panel">
-            <!-- Username -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-user-plus prefix black-text"></i>
-                    <input id="username" name="username" type="text" class="validate">
-                    <label for="username">Username</label>
-                </div>
-            </div>
-            <!-- Password -->
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="fas fa-user-lock prefix black-text"></i>
-                    <input id="password" name="password" type="password" class="validate">
-                    <label for="password">Password</label>
-                </div>
-            </div>
-            <!-- Register button -->
-            <div class="row">
-                <button type="submit" class="col s12 btn-large text-shadow">
-                    Register <i class="fas fa-sign-in-alt"></i>
-                </button>
-            </div>
+<form action="" method="post">
+    {{ form.csrf_token }}
+    <div class="row">
+        <div class="col s10 offset-s1 m8 offset-m2 input-field">
+            <i class="fas fa-user-plus prefix black-text"></i>
+            {{ form.username.label }}
+            {{ form.username(size=32) }}<br>
+            {% for error in form.username.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
         </div>
-    </form>
-</div>
-
+    </div>
+    <div class="row">
+        <div class="col s10 offset-s1 m8 offset-m2 input-field">
+            <i class="fas fa-user-lock prefix black-text"></i>
+            {{ form.password.label }}
+            {{ form.password(size=32) }}<br>
+            {% for error in form.password.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s10 offset-s1 m8 offset-m2 input-field">
+            <i class="fas fa-user-lock prefix black-text"></i>
+            {{ form.password2.label }}
+            {{ form.password2(size=32) }}<br>
+            {% for error in form.password2.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 register-button">
+            <button class="btn-large text-shadow">{{ form.submit() }}</button>
+        </div>
+        
+    </div>
+</form>
 {% endblock %}

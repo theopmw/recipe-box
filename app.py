@@ -3,6 +3,7 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
+from forms import RegisterForm
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -40,9 +41,42 @@ def get_recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
+# ------------------- #
+#       Register      #
+# ------------------- #
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    return render_template("register.html")
+    """Handles registration form functionality"""
+    print("attempt register")
+    form = RegisterForm(request.form)
+    print(form)
+    if form.validate_on_submit():
+        # get all users
+        print("form validated")
+        users = mongo.db.users
+        # see if we already have the entered username in the DB
+        existing_user = users.find_one({'name': request.form['username']})
+        print(existing_user)
+        checkname = request.form['username']
+        print(checkname)
+
+        if existing_user is None:
+            # hash the entered password
+            hash_password = generate_password_hash(
+                request.form['password'])
+            # insert the user into DB
+            users.insert_one({'name': request.form['username'],
+                              'password': hash_password})
+            # Put new user into "session" cookie
+            session['username'] = request.form['username']
+            flash("Registration Successful!")
+            return redirect(url_for('index'))
+        # duplicate username, set flash message and reload the page
+        flash('Sorry, that username is already taken. Please try another')
+        return redirect(url_for('register'))
+    print("seems form not validated")
+    return render_template('register.html', title='Register', form=form)
 
 
 if __name__ == "__main__":
