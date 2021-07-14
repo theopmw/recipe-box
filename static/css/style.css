@@ -35,6 +35,13 @@ body {
     text-shadow: 0.125rem 0.125rem 0.125rem rgba(0, 0, 0, 0.5);
 }
 
+/* Flash messages */
+
+flashes h4 {
+  line-height: 2;
+  
+}
+
 /* Inputs */
 
 /* Credit: modified from https://stackoverflow.com/questions/37127123/change-color-of-underline-input-and-label-in-materialize-css-framework */
