@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="center-align">Register</h2>
+<h2 class="center-align">Sign In</h2>
 
 <form action="" method="post">
     {{ form.csrf_token }}
     <div class="row">
         <div class="col s10 offset-s1 m8 offset-m2 input-field">
-            <i class="fas fa-user-plus prefix black-text"></i>
+            <i class="fas fa-user-cog prefix black-text"></i>
             {{ form.username.label }}
             {{ form.username(size=32) }}<br>
             {% for error in form.username.errors %}
@@ -26,28 +26,18 @@
         </div>
     </div>
     <div class="row">
-        <div class="col s10 offset-s1 m8 offset-m2 input-field">
-            <i class="fas fa-user-lock prefix black-text"></i>
-            {{ form.password2.label }}
-            {{ form.password2(size=32) }}<br>
-            {% for error in form.password2.errors %}
-            <span style="color: red;">{{ error }}</span>
-            {% endfor %}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col s12 register-button">
+        <div class="col s12 login-button">
             <button class="btn-large text-shadow">{{ form.submit() }}</button>
         </div>
-        
+
     </div>
 </form>
-
 <div class="row">
     <div class="col s12">
         <p class="center-align">
-            Already Registered? <a href="{{ url_for('login') }}">Log In</a>
+            New Here? <a href="{{ url_for('register') }}">Register Account</a>
         </p>
     </div>
 </div>
+
 {% endblock %}

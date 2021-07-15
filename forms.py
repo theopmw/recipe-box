@@ -11,6 +11,14 @@ class RegisterForm(FlaskForm):
                                 Length(min=4, max=20)])
     password = PasswordField(
         'Password', validators=[DataRequired(),
-                                EqualTo('password2', message='Passwords do not match, please try again')])
+                                EqualTo(
+                                    'password2',
+                                    message='Passwords do not match, please try again')])
     password2 = PasswordField('Repeat Password')
     submit = SubmitField('Register')
+
+
+class LoginForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField('Sign In')

@@ -3,7 +3,7 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
-from forms import RegisterForm
+from forms import RegisterForm, LoginForm
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -45,11 +45,14 @@ def get_recipes():
 #       Register      #
 # ------------------- #
 
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
-    """Handles registration form functionality"""
+    """Handles Registration form functionality"""
     print("attempt register")
+
     form = RegisterForm(request.form)
+
     print(form)
     if form.validate_on_submit():
         # get all users
@@ -79,7 +82,54 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
+# ------------------- #
+#        Log In       #
+# ------------------- #
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    """Handles Login form functionality"""
+    # if session.get('logged_in'):
+    #     if session['logged_in'] is True:
+    #         return redirect(url_for('index', title="Sign In"))
+
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        # get all users
+        users = mongo.db.users
+        # check if username exists in DB
+        existing_user = users.find_one({'name': request.form['username']})
+
+        if existing_user:
+            # check hashed password matches user input
+            if check_password_hash(
+                            existing_user['password'],
+                            request.form['password']):
+                # session['username'] = request.form['username']
+                # session['logged_in'] = True
+                flash("Welcome, {}".format(request.form['username']))
+                # redirect to home when successfully logged in
+                return redirect(url_for('index', title="Sign In", form=form))
+            else:
+                # flash message if invlaid password
+                flash(
+                    'Invalid username/password combination. Please try again.')
+                # redirect back to login page
+                return redirect(url_for("login"))
+
+        else:
+            # flash message ifmusername doesn't exist
+            flash('Invalid username/password combination. Please try again.')
+            # redirect back to login page
+            return redirect(url_for("login"))
+
+    return render_template("login.html", title="Sign In", form=form)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
+

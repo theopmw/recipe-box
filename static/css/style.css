@@ -39,7 +39,7 @@ body {
 
 flashes h4 {
   line-height: 2;
-  
+
 }
 
 /* Inputs */
@@ -111,11 +111,12 @@ Header
 
 /*
 ------------------------------------------
-Register
+Buttons
 ------------------------------------------
 */
 
-.register-button {
+.register-button,
+.login-button {
   text-align: center;
 }
 
