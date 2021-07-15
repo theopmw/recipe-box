@@ -23,10 +23,12 @@ mongo = PyMongo(app)
 #      Home Page      #
 # ------------------- #
 
+
 # Create index.html file in templates directory and extend from base
 @app.route("/")
 def index():
     return render_template("index.html")
+
 
 # ------------------- #
 #    Recipe Pages     #
@@ -59,7 +61,7 @@ def register():
         print("form validated")
         users = mongo.db.users
         # see if we already have the entered username in the DB
-        existing_user = users.find_one({'name': request.form['username']})
+        existing_user = users.find_one({'username': request.form['username']})
         print(existing_user)
         checkname = request.form['username']
         print(checkname)
@@ -69,12 +71,13 @@ def register():
             hash_password = generate_password_hash(
                 request.form['password'])
             # insert the user into DB
-            users.insert_one({'name': request.form['username'],
+            users.insert_one({'username': request.form['username'],
                               'password': hash_password})
             # Put new user into "session" cookie
-            session['username'] = request.form['username']
+            session["user"] = request.form['username']
             flash("Registration Successful!")
-            return redirect(url_for('index'))
+            return redirect(url_for("profile", username=session["user"]))
+            # return redirect(url_for('index'))
         # duplicate username, set flash message and reload the page
         flash('Sorry, that username is already taken. Please try another')
         return redirect(url_for('register'))
@@ -100,18 +103,22 @@ def login():
         # get all users
         users = mongo.db.users
         # check if username exists in DB
-        existing_user = users.find_one({'name': request.form['username']})
+        existing_user = users.find_one({'username': request.form['username']})
 
         if existing_user:
             # check hashed password matches user input
             if check_password_hash(
                             existing_user['password'],
                             request.form['password']):
-                # session['username'] = request.form['username']
-                # session['logged_in'] = True
+                session["user"] = request.form['username']
+                print(session["user"])
                 flash("Welcome, {}".format(request.form['username']))
+
                 # redirect to home when successfully logged in
-                return redirect(url_for('index', title="Sign In", form=form))
+                # return redirect(url_for('index', title="Sign In", form=form))
+                # redirect to profile when successfully logged in
+                return redirect(
+                    url_for("profile", username=session["user"]))
             else:
                 # flash message if invlaid password
                 flash(
@@ -126,6 +133,14 @@ def login():
             return redirect(url_for("login"))
 
     return render_template("login.html", title="Sign In", form=form)
+
+
+@app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    # grab session user's username from DB
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    return render_template("profile.html", username=username)
 
 
 if __name__ == "__main__":
