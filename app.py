@@ -63,8 +63,8 @@ def register():
         # see if we already have the entered username in the DB
         existing_user = users.find_one({'username': request.form['username']})
         print(existing_user)
-        checkname = request.form['username']
-        print(checkname)
+        # checkname = request.form['username']
+        # print(checkname)
 
         if existing_user is None:
             # hash the entered password
@@ -78,7 +78,7 @@ def register():
             flash("Registration Successful!")
             return redirect(url_for("profile", username=session["user"]))
             # return redirect(url_for('index'))
-        # duplicate username, set flash message and reload the page
+        # if duplicate username, set flash message and reload the page
         flash('Sorry, that username is already taken. Please try another')
         return redirect(url_for('register'))
     print("seems form not validated")
@@ -127,7 +127,7 @@ def login():
                 return redirect(url_for("login"))
 
         else:
-            # flash message ifmusername doesn't exist
+            # flash message if username doesn't exist
             flash('Invalid username/password combination. Please try again.')
             # redirect back to login page
             return redirect(url_for("login"))
@@ -135,15 +135,33 @@ def login():
     return render_template("login.html", title="Sign In", form=form)
 
 
+# ------------------- #
+#       Profile       #
+# ------------------- #
+
+
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab session user's username from DB
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("profile.html", username=username)
+
+    if session["user"]:
+        return render_template("profile.html", username=username)
+
+    return redirect(url_for("login"))
+
+
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
+
