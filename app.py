@@ -34,11 +34,21 @@ def index():
 #    Recipe Pages     #
 # ------------------- #
 
-
+# all recipes
 @app.route("/recipes")
 def recipes():
     recipes = mongo.db.recipes.find()
     return render_template("recipes.html", recipes=recipes)
+
+
+# individual recipe
+@app.route('/recipe/<recipe_id>')
+def recipe(recipe_id):
+    """Shows full recipe"""
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    print(recipe)
+
+    return render_template("recipe.html", recipe=recipe)
 
 
 # ------------------- #
