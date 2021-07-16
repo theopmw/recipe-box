@@ -31,7 +31,7 @@
                     <li><a href="{{ url_for('index') }}" class="black-text">Home</a></li>
                     {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}" class="black-text">Profile</a></li>
-                        <li><a href="{{ url_for('get_recipes') }}" class="black-text">Recipes</a></li>
+                        <li><a href="{{ url_for('recipes') }}" class="black-text">Recipes</a></li>
                         <li><a href="{{ url_for('logout') }}" class="black-text">Sign Out</a></li>
                     {% else %}
                         <li><a href="{{ url_for('login') }}" class="black-text">Sign In</a></li>
@@ -49,7 +49,7 @@
             <li><a href="{{ url_for('index') }}" class="black-text">Home</a></li>
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}" class="black-text">Profile</a></li>
-                <li><a href="{{ url_for('get_recipes') }}" class="black-text">Recipes</a></li>
+                <li><a href="{{ url_for('recipes') }}" class="black-text">Recipes</a></li>
                 <li><a href="{{ url_for('logout') }}" class="black-text">Sign Out</a></li>
             {% else %}
                 <li><a href="{{ url_for('login') }}" class="black-text">Sign In</a></li>
