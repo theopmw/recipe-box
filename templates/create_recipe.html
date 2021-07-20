@@ -19,11 +19,8 @@
     <!-- recipe description -->
     <div class="row">
         <div class="col s10 offset-s1 m8 offset-m2 input-field">
-            <!-- <textarea id="create-description" class="materialize-textarea"></textarea> -->
-            <!-- <label for="textarea1">{{ form.description.label }}</label> -->
             {{ form.description.label }}
             {{ form.description(cols="60", rows="8", id="create-description", class="materialize-textarea")}}
-            <!-- {{ form.description(rows="3") }}<br> -->
             {% for error in form.description.errors %}
             <span style="color: red;">{{ error }}</span>
             {% endfor %}
@@ -107,11 +104,8 @@
     <!-- ingredients -->
     <div class="row">
         <div class="col s10 offset-s1 m8 offset-m2 input-field">
-            <!-- <textarea id="create-ingredients" class="materialize-textarea"></textarea> -->
-            <!-- <label for="textarea1">{{ form.description.label }}</label> -->
             {{ form.ingredients.label }}
             {{ form.ingredients(cols="60", rows="8", id="create-ingredients", class="materialize-textarea")}}
-            <!-- {{ form.description(rows="3") }}<br> -->
             {% for error in form.ingredients.errors %}
             <span style="color: red;">{{ error }}</span>
             {% endfor %}
@@ -121,11 +115,8 @@
     <!-- method -->
     <div class="row">
         <div class="col s10 offset-s1 m8 offset-m2 input-field">
-            <!-- <textarea id="create-method" class="materialize-textarea"></textarea> -->
-            <!-- <label for="textarea1">{{ form.description.label }}</label> -->
             {{ form.method.label }}
             {{ form.method(cols="60", rows="8", id="create-method", class="materialize-textarea")}}
-            <!-- {{ form.description(rows="3") }}<br> -->
             {% for error in form.method.errors %}
             <span style="color: red;">{{ error }}</span>
             {% endfor %}
