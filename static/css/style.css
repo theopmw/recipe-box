@@ -1,3 +1,12 @@
+
+/* Select input text font-size/color */
+.select-wrapper
+input.select-dropdown {
+  font-size: 14.5px;
+  color: #9e9e9e;
+}
+
+
 /*
 ------------------------------------------
 General Positioning, Fonts, Headings
@@ -46,62 +55,62 @@ flashes h4 {
 
 /* Credit: modified from https://stackoverflow.com/questions/37127123/change-color-of-underline-input-and-label-in-materialize-css-framework */
 /* Inactive/Active Default input field color */
-.input-field input[type=email]:not([readonly]),
+/* .input-field input[type=email]:not([readonly]),
 .input-field input[type=email]:focus:not([readonly]),
 .input-field textarea:not([readonly]),
 .input-field textarea:focus:not([readonly])
-.input-field>label {
+.input-field>label { */
   /* ------------------Color not working for .input-field>label. Only works if put outside statement but then only stays that colour */
-    color: #000 !important; 
+    /* color: #000 !important; 
     border-bottom: 1px solid #000 !important;
-    box-shadow: 0 1px 0 0 #000 !important;
+    box-shadow: 0 1px 0 0 #000 !important; */
 }
 
 /* Inactive/Active Default input label color */
-.input-field input[type=email]:focus:not([readonly])+label,
+/* .input-field input[type=email]:focus:not([readonly])+label,
 .input-field textarea:focus:not([readonly])+label {
-    color: #000 !important;
+    color: #000 !important; */
 }
 
 /* Active/Inactive Invalid input field colors */
-.input-field input[type=email].invalid,
+/* .input-field input[type=email].invalid,
 .input-field input[type=email].invalid:focus,
 .input-field textarea.invalid,
 .input-field textarea.invalid:focus {
     color: red !important;
     border-bottom: 1px solid red !important;
     box-shadow: 0 1px 0 0 red !important;
-}
+} */
 
 /* Active/Inactive Invalid input label color */
-.input-field input[type=email].invalid:focus+label,
+/* .input-field input[type=email].invalid:focus+label,
 .input-field input[type=email].invalid~.helper-text::after,
 .input-field input[type=email].invalid:focus~.helper-text::after, 
 .input-field textarea.invalid:focus+label,
 .input-field textarea.invalid~.helper-text::after,
 .input-field textarea.invalid:focus~.helper-text::after {
-    color: red !important;
-}
+    color: red !important; 
+} */
 
 /* Active/Inactive Valid input field color */
-.input-field input[type=email].valid,
+/* .input-field input[type=email].valid,
 .input-field input[type=email].valid:focus,
 .input-field textarea.valid,
 .input-field textarea.valid:focus {
     color: #26a69a !important;
     border-bottom: 1px solid #26a69a !important;
     box-shadow: 0 1px 0 0 #26a69a !important;
-}
+} */
 
 /* Active/Inactive Valid input label color */
-.input-field input[type=email].valid:focus+label,
+/* .input-field input[type=email].valid:focus+label,
 .input-field input[type=email].valid~.helper-text::after,
 .input-field input[type=email].valid:focus~.helper-text::after,
 .input-field textarea.valid:focus+label,
 .input-field textarea.valid~.helper-text::after,
 .input-field textarea.valid:focus~.helper-text::after {
     color: #26a69a !important;
-}
+} */
 
 /*
 ------------------------------------------

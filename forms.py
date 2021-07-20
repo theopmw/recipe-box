@@ -3,7 +3,7 @@ from wtforms import (
     StringField, PasswordField,
     BooleanField, SelectField, IntegerField,
     SubmitField, TextAreaField)
-from wtforms.validators import DataRequired, Length, EqualTo, Email
+from wtforms.validators import DataRequired, Length, EqualTo, Email, InputRequired
 
 
 class RegisterForm(FlaskForm):
@@ -25,22 +25,21 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Sign In')
 
 
-class AddRecipeForm(FlaskForm):
+class CreateRecipeForm(FlaskForm):
     recipe_name = StringField('Recipe Name', validators=[DataRequired()])
-    recipe_description = TextAreaField(
+    description = TextAreaField(
         'Recipe Description', validators=[DataRequired()])
-    prep_time = IntegerField('Prep Time', validators=[DataRequired()])
-    cook_time = IntegerField('Cook Time', validators=[DataRequired()])
+    prep_time = StringField('Prep Time (minutes)', validators=[DataRequired()])
+    cook_time = StringField('Cook Time (minutes)', validators=[DataRequired()])
     serves = SelectField(
-        'Servings (choose an option)', choices=[(2), (4), (6), (8), (10)],
+        '', choices=[(None, "Servings (choose an option)"), (2, "2"), (4, "4"), (6, "6"), (8, "8"), (10, "10")],
         validate_choice=True, validators=[DataRequired()])
     difficulty = SelectField(
-        'Difficulty (choose an option)',
-        choices=[('Easy'), ('Medium'), ('Hard')], validators=[DataRequired()])
+        '', choices=[(None, "Difficulty (choose an option)"), ("easy", "Easy"), ("medium", "Medium"), ("hard", "Hard")], validators=[DataRequired()])
     tags = StringField(
-        'Tags (separate each with a comma', validators=[DataRequired()])
+        'Tags (separate each with a comma)', validators=[DataRequired()])
     image = StringField('Image link', validators=[DataRequired()])
     ingredients = TextAreaField(
         'Ingredients (one per line)', validators=[DataRequired()])
     method = TextAreaField('Method', validators=[DataRequired()])
-
+    submit = SubmitField('Add Recipe')

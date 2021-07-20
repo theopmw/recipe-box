@@ -3,7 +3,7 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
-from forms import RegisterForm, LoginForm
+from forms import RegisterForm, LoginForm, CreateRecipeForm
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -49,6 +49,39 @@ def recipe(recipe_id):
     print(recipe)
 
     return render_template("recipe.html", recipe=recipe)
+
+
+# ------------------- #
+#    Create Recipe    #
+# ------------------- #
+
+
+@app.route('/create_recipe', methods=["GET", "POST"])
+def create_recipe():
+    """Creates a recipe and adds to DB recipes collection"""
+    form = CreateRecipeForm(request.form)
+    if form.validate_on_submit():
+        # set the collection
+        recipes_db = mongo.db.recipes
+        # insert new recipe into DB
+        recipes_db.insert_one({
+            'recipe_name': request.form['recipe_name'],
+            'user': session['user'],
+            'description': request.form['description'],
+            'prep_time': request.form['prep_time'],
+            'cook_time': request.form['cook_time'],
+            'serves': request.form['serves'],
+            'difficulty': request.form['difficulty'],
+            'image': request.form['image'],
+            'tags': request.form['tags'],
+            'ingredients': request.form['ingredients'],
+            'method': request.form['method'],
+            # 'views': request.form['views']
+        })
+        flash('Recipe Added Successfully!')
+        return redirect(url_for("profile", username=session["user"]))
+    return render_template(
+        'create_recipe.html', title='create a recipe', form=form)
 
 
 # ------------------- #
@@ -172,4 +205,3 @@ if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
             debug=True)
-
