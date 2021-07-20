@@ -16,7 +16,6 @@
             <br>
             <div class="recipe-card-time">
                 <p><i class="far fa-clock"></i> Prep: {{ recipe.prep_time }} | Cook: {{ recipe.cook_time }}</p> 
-                <p></p>
             </div>
             <div class="recipe-card-serves">
                 <p><i class="fas fa-utensils"></i> Serves: {{ recipe.serves }}</p>
@@ -26,7 +25,7 @@
             </div>
         </div>
         <div class="card-action">
-          <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">See full recipe...</a>
+          <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">See full recipe</a>
         </div>
       </div>
     </div>

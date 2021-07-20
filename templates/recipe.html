@@ -4,17 +4,66 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col s12 m6">
-            <img src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}">
+            <img class="recipe-image" src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}">
         </div>
         <div class="col s12 m6">
             <h5 class="recipe-page-heading">
                 {{ recipe.recipe_name }}
             </h5>
-            <p>{{ recipe.description }}</p>
+            <p class="recipe-user">Posted by: {{recipe.user}}</p>
+            <p class="recipe-description">{{ recipe.description }}</p>
+            <p class="recipe-prep-time"><i class="far fa-clock"></i> Prep: {{ recipe.prep_time }}</p>
+            <p class="recipe-cook-time"><i class="fas fa-clock"></i></i> Cook: {{ recipe.cook_time }}</p>
+            <p class="recipe-serves"><i class="fas fa-utensils"></i> Serves: {{ recipe.serves }}</p>
+            <p class="recipe-difficulty"><i class="far fa-smile"></i> Difficulty: {{ recipe.difficulty }}</p>
         </div>
-
-
     </div>
-</div>
 
-{% endblock %}
+    <div class="row">
+        <div class="col s12 m6">
+            <!-- https://jinja.palletsprojects.com/en/3.0.x/templates/ -->
+            <!-- https://www.w3schools.com/python/ref_string_splitlines.asp -->
+            <div class="ingredients-container">
+                <h4>Ingredients</h4>
+                <ul>
+                    {% for line in recipe.ingredients.splitlines() %}
+                    <li class="Ingredient">
+                        <p>{{ line }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <!-- https://jinja.palletsprojects.com/en/3.0.x/templates/ -->
+            <!-- https://www.w3schools.com/python/ref_string_splitlines.asp -->
+            <div class="method-container">
+                <h4>Method</h4>
+                <ul>
+                    {% for line in recipe.method.splitlines() %}
+                    <li class="method">
+                        <p>{{ line }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<!-- https://stackoverflow.com/questions/62686893/new-line-n-does-not-work-in-mongodb-atlas -->
+    <!-- <div class="row">
+        <div class="col s12 m6">
+            <p style="white-space: pre-wrap;">
+                {{ recipe.ingredients }}
+            </p>
+        </div>
+        <div class="row">
+            <div class="col s12 m6">
+                <p style="white-space: pre-wrap;">
+                    {{ recipe.method }}
+                </p>
+            </div>
+        </div>
+    </div> -->
+
+    {% endblock %}
