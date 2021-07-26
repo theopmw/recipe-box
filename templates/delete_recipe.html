@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 class="center-align">Create a Recipe</h2>
+
+<form action="" method="POST">
+    {{ form.csrf_token }}
+        <!-- recipe name -->
+        <div class="row">
+            <div class="col s10 offset-s1 m8 offset-m2 input-field">
+                {{ form.recipe_name.label }}
+                {{ form.recipe_name(size=32) }}
+                {% for error in form.recipe_name.errors %}
+                <span style="color: red;">{{ error }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="confirm-delete-message center-align">
+            <p>Confirm delete recipe?</p>
+            <p>WARNING - This cannot be undone!</p>
+
+        </div>
+
+        <div class="row">
+            <div class="col s12 center-align">
+                <button class="btn-large red text-shadow">{{ form.submit() }} <i class="fas fa-trash-alt right"></i></button>
+            </div>
+        </div>
+</form>
+
+{% endblock %}

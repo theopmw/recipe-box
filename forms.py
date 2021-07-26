@@ -63,3 +63,8 @@ class EditRecipeForm(FlaskForm):
         'Ingredients (one per line)', validators=[DataRequired()])
     method = TextAreaField('Method', validators=[DataRequired()])
     submit = SubmitField('Update Recipe')
+
+
+class ConfirmDelete(FlaskForm):
+    recipe_name = StringField('Recipe Name', validators=[DataRequired()])
+    submit = SubmitField('Delete Recipe')

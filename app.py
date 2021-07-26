@@ -3,7 +3,7 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
-from forms import RegisterForm, LoginForm, CreateRecipeForm, EditRecipeForm
+from forms import RegisterForm, LoginForm, CreateRecipeForm, EditRecipeForm, ConfirmDelete
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -84,6 +84,11 @@ def create_recipe():
         'create_recipe.html', title='create a recipe', form=form)
 
 
+# ------------------- #
+#     Edit Recipe     #
+# ------------------- #
+
+
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
     """Allows User to edit their own recipes"""
@@ -115,6 +120,30 @@ def edit_recipe(recipe_id):
         flash('Recipe Edited Successfully!')
         return redirect(url_for("profile", username=session["user"]))
     return render_template('edit_recipe.html', recipe=recipe_db, form=form)
+
+
+# ------------------- #
+#    Delete Recipe    #
+# ------------------- #
+
+
+@app.route('/delete_recipe/<recipe_id>', methods=['GET', 'POST'])
+def delete_recipe(recipe_id):
+    """Allows session user to delete one of their recipes with confirmation"""
+    recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
+    if request.method == 'GET':
+        form = ConfirmDelete(data=recipe_db)
+        return render_template('delete_recipe.html', recipe=recipe_db, form=form)
+    form = ConfirmDelete(request.form)
+    if form.validate_on_submit():
+        recipes_db = mongo.db.recipes
+        recipes_db.delete_one({
+            '_id': ObjectId(recipe_id),
+        })
+        flash('Recipe Deleted Successfully!')
+        return redirect(url_for("profile", username=session["user"]))
+    return render_template('delete_recipe.html', recipe=recipe_db, form=form)
+
 
 # ------------------- #
 #       Register      #
