@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-
 <div class="row">
   {% for recipe in recipes %}
     <div class="col s12 m6 l4">
@@ -11,27 +10,26 @@
           <span class="card-title">{{ recipe.recipe_name }}</span>
         </div>
         <div class="card-content">
-            <div class="recipe-card-description">
-                <p>{{ recipe.description }}</p>
-            </div>
-            <br>
-            <div class="recipe-card-time">
-                <p><i class="far fa-clock"></i> Prep: {{ recipe.prep_time }} | Cook: {{ recipe.cook_time }}</p> 
-            </div>
-            <div class="recipe-card-serves">
-                <p><i class="fas fa-utensils"></i> Serves: {{ recipe.serves }}</p>
-            </div>
-            <div class="recipe-card-">
-                <p><i class="far fa-smile"></i> Difficulty: {{ recipe.difficulty }}</p>
-            </div>
+          <div class="recipe-card-description">
+            <p>{{ recipe.description }}</p>
+          </div>
+          <br>
+          <div class="recipe-card-time">
+            <p><i class="far fa-clock"></i> Prep: {{ recipe.prep_time }} | Cook: {{ recipe.cook_time }}</p>
+          </div>
+          <div class="recipe-card-serves">
+            <p><i class="fas fa-utensils"></i> Serves: {{ recipe.serves }}</p>
+          </div>
+          <div class="recipe-card-">
+            <p><i class="far fa-smile"></i> Difficulty: {{ recipe.difficulty }}</p>
+          </div>
         </div>
         <div class="card-action">
           <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">See full recipe</a>
         </div>
       </div>
     </div>
-    {% endfor %}
-  </div>
-
+  {% endfor %}
+</div>
 
 {% endblock %}
