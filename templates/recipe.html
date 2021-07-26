@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col s12 m6">
-            <img class="recipe-image" src="{{ recipe.image_url }}" alt="{{ recipe.recipe_name }}">
+            <img class="recipe-image" src="{{ recipe.image }}" alt="{{ recipe.recipe_name }}">
         </div>
         <div class="col s12 m6">
             <h5 class="recipe-page-heading">
@@ -12,8 +12,8 @@
             </h5>
             <p class="recipe-user">Posted by: {{recipe.user}}</p>
             <p class="recipe-description">{{ recipe.description }}</p>
-            <p class="recipe-prep-time"><i class="far fa-clock"></i> Prep: {{ recipe.prep_time }}</p>
-            <p class="recipe-cook-time"><i class="fas fa-clock"></i></i> Cook: {{ recipe.cook_time }}</p>
+            <p class="recipe-prep-time"><i class="far fa-clock"></i> Prep: {{ recipe.prep_time }} mins </p>
+            <p class="recipe-cook-time"><i class="fas fa-clock"></i></i> Cook: {{ recipe.cook_time }} mins</p>
             <p class="recipe-serves"><i class="fas fa-utensils"></i> Serves: {{ recipe.serves }}</p>
             <p class="recipe-difficulty"><i class="far fa-smile"></i> Difficulty: {{ recipe.difficulty }}</p>
             <p class="recipe-tags">Tags: {{ recipe.tags }}</p>
