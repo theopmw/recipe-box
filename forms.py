@@ -43,3 +43,23 @@ class CreateRecipeForm(FlaskForm):
         'Ingredients (one per line)', validators=[DataRequired()])
     method = TextAreaField('Method', validators=[DataRequired()])
     submit = SubmitField('Add Recipe')
+
+
+class EditRecipeForm(FlaskForm):
+    recipe_name = StringField('Recipe Name', validators=[DataRequired()])
+    description = TextAreaField(
+        'Recipe Description', validators=[DataRequired()])
+    prep_time = StringField('Prep Time (minutes)', validators=[DataRequired()])
+    cook_time = StringField('Cook Time (minutes)', validators=[DataRequired()])
+    serves = SelectField(
+        '', choices=[(None, "Servings (choose an option)"), (2, "2"), (4, "4"), (6, "6"), (8, "8"), (10, "10")],
+        validate_choice=True, validators=[DataRequired()])
+    difficulty = SelectField(
+        '', choices=[(None, "Difficulty (choose an option)"), ("easy", "Easy"), ("medium", "Medium"), ("hard", "Hard")], validators=[DataRequired()])
+    tags = StringField(
+        'Tags (separate each with a comma)', validators=[DataRequired()])
+    image = StringField('Image link', validators=[DataRequired()])
+    ingredients = TextAreaField(
+        'Ingredients (one per line)', validators=[DataRequired()])
+    method = TextAreaField('Method', validators=[DataRequired()])
+    submit = SubmitField('Update Recipe')
