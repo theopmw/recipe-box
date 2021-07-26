@@ -35,7 +35,7 @@ class CreateRecipeForm(FlaskForm):
         '', choices=[(None, "Servings (choose an option)"), (2, "2"), (4, "4"), (6, "6"), (8, "8"), (10, "10")],
         validate_choice=True, validators=[DataRequired()])
     difficulty = SelectField(
-        '', choices=[(None, "Difficulty (choose an option)"), ("easy", "Easy"), ("medium", "Medium"), ("hard", "Hard")], validators=[DataRequired()])
+        '', choices=[(None, "Difficulty (choose an option)"), ("Easy", "Easy"), ("E~edium", "Medium"), ("Hard", "Hard")], validators=[DataRequired()])
     tags = StringField(
         'Tags (separate each with a comma)', validators=[DataRequired()])
     image = StringField('Image link', validators=[DataRequired()])
@@ -55,7 +55,7 @@ class EditRecipeForm(FlaskForm):
         '', choices=[(None, "Servings (choose an option)"), (2, "2"), (4, "4"), (6, "6"), (8, "8"), (10, "10")],
         validate_choice=True, validators=[DataRequired()])
     difficulty = SelectField(
-        '', choices=[(None, "Difficulty (choose an option)"), ("easy", "Easy"), ("medium", "Medium"), ("hard", "Hard")], validators=[DataRequired()])
+        '', choices=[(None, "Difficulty (choose an option)"), ("Easy", "Easy"), ("Medium", "Medium"), ("Hard", "Hard")], validators=[DataRequired()])
     tags = StringField(
         'Tags (separate each with a comma)', validators=[DataRequired()])
     image = StringField('Image link', validators=[DataRequired()])

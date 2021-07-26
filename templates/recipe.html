@@ -17,7 +17,7 @@
             <p class="recipe-serves"><i class="fas fa-utensils"></i> Serves: {{ recipe.serves }}</p>
             <p class="recipe-difficulty"><i class="far fa-smile"></i> Difficulty: {{ recipe.difficulty }}</p>
             <p class="recipe-tags">Tags: {{ recipe.tags }}</p>
-            <a href="" class="btn-small green">Edit</a>
+            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small green">Edit</a>
             <a href="" class="btn-small red">Delete</a>
         </div>
     </div>

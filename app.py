@@ -3,7 +3,7 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
-from forms import RegisterForm, LoginForm, CreateRecipeForm
+from forms import RegisterForm, LoginForm, CreateRecipeForm, EditRecipeForm
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -83,6 +83,38 @@ def create_recipe():
     return render_template(
         'create_recipe.html', title='create a recipe', form=form)
 
+
+@app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
+def edit_recipe(recipe_id):
+    """Allows User to edit their own recipes"""
+    recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
+    if request.method == 'GET':
+        form = EditRecipeForm(data=recipe_db)
+        return render_template('edit_recipe.html', recipe=recipe_db, form=form)
+    form = EditRecipeForm(request.form)
+    if form.validate_on_submit():
+        recipes_db = mongo.db.recipes
+        recipes_db.update_one({
+            '_id': ObjectId(recipe_id),
+        }, {
+            '$set': {
+                'recipe_name': request.form['recipe_name'],
+                'user': session['user'],
+                'description': request.form['description'],
+                'prep_time': request.form['prep_time'],
+                'cook_time': request.form['cook_time'],
+                'serves': request.form['serves'],
+                'difficulty': request.form['difficulty'],
+                'image': request.form['image'],
+                'tags': request.form['tags'],
+                'ingredients': request.form['ingredients'],
+                'method': request.form['method'],
+                # 'views': request.form['views']
+            }
+        })
+        flash('Recipe Edited Successfully!')
+        return redirect(url_for("profile", username=session["user"]))
+    return render_template('edit_recipe.html', recipe=recipe_db, form=form)
 
 # ------------------- #
 #       Register      #
