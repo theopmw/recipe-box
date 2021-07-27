@@ -5,6 +5,7 @@ from flask import (
 from flask_pymongo import PyMongo
 from forms import RegisterForm, LoginForm, CreateRecipeForm, EditRecipeForm, ConfirmDelete
 from bson.objectid import ObjectId
+import math
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -41,12 +42,26 @@ def recipes():
     return render_template("recipes.html", recipes=recipes)
 
 
+# Adapted from Spencer pagination code
+# @app.route('/recipes')
+# def recipes():
+#     """Logic for recipe list and pagination"""
+#     # number of recipes per page
+#     per_page = 6
+#     page = int(request.args.get('page', 1))
+#     # count total number of recipes
+#     total = mongo.db.recipes.count_documents({})
+#     # logic for what recipes to return
+#     all_recipes = mongo.db.recipes.find().skip((page - 1)*per_page).limit(per_page)
+#     pages = range(1, int(math.ceil(total / per_page)) + 1)
+#     return render_template('recipes.html', recipes=all_recipes, page=page, pages=pages, total=total)
+
+
 # individual recipe
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
     """Shows full recipe"""
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    print(recipe)
 
     return render_template("recipe.html", recipe=recipe)
 
@@ -247,9 +262,11 @@ def profile(username):
     # grab session user's username from DB
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    # Grab recipes from DB
+    recipes = mongo.db.recipes.find()
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, recipes=recipes)
 
     return redirect(url_for("login"))
 
