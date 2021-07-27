@@ -57,13 +57,18 @@ def recipes():
 #     return render_template('recipes.html', recipes=all_recipes, page=page, pages=pages, total=total)
 
 
+# Credit: code to increment views suggested by my Code Institute mentor:
+# Spencer Barriball
 # individual recipe
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
-    """Shows full recipe"""
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-
-    return render_template("recipe.html", recipe=recipe)
+    """Shows full recipe and increments view"""
+    mongo.db.recipes.find_one_and_update(
+        {'_id': ObjectId(recipe_id)},
+        {'$inc': {'views': 1}}
+    )
+    recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
+    return render_template('recipe.html', recipe=recipe_db)
 
 
 # ------------------- #
@@ -91,7 +96,7 @@ def create_recipe():
             'tags': request.form['tags'],
             'ingredients': request.form['ingredients'],
             'method': request.form['method'],
-            # 'views': request.form['views']
+            'views': 0
         })
         flash('Recipe Added Successfully!')
         return redirect(url_for("profile", username=session["user"]))
@@ -129,7 +134,6 @@ def edit_recipe(recipe_id):
                 'tags': request.form['tags'],
                 'ingredients': request.form['ingredients'],
                 'method': request.form['method'],
-                # 'views': request.form['views']
             }
         })
         flash('Recipe Edited Successfully!')
