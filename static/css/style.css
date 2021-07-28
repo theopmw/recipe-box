@@ -1,16 +1,4 @@
 
-/* Select input text font-size/color */
-.select-wrapper
-input.select-dropdown {
-  font-size: 14.5px;
-  color: #9e9e9e;
-}
-
-.header-logo {
-  margin: 1.25rem 0 0 0;
-  height: 75%;
-  width: 75%;
-}
 /*
 ------------------------------------------
 General Positioning, Fonts, Headings
@@ -118,9 +106,29 @@ flashes h4 {
 
 /*
 ------------------------------------------
+Forms
+------------------------------------------
+*/
+
+/* Select input text font-size/color */
+.select-wrapper
+input.select-dropdown {
+  font-size: 14.5px;
+  color: #9e9e9e;
+}
+
+
+/*
+------------------------------------------
 Header
 ------------------------------------------
 */
+
+.header-logo {
+  margin: 1.25rem 0 0 0;
+  height: 75%;
+  width: 75%;
+}
 
 /*
 ------------------------------------------
@@ -162,7 +170,6 @@ Recipe page
   width: 100%;
   overflow: hidden;
 }
-
 
 /*
 ------------------------------------------
@@ -253,6 +260,15 @@ MEDIA QUERIES
     margin-bottom: 0 !important;
     padding: 0 !important;
   }
+
+  .select-wrapper
+  input.select-dropdown {
+    width: 66%;
+  }
+
+  .select-wrapper .caret {
+    right: 33%;
+  }
 }
 
 /* >992px - Materialize Desktop devices (l) */
@@ -273,11 +289,18 @@ MEDIA QUERIES
   .footer-email-input {
     width: 75% !important;
   }
+
+  .select-wrapper
+  input.select-dropdown {
+    width: 50%;
+  }
+
+  .select-wrapper .caret {
+    right: 50%;
+  }
 }
 
-
-
-/* >1200px - Materialize Large Desktop devices (l) */
+/* >1200px - Materialize Large Desktop devices (xl) */
 
 @media screen and (min-width: 1200px) {
 
