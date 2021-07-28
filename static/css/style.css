@@ -6,7 +6,11 @@ input.select-dropdown {
   color: #9e9e9e;
 }
 
-
+.header-logo {
+  margin: 1.25rem 0 0 0;
+  height: 75%;
+  width: 75%;
+}
 /*
 ------------------------------------------
 General Positioning, Fonts, Headings
@@ -64,13 +68,13 @@ flashes h4 {
     /* color: #000 !important; 
     border-bottom: 1px solid #000 !important;
     box-shadow: 0 1px 0 0 #000 !important; */
-}
+/* } */
 
 /* Inactive/Active Default input label color */
 /* .input-field input[type=email]:focus:not([readonly])+label,
 .input-field textarea:focus:not([readonly])+label {
     color: #000 !important; */
-}
+/* } */
 
 /* Active/Inactive Invalid input field colors */
 /* .input-field input[type=email].invalid,
@@ -131,14 +135,63 @@ Buttons
 
 /*
 ------------------------------------------
+Home page
+------------------------------------------
+*/
+
+/* Carousel */
+
+.carousel-item {
+  position:relative;
+}
+
+.carousel-image {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  object-fit: contain;
+}
+/*
+------------------------------------------
 Recipe page
 ------------------------------------------
 */
 
 .recipe-image {
-  height:100%;
-  width:100%;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
+
+
+/*
+------------------------------------------
+Recipes page
+------------------------------------------
+*/
+
+.recipe-card-image{
+  /* min-height: 12rem; */
+  max-height: 17rem;
+  overflow: hidden;
+}
+
+/* https://stackoverflow.com/questions/36106693/creating-responsive-materialize-cards */
+/* .recipe-card-image {
+  width: 100%;
+  padding-bottom: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.recipe-card-image img {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+} */
 
 /*
 ------------------------------------------
@@ -205,6 +258,13 @@ MEDIA QUERIES
 /* >992px - Materialize Desktop devices (l) */
 
 @media screen and (min-width: 992px) {
+
+  .header-logo {
+    margin: 1.25rem 0 1.25rem 0;
+    height: 66%;
+    width: 66%;
+  }
+
   .footer-social-links i {
     font-size: 2.5rem;
     padding: 0.9375rem;
@@ -214,6 +274,8 @@ MEDIA QUERIES
     width: 75% !important;
   }
 }
+
+
 
 /* >1200px - Materialize Large Desktop devices (l) */
 
