@@ -281,6 +281,10 @@ MEDIA QUERIES
     width: 66%;
   }
 
+  .nav-wrapper {
+    right: 16.5%;
+  }
+
   .footer-social-links i {
     font-size: 2.5rem;
     padding: 0.9375rem;
