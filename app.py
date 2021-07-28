@@ -2,8 +2,10 @@ import os
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
-from flask_pymongo import PyMongo
-from forms import RegisterForm, LoginForm, CreateRecipeForm, EditRecipeForm, ConfirmDelete
+from flask_pymongo import PyMongo, DESCENDING
+from forms import (
+    RegisterForm, LoginForm, CreateRecipeForm, 
+    EditRecipeForm, ConfirmDelete)
 from bson.objectid import ObjectId
 import math
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -26,9 +28,24 @@ mongo = PyMongo(app)
 
 
 # Create index.html file in templates directory and extend from base
+# Credit: code to pull top 4 recipes suggested by my Code Institute mentor:
+# Spencer Barriball
 @app.route("/")
+@app.route("/index")
 def index():
-    return render_template("index.html")
+    """Home page pulls 4 most viewed recipes from DB"""
+    top_four_recipes = list(
+        mongo.db.recipes.find().sort([('views', DESCENDING)]).limit(4))
+
+    recipes = [
+        top_four_recipes[0],
+        top_four_recipes[1],
+        top_four_recipes[2],
+        top_four_recipes[3],
+    ]
+
+    return render_template(
+        'index.html', title="Home", recipes=recipes)
 
 
 # ------------------- #
@@ -57,9 +74,9 @@ def recipes():
 #     return render_template('recipes.html', recipes=all_recipes, page=page, pages=pages, total=total)
 
 
+# individual recipe
 # Credit: code to increment views suggested by my Code Institute mentor:
 # Spencer Barriball
-# individual recipe
 @app.route('/recipe/<recipe_id>')
 def recipe(recipe_id):
     """Shows full recipe and increments view"""
