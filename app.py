@@ -4,7 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo, DESCENDING
 from forms import (
-    RegisterForm, LoginForm, CreateRecipeForm, 
+    RegisterForm, LoginForm, CreateRecipeForm,
     EditRecipeForm, ConfirmDelete)
 from bson.objectid import ObjectId
 import math
@@ -28,8 +28,8 @@ mongo = PyMongo(app)
 
 
 # Create index.html file in templates directory and extend from base
-# Credit: code to pull top 4 recipes suggested by my Code Institute mentor:
-# Spencer Barriball
+# Credit: code to pull top 4 recipes modified from code
+# suggested by my Code Institute mentor: Spencer Barriball
 @app.route("/")
 @app.route("/index")
 def index():
@@ -45,7 +45,7 @@ def index():
     ]
 
     return render_template(
-        'index.html', title="Home", recipes=recipes)
+        'index.html', recipes=recipes)
 
 
 # ------------------- #
@@ -57,21 +57,6 @@ def index():
 def recipes():
     recipes = mongo.db.recipes.find()
     return render_template("recipes.html", recipes=recipes)
-
-
-# Adapted from Spencer pagination code
-# @app.route('/recipes')
-# def recipes():
-#     """Logic for recipe list and pagination"""
-#     # number of recipes per page
-#     per_page = 6
-#     page = int(request.args.get('page', 1))
-#     # count total number of recipes
-#     total = mongo.db.recipes.count_documents({})
-#     # logic for what recipes to return
-#     all_recipes = mongo.db.recipes.find().skip((page - 1)*per_page).limit(per_page)
-#     pages = range(1, int(math.ceil(total / per_page)) + 1)
-#     return render_template('recipes.html', recipes=all_recipes, page=page, pages=pages, total=total)
 
 
 # individual recipe
@@ -118,7 +103,7 @@ def create_recipe():
         flash('Recipe Added Successfully!')
         return redirect(url_for("profile", username=session["user"]))
     return render_template(
-        'create_recipe.html', title='create a recipe', form=form)
+        'create_recipe.html', form=form)
 
 
 # ------------------- #
@@ -169,7 +154,8 @@ def delete_recipe(recipe_id):
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
     if request.method == 'GET':
         form = ConfirmDelete(data=recipe_db)
-        return render_template('delete_recipe.html', recipe=recipe_db, form=form)
+        return render_template(
+            'delete_recipe.html', recipe=recipe_db, form=form)
     form = ConfirmDelete(request.form)
     if form.validate_on_submit():
         recipes_db = mongo.db.recipes
@@ -202,7 +188,6 @@ def register():
         existing_user = users.find_one({'username': request.form['username']})
         print(existing_user)
         # checkname = request.form['username']
-        # print(checkname)
 
         if existing_user is None:
             # hash the entered password
@@ -215,12 +200,11 @@ def register():
             session["user"] = request.form['username']
             flash("Registration Successful!")
             return redirect(url_for("profile", username=session["user"]))
-            # return redirect(url_for('index'))
         # if duplicate username, set flash message and reload the page
         flash('Sorry, that username is already taken. Please try another')
         return redirect(url_for('register'))
     print("seems form not validated")
-    return render_template('register.html', title='Register', form=form)
+    return render_template('register.html', form=form)
 
 
 # ------------------- #
@@ -231,10 +215,6 @@ def register():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     """Handles Login form functionality"""
-    # if session.get('logged_in'):
-    #     if session['logged_in'] is True:
-    #         return redirect(url_for('index', title="Sign In"))
-
     form = LoginForm()
 
     if form.validate_on_submit():
@@ -252,8 +232,6 @@ def login():
                 print(session["user"])
                 flash("Welcome, {}".format(request.form['username']))
 
-                # redirect to home when successfully logged in
-                # return redirect(url_for('index', title="Sign In", form=form))
                 # redirect to profile when successfully logged in
                 return redirect(
                     url_for("profile", username=session["user"]))
@@ -270,7 +248,7 @@ def login():
             # redirect back to login page
             return redirect(url_for("login"))
 
-    return render_template("login.html", title="Sign In", form=form)
+    return render_template("login.html", form=form)
 
 
 # ------------------- #
@@ -287,7 +265,8 @@ def profile(username):
     recipes = mongo.db.recipes.find()
 
     if session["user"]:
-        return render_template("profile.html", username=username, recipes=recipes)
+        return render_template(
+            "profile.html", username=username, recipes=recipes)
 
     return redirect(url_for("login"))
 
