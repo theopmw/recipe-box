@@ -3,4 +3,32 @@
 
 <h1>Hello World!</h1>
 
+<div class="carousel carousel-slider center">
+    <div class="carousel-item white-text" href="">
+        <h2>{{ recipes[0].recipe_name }}</h2>
+        <p class="white-text">{{ recipes[0].description }}</p>
+        <a class="btn waves-effect white grey-text darken-text-2" href="{{ url_for('recipe', recipe_id=recipes[0]._id) }}">Check out this recipe!</a>
+        <img class="carousel-image" src="{{ recipes[0].image }}" height="100%" width="100%" alt="{{ recipes[0].recipe_name }}">
+    </div>
+    <div class="carousel-item white-text" href="#two!">
+        <h2>{{ recipes[1].recipe_name }}</h2>
+        <p class="white-text">{{ recipes[1].description }}</p>
+        <a class="btn waves-effect white grey-text darken-text-2" href="{{ url_for('recipe', recipe_id=recipes[1]._id) }}">Check out this recipe!</a>
+        <img class="carousel-image" src="{{ recipes[1].image }}" height="100%" width="100%" alt="{{ recipes[1].recipe_name }}">
+    </div>
+    <div class="carousel-item white-text" href="#three!">
+        <h2>{{ recipes[2].recipe_name }}</h2>
+        <p class="white-text">{{ recipes[2].description }}</p>
+        <a class="btn waves-effect white grey-text darken-text-2" href="{{ url_for('recipe', recipe_id=recipes[2]._id) }}">Check out this recipe!</a>
+        <img class="carousel-image" src="{{ recipes[2].image }}" height="100%" width="100%" alt="{{ recipes[2].recipe_name }}">
+    </div>
+    <div class="carousel-item white-text" href="#four!">
+        <h2>{{ recipes[3].recipe_name }}</h2>
+        <p class="white-text">{{ recipes[3].description }}</p>
+        <a class="btn waves-effect white grey-text darken-text-2" href="{{ url_for('recipe', recipe_id=recipes[3]._id) }}">Check out this recipe!</a>
+        <img class="carousel-image" src="{{ recipes[3].image }}" height="100%" width="100%" alt="{{ recipes[3].recipe_name }}">
+    </div>
+</div>
+    
+
 {% endblock %}
