@@ -177,11 +177,38 @@ Recipes page
 ------------------------------------------
 */
 
+/* recipe cards */
+
+/* .card {
+  height: 34rem;
+} */
+
+.recipe-image-container {
+  height: 100%;
+  width: 100%;
+}
+
 .recipe-card-image{
   /* min-height: 12rem; */
   max-height: 17rem;
   overflow: hidden;
+  object-fit: cover;
 }
+
+.card-content {
+  height: 11.25rem;
+  margin: 1.5rem;
+  padding: 0 !important;
+} 
+
+.card-action {
+  height: 4.0625rem;
+}
+
+
+
+
+
 
 /* https://stackoverflow.com/questions/36106693/creating-responsive-materialize-cards */
 /* .recipe-card-image {
@@ -269,6 +296,21 @@ MEDIA QUERIES
   .select-wrapper .caret {
     right: 33%;
   }
+
+  /* .card {
+    height: 30rem;
+  } */
+
+  .recipe-card-image{
+    /* min-height: 12rem; */
+    max-height: 9.6875rem;
+    overflow: hidden;
+    object-fit: cover;
+  }
+
+  .card-content {
+    height: 14.375rem;
+  }
 }
 
 /* >992px - Materialize Desktop devices (l) */
@@ -302,6 +344,26 @@ MEDIA QUERIES
   .select-wrapper .caret {
     right: 50%;
   }
+
+  /* .card {
+    height: 500px;
+  } */
+  
+  /* .recipe-image-container {
+    height: 100%;
+    width: 100%;
+  } */
+  
+  .recipe-card-image{
+    /* min-height: 12rem; */
+    max-height: 8.75rem;
+    overflow: hidden;
+    object-fit: cover;
+  }
+
+  .card-title {
+    padding: 12px !important;
+  }
 }
 
 /* >1200px - Materialize Large Desktop devices (xl) */
@@ -310,6 +372,13 @@ MEDIA QUERIES
 
   .footer-email-input {
     width: 50% !important;
+  }
+
+  .recipe-card-image{
+    /* min-height: 12rem; */
+    max-height: 10rem;
+    overflow: hidden;
+    object-fit: cover;
   }
   
 }
