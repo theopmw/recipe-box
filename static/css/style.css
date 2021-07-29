@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Rozha+One&family=Sonsie+One&display=swap');
+
 
 /*
 ------------------------------------------
@@ -29,6 +31,27 @@ body {
     padding-right: 5px;
     padding-left: 5px;
   }
+
+/* Fonts */
+
+.font-sonsie-one {
+  font-family: "Sonsie One", sans-serif;
+}
+
+.font-rozha-one {
+  font-family: "Rozha One", sans-serif;
+}
+
+.font-roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+/* Headings */
+
+.page-heading {
+  font-size: 28px;
+  margin-top: 2.25rem;
+}
 
 /* Text shadows */
 
