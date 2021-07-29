@@ -11,11 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
-
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+    
+    <!-- Credit: Favicon created using https://favicon.io/ -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon/logo_favicon.ico') }}" />
     {% block styles %}
     {% endblock %}
     <title>Recipe Box</title>
+
 </head>
 
 <body>
@@ -24,12 +27,12 @@
     <header>
         <div class="row">
             <div class="col s12 center-align"">
-                <a href="{{ url_for('index') }}" ><img class="header-logo" src="{{ url_for('static', filename='images/logo/logo_original_on_transparent.png')}}" alt="Recipe Box Logo"></a>
+                <a href="{{ url_for('index') }}" ><img class="header-logo" src="{{ url_for('static', filename='images/logo/logo_original_on_transparent.png') }}" alt="Recipe Box Logo"></a>
             </div>
         </div>
         <!-- Main navbar -->
-        <nav class="nav-extended text-shadow white black-text z-depth-2">
-            <div class="nav-wrapper">
+        <nav class="nav-extended text-shadow white black-text z-depth-2 font-roboto">
+            <div class="nav-wrapper main-nav">
                 <!-- <a href="" class="brand-logo black-text">Logo</a> -->
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right black-text"><i
                         class="fas fa-bars"></i></a>
