@@ -196,10 +196,14 @@ Recipes page
 }
 
 .card-content {
-  height: 11.25rem;
+  /* height: 11.25rem; */
   margin: 1.5rem;
   padding: 0 !important;
 } 
+
+.recipe-card-info p {
+  padding: 0.0625rem;
+}
 
 .card-action {
   height: 4.0625rem;
@@ -301,15 +305,23 @@ MEDIA QUERIES
     height: 30rem;
   } */
 
-  .recipe-card-image{
+  .recipe-card-image {
     /* min-height: 12rem; */
     max-height: 9.6875rem;
     overflow: hidden;
     object-fit: cover;
   }
 
-  .card-content {
+  /* .card-content {
     height: 14.375rem;
+  } */
+
+  .recipe-card-description {
+    height: 6.25rem;
+  }
+
+  .recipe-card-info {
+    height: 6.875rem;
   }
 }
 
