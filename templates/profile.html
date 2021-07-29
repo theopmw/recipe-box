@@ -2,13 +2,14 @@
 {% block content %}
 
 <div class="row">
-    <div class="col s12 m8 offset-m2">
-        <div class="card-panel">
-            <h2 class="center-align">
-                {{ username }}'s Recipe Box
-            </h2>
+    <div class="col s12 center-align font-rozha-one">
+      <h3 class="page-heading">{{ username }}'s Recipe Box</h3>
+    </div>
+</div>
 
-        </div>
+<div class="row">
+    <div class="col s12 font-rozha-one">
+      <h3 class="sub-heading">Your recipes...</h3>
     </div>
 </div>
 
@@ -27,8 +28,8 @@
                         </div>
                         <br>
                         <div class="recipe-card-time">
-                            <p><i class="far fa-clock"></i> Prep: {{ recipe.prep_time }} mins| Cook: {{ recipe.cook_time }} mins
-                            </p>
+                            <p><i class="fas fa-clock"></i> Prep: {{ recipe.prep_time }} mins</p>
+                            <p><i class="far fa-clock"></i> Cook: {{ recipe.cook_time }} mins</p>
                         </div>
                         <div class="recipe-card-serves">
                             <p><i class="fas fa-utensils"></i> Serves: {{ recipe.serves }}</p>
