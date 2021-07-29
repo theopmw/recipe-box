@@ -49,8 +49,13 @@ body {
 /* Headings */
 
 .page-heading {
-  font-size: 28px;
+  font-size: 36px;
   margin-top: 2.25rem;
+}
+
+.sub-heading {
+  font-size: 24px;
+  margin: 0;
 }
 
 /* Text shadows */
