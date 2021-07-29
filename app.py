@@ -138,7 +138,7 @@ def edit_recipe(recipe_id):
                 'method': request.form['method'],
             }
         })
-        flash('Recipe Edited Successfully!')
+        flash('Recipe Updated Successfully!')
         return redirect(url_for("profile", username=session["user"]))
     return render_template('edit_recipe.html', recipe=recipe_db, form=form)
 
@@ -186,8 +186,6 @@ def register():
         users = mongo.db.users
         # see if we already have the entered username in the DB
         existing_user = users.find_one({'username': request.form['username']})
-        print(existing_user)
-        # checkname = request.form['username']
 
         if existing_user is None:
             # hash the entered password
