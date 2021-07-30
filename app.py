@@ -53,10 +53,28 @@ def index():
 # ------------------- #
 
 # all recipes
+# Credit: code for pagination modified from code
+# supplied by my Code Institute mentor: Spencer Barriball
 @app.route("/recipes")
 def recipes():
-    recipes = mongo.db.recipes.find()
-    return render_template("recipes.html", recipes=recipes)
+    """Logic for all recipes list and pagination"""
+    # number of recipes per page
+    per_page = 6
+    page = int(request.args.get('page', 1))
+    # count total number of recipes
+    total = mongo.db.recipes.count_documents({})
+    # logic for what recipes to return
+    all_recipes = mongo.db.recipes.find().skip(
+        (page - 1)*per_page).limit(per_page)
+    pages = range(1, int(math.ceil(total / per_page)) + 1)
+    page_count = len(pages)
+    return render_template(
+        'recipes.html', recipes=all_recipes,
+        page=page, pages=pages, page_count=page_count, total=total)
+
+
+    # recipes = mongo.db.recipes.find()
+    # return render_template("recipes.html", recipes=recipes)
 
 
 # individual recipe
