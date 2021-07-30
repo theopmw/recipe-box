@@ -2,37 +2,85 @@
 {% block content %}
 
 <div class="row">
+  <div class="col s12 center-align font-rozha-one">
+    <h3 class="page-heading">All Recipes</h3>
+  </div>
+</div>
+
+<div class="row font-roboto">
   {% for recipe in recipes %}
     <div class="col s12 m6 l4">
       <div class="card hoverable">
         <div class="card-image recipe-card-image-container">
+          <!-- Recipe Image -->
           <img class="recipe-card-image responsive-img" src="{{ recipe.image }}" alt="{{ recipe.recipe_name }}">
+          <!-- Recipe Name -->
           <span class="card-title white-text text-shadow">{{ recipe.recipe_name }}</span>
         </div>
         <div class="card-content">
           <div class="recipe-card-description">
+            <!-- Recipe description -->
             <p>{{ recipe.description }}</p>
           </div>
           <br>
           <div class="recipe-card-info">
             <div class="recipe-card-time">
+              <!-- Recipe prep time -->
               <p><i class="fas fa-clock"></i></i> Prep: {{ recipe.prep_time }} mins</p>
+              <!-- Recipe cook time -->
               <p><i class="far fa-clock"></i> Cook: {{ recipe.cook_time }} mins</p>
             </div>
             <div class="recipe-card-serves">
+              <!-- Recipe servings -->
               <p><i class="fas fa-utensils"></i> Serves: {{ recipe.serves }}</p>
             </div>
-            <div class="recipe-card-">
+            <div class="recipe-card-difficulty">
+              <!-- Recipe difficulty -->
               <p><i class="far fa-smile"></i> Difficulty: {{ recipe.difficulty }}</p>
             </div>
           </div>
         </div>
         <div class="card-action">
-          <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">See full recipe</a>
+          <!-- Link to full recipe -->
+          <a class="green-text text-darken-4" href="{{ url_for('recipe', recipe_id=recipe._id) }}">See full recipe</a>
         </div>
       </div>
     </div>
   {% endfor %}
+</div>
+
+<!-- Pagination -->
+<!-- Credit: code for pagination modified from code supplied by my Code Institute mentor: Spencer Barriball --> 
+<div class="pagination-container font-roboto">
+  <ul class="pagination center-align">
+    <!-- If page 1, hide left chevron -->
+    {% if page == 1 %}
+    <li class="hide"><a href="{{ url_for('recipes', page=page-1) }}"><i class="material-icons">chevron_left</i></a></li>
+    <!-- If page > 1, show left chevron and on click decrease page by 1 -->
+    {% else %}
+    <li class="waves-effect"><a href="{{ url_for('recipes', page=page-1) }}"><i class="material-icons">chevron_left</i></a></li>
+    {% endif %}
+      {% for pagenum in pages %}
+        <!-- If page is current page, display page as active -->
+        {% if pagenum == page %}
+          <li class="active white">
+            <span>{{ pagenum }}
+              <span class="sr-only">(current)</span>
+            </span>
+          </li>
+        {% else %}
+          <!-- If page not current page, allow user to click -->
+          <li class="waves-effect white"><a href="{{ url_for('recipes', page=pagenum) }}">{{ pagenum }}</a></li>
+        {% endif %}
+      {% endfor %}
+    {% if page == page_count %}
+      <!-- If last page, hide right chevron -->
+      <li class="hide"><a href="{{ url_for('recipes', page=page+1) }}"><i class="material-icons">chevron_right</i></a></li>
+    {% else %}
+      <!-- If last page, show right chevron and on click increase page by 1 -->
+      <li class="waves-effect"><a href="{{ url_for('recipes', page=page+1) }}"><i class="material-icons">chevron_right</i></a></li>
+    {% endif %}  
+  </ul>
 </div>
 
 {% endblock %}
