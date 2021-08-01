@@ -189,13 +189,13 @@ Below is a screenshot, after some CSS styling (not yet complete). To illustrate 
 - ### Search flash message displayed whether there are mutiple results or 0
 
 Expected:   
-If 0 results sre returned when a user submits a search query, a flash message is displayed to tell them that there are no matches for there searcha nd to search again. If there are search results, there is no flash message and the results are displayed.
+If 0 results are returned when a user submits a search query, a flash message is displayed to tell them that there are no matches for their search and to search again. If there are search results, there is no flash message and the results are displayed.
 
 Testing:  
 Try seaching for items that exist and dont exist to test whether the search functionality is working correctly.
 
 Result:    
-The flash message is displayed even when there are matched to the users search query. 
+The flash message is displayed even when there are search results that match a users search query. 
 
 app.py search route snippet:
 
@@ -241,12 +241,12 @@ def search():
 
 With the above code, the flash message is displayed even when there are results relvant to the users search query:
 
-![Search results flash bug](assets/images/testing_screenshots/search__results_flash_bug.png)
+![Search results flash bug](assets/images/testing_screenshots/search_results_flash_bug.png)
 
 Fix:   
 The issue came from a typo when assigning the results_total variable, since it was not correctly referencing ```mongo.db.recipes```. Rather, it was referencing ```mongo.db.recipe```. The route could also be further simplified by performing the count using ```results_num = results.count()```. This syntax is both cleaner, and requires 1 less DB query.
 
-app.py search rout snippet:
+app.py search route snippet:
 ```
 @app.route('/search', methods=['GET', 'POST'])
 def search():
