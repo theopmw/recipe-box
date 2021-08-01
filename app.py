@@ -7,6 +7,7 @@ from forms import (
     RegisterForm, LoginForm, CreateRecipeForm,
     EditRecipeForm, ConfirmDelete)
 from bson.objectid import ObjectId
+import re
 import math
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -55,7 +56,7 @@ def index():
 # all recipes
 # Credit: code for pagination modified from code
 # supplied by my Code Institute mentor: Spencer Barriball
-@app.route("/recipes")
+@app.route('/recipes')
 def recipes():
     """Logic for all recipes list and pagination"""
     # number of recipes per page
@@ -67,14 +68,11 @@ def recipes():
     all_recipes = mongo.db.recipes.find().skip(
         (page - 1)*per_page).limit(per_page)
     pages = range(1, int(math.ceil(total / per_page)) + 1)
+    # store total number of pages
     page_count = len(pages)
     return render_template(
         'recipes.html', recipes=all_recipes,
         page=page, pages=pages, page_count=page_count, total=total)
-
-
-    # recipes = mongo.db.recipes.find()
-    # return render_template("recipes.html", recipes=recipes)
 
 
 # individual recipe
@@ -92,9 +90,37 @@ def recipe(recipe_id):
 
 
 # ------------------- #
-#    Create Recipe    #
+#       Search        #
 # ------------------- #
 
+# Credit: code for search logic mdified from code supplied by my
+# Code Institute mentor: Spencer Barriball
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    """Logic for recipe search"""
+    orig_query = request.form.get("query", "")
+
+    # using regular expression setting option for any case
+    query = {
+        '$regex': re.compile('.*{}.*'.format(orig_query), re.IGNORECASE)}
+    # find instances of the entered word in
+    # recipe_name, tags or ingredients documents
+    results = mongo.db.recipes.find({
+        '$or': [
+            {'recipe_name': query},
+            {'tags': query},
+            {'ingredients': query},
+        ]
+    })
+
+    # ToDo - construct the correct results based on the page number
+    # use pagination same as all recipes
+    return render_template('search.html', query=orig_query, results=results, page=1)
+
+
+# ------------------- #
+#    Create Recipe    #
+# ------------------- #
 
 @app.route('/create_recipe', methods=["GET", "POST"])
 def create_recipe():
