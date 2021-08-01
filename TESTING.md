@@ -1,7 +1,7 @@
 ## Bugs
 ---
 
-### ```<textarea>``` inputs not working correctly in create_recipe.html
+- ### ```<textarea>``` inputs not working correctly in create_recipe.html
 
 Expected:  
 When the **Create Recipe** form is filled out and the submit button clicked, the user is redirected to their profile page, the recipe is added to the recipes collection in MongoDB, is visible on the recipes.html page and it's own recipe.html page is generated.
@@ -95,7 +95,7 @@ create_recipe.html code snippet (after):
 
 ```
 
-### Top 4 recipes not pulling into index.html carousel from DB correctly
+- ###  Top 4 recipes not pulling into index.html carousel from DB correctly
 
 Expected:  
 The @app.route for index.html pulls the top 4 most viewed recipes from the DB to then be displayed in a Materialize carousel on the home page.
@@ -186,3 +186,100 @@ Below is a screenshot, after some CSS styling (not yet complete). To illustrate 
 
 ![index.html carousel](assets/images/testing_screenshots/index.html_carousel_fix.png)
 
+- ### Search flash message displayed whether there are mutiple results or 0
+
+Expected:   
+If 0 results sre returned when a user submits a search query, a flash message is displayed to tell them that there are no matches for there searcha nd to search again. If there are search results, there is no flash message and the results are displayed.
+
+Testing:  
+Try seaching for items that exist and dont exist to test whether the search functionality is working correctly.
+
+Result:    
+The flash message is displayed even when there are matched to the users search query. 
+
+app.py search route snippet:
+
+```
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    """Logic for recipe search"""
+    # Pull query from the form
+    orig_query = request.form.get("query", "")
+
+    # using regular expression setting option for any case
+    query = {
+        '$regex': re.compile('.*{}.*'.format(orig_query), re.IGNORECASE)}
+
+    # find instances of the entered word in
+    # recipe_name, tags or ingredients documents
+    results = mongo.db.recipes.find({
+        '$or': [
+            {'recipe_name': query},
+            {'tags': query},
+            {'ingredients': query},
+        ]
+    })
+
+    # Count number of search results found
+    results_total = mongo.db.recipe.find({
+        '$or': [
+            {'recipe_name': query},
+            {'tags': query},
+            {'ingredients': query},
+        ]
+    }).count()
+
+    if results_total > 0:
+        return render_template(
+            'search.html', query=orig_query, results=results, page=1)
+    else:
+        flash('Sorry! No Recipes Found, Please Try Another Search.')
+        return render_template(
+            'search.html', query=orig_query, results=results, page=1)
+
+```
+
+With the above code, the flash message is displayed even when there are results relvant to the users search query:
+
+![Search results flash bug](assets/images/testing_screenshots/search__results_flash_bug.png)
+
+Fix:   
+The issue came from a typo when assigning the results_total variable, since it was not correctly referencing ```mongo.db.recipes```. Rather, it was referencing ```mongo.db.recipe```. The route could also be further simplified by performing the count using ```results_num = results.count()```. This syntax is both cleaner, and requires 1 less DB query.
+
+app.py search rout snippet:
+```
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    """Logic for recipe search"""
+    # Pull query from the form
+    orig_query = request.form.get("query", "")
+
+    # using regular expression setting option for any case
+    query = {
+        '$regex': re.compile('.*{}.*'.format(orig_query), re.IGNORECASE)}
+
+    # find instances of the entered word in
+    # recipe_name, tags or ingredients documents
+    results = mongo.db.recipes.find({
+        '$or': [
+            {'recipe_name': query},
+            {'tags': query},
+            {'ingredients': query},
+        ]
+    })
+
+    # Count number of search results found
+    results_total = results.count()
+
+    if results_total > 0:
+        return render_template(
+            'search.html', query=orig_query, results=results, page=1)
+    else:
+        flash('Sorry! No Recipes Found, Please Try Another Search.')
+        return render_template(
+            'search.html', query=orig_query, results=results, page=1)
+```
+
+The flash message is now only displayed when there are 0 result found for the users search query:
+
+![Search results flash fix](assets/images/testing_screenshots/search_results_flash_fix.png)
