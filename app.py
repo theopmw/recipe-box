@@ -98,11 +98,13 @@ def recipe(recipe_id):
 @app.route('/search', methods=['GET', 'POST'])
 def search():
     """Logic for recipe search"""
+    # Pull query from the form
     orig_query = request.form.get("query", "")
 
     # using regular expression setting option for any case
     query = {
         '$regex': re.compile('.*{}.*'.format(orig_query), re.IGNORECASE)}
+
     # find instances of the entered word in
     # recipe_name, tags or ingredients documents
     results = mongo.db.recipes.find({
@@ -113,9 +115,18 @@ def search():
         ]
     })
 
+    # Count number of search results found
+    results_total = results.count()
+
     # ToDo - construct the correct results based on the page number
     # use pagination same as all recipes
-    return render_template('search.html', query=orig_query, results=results, page=1)
+    if results_total > 0:
+        return render_template(
+            'search.html', query=orig_query, results=results, page=1)
+    else:
+        flash('Sorry! No Recipes Found, Please Try Another Search.')
+        return render_template(
+            'search.html', query=orig_query, results=results, page=1)
 
 
 # ------------------- #
@@ -223,10 +234,8 @@ def register():
 
     form = RegisterForm(request.form)
 
-    print(form)
     if form.validate_on_submit():
         # get all users
-        print("form validated")
         users = mongo.db.users
         # see if we already have the entered username in the DB
         existing_user = users.find_one({'username': request.form['username']})
@@ -245,7 +254,6 @@ def register():
         # if duplicate username, set flash message and reload the page
         flash('Sorry, that username is already taken. Please try another')
         return redirect(url_for('register'))
-    print("seems form not validated")
     return render_template('register.html', form=form)
 
 
