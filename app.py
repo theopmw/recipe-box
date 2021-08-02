@@ -125,8 +125,7 @@ def search():
     else:
         flash('Sorry! No Recipes Found, Please Try Another Search.')
         return render_template(
-            'search.html', query=orig_query, results=results, page=1)
-
+            'search.html', query=orig_query, results=results, total=total)
 
 
 # ------------------- #
