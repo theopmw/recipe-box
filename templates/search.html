@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="col s12 center-align font-rozha-one">
-    <h3 class="page-heading">Results for: {{ query }}...</h3>
+    <h3 class="page-heading">Results for: {{ query }}</h3>
   </div>
 </div>
 
@@ -55,10 +55,10 @@
   <ul class="pagination center-align">
     <!-- If page 1, hide left chevron -->
     {% if page == 1 %}
-    <li class="hide"><a href="{{ url_for('recipes', page=page-1) }}"><i class="material-icons">chevron_left</i></a></li>
+    <li class="hide"><a href="{{ url_for('search', query=query, page=page-1) }}"><i class="material-icons">chevron_left</i></a></li>
     <!-- If page > 1, show left chevron and on click decrease page by 1 -->
     {% else %}
-    <li class="waves-effect"><a href="{{ url_for('recipes', page=page-1) }}"><i class="material-icons">chevron_left</i></a></li>
+    <li class="waves-effect"><a href="{{ url_for('search', query=query, page=page-1) }}"><i class="material-icons">chevron_left</i></a></li>
     {% endif %}
       {% for pagenum in pages %}
         <!-- If page is current page, display page as active -->
@@ -70,15 +70,15 @@
           </li>
         {% else %}
           <!-- If page not current page, allow user to click -->
-          <li class="waves-effect white"><a href="{{ url_for('recipes', page=pagenum) }}">{{ pagenum }}</a></li>
+          <li class="waves-effect white"><a href="{{ url_for('search', query=query, page=pagenum) }}">{{ pagenum }}</a></li>
         {% endif %}
       {% endfor %}
     {% if page == page_count %}
       <!-- If last page, hide right chevron -->
-      <li class="hide"><a href="{{ url_for('recipes', page=page+1) }}"><i class="material-icons">chevron_right</i></a></li>
+      <li class="hide"><a href="{{ url_for('search', query=query, page=page+1) }}"><i class="material-icons">chevron_right</i></a></li>
     {% else %}
       <!-- If last page, show right chevron and on click increase page by 1 -->
-      <li class="waves-effect"><a href="{{ url_for('recipes', page=page+1) }}"><i class="material-icons">chevron_right</i></a></li>
+      <li class="waves-effect"><a href="{{ url_for('search', query=query, page=page+1) }}"><i class="material-icons">chevron_right</i></a></li>
     {% endif %}  
   </ul>
 </div>

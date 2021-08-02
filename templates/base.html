@@ -87,7 +87,7 @@
     <!-- Credit: help with writing search form functionality from https://stackoverflow.com/questions/62765928/how-to-submit-data-from-a-search-form-within-the-base-html-of-a-flask-app -->
     <nav>
         <div class="nav-wrapper">
-            <form action="{{ url_for('search') }}" method="POST">
+            <form action="{{ url_for('search') }}" method="GET">
                 <div class="input-field">
                     <input id="search" type="search" name="query" required>
                     <label class="label-icon" for="search"><i class="material-icons">search</i></label>

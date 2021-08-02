@@ -93,40 +93,40 @@ def recipe(recipe_id):
 #       Search        #
 # ------------------- #
 
-# Credit: code for search logic mdified from code supplied by my
+# Credit: code for search logic modified from code supplied by my
 # Code Institute mentor: Spencer Barriball
 @app.route('/search', methods=['GET', 'POST'])
 def search():
     """Logic for recipe search"""
-    # Pull query from the form
-    orig_query = request.form.get("query", "")
+    # pull query from the form
+    orig_query = request.args.get("query", "")
 
-    # using regular expression setting option for any case
-    query = {
-        '$regex': re.compile('.*{}.*'.format(orig_query), re.IGNORECASE)}
-
-    # find instances of the entered word in
-    # recipe_name, tags or ingredients documents
+    query = {'$regex': re.compile('.*{}.*'.format(orig_query), re.IGNORECASE)}
+    per_page = 6
+    page = int(request.args.get("page", 1))
     results = mongo.db.recipes.find({
         '$or': [
             {'recipe_name': query},
             {'tags': query},
             {'ingredients': query},
         ]
-    })
+    }).skip((page - 1)*per_page).limit(per_page)
+    total = results.count()
+    pages = range(1, int(math.ceil(total / per_page)) + 1)
+    # store total number of pages
+    page_count = len(pages)
+    # find instances of the entered word in DB
+    # recipe_name, tags or ingredients documents
 
-    # Count number of search results found
-    results_total = results.count()
-
-    # ToDo - construct the correct results based on the page number
-    # use pagination same as all recipes
-    if results_total > 0:
+    if total > 0:
         return render_template(
-            'search.html', query=orig_query, results=results, page=1)
+            'search.html', query=orig_query, results=results,
+            page=page, pages=pages, page_count=page_count, total=total)
     else:
         flash('Sorry! No Recipes Found, Please Try Another Search.')
         return render_template(
             'search.html', query=orig_query, results=results, page=1)
+
 
 
 # ------------------- #
