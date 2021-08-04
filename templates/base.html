@@ -12,7 +12,7 @@
         type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    
+
     <!-- Credit: Favicon created using https://favicon.io/ -->
     <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon/logo_favicon.ico') }}" />
     {% block styles %}
@@ -23,11 +23,13 @@
 
 <body>
 
-    
+
     <header>
         <div class="row">
             <div class="col s12 center-align"">
-                <a href="{{ url_for('index') }}" ><img class="header-logo" src="{{ url_for('static', filename='images/logo/logo_original_on_transparent.png') }}" alt="Recipe Box Logo"></a>
+                <a href=" {{ url_for('index') }}"><img class="header-logo"
+                    src="{{ url_for('static', filename='images/logo/logo_original_on_transparent.png') }}"
+                    alt="Recipe Box Logo"></a>
             </div>
         </div>
         <!-- Main navbar -->
@@ -37,15 +39,30 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right black-text"><i
                         class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
+                    <li>
+                        <!-- <div class="center row"> -->
+                            <!-- <div class="col s12 "> -->
+                                <div class="row" id="topbarsearch">
+                                    <form action="{{ url_for('search') }}" method="GET">
+                                        <div class="input-field col s6 s12 black-text">
+                                            <i class="black-text material-icons prefix search-icon">search</i>
+                                            <input type="text" placeholder="search recipes"
+                                                class="black-text" id="search" name="query" required>
+                                        </div>
+                                    </form>
+                                </div>
+                            <!-- </div> -->
+                        <!-- </div> -->
+                    </li>
                     <li><a href="{{ url_for('index') }}" class="black-text">Home</a></li>
                     <li><a href="{{ url_for('recipes') }}" class="black-text">Recipes</a></li>
                     {% if session.user %}
-                        <li><a href="{{ url_for('profile', username=session['user']) }}" class="black-text">Profile</a></li>
-                        <li><a href="{{ url_for('create_recipe') }}" class="black-text">Add Recipe</a></li>
-                        <li><a href="{{ url_for('logout') }}" class="black-text">Sign Out</a></li>
+                    <li><a href="{{ url_for('profile', username=session['user']) }}" class="black-text">Profile</a></li>
+                    <li><a href="{{ url_for('create_recipe') }}" class="black-text">Add Recipe</a></li>
+                    <li><a href="{{ url_for('logout') }}" class="black-text">Sign Out</a></li>
                     {% else %}
-                        <li><a href="{{ url_for('login') }}" class="black-text">Sign In</a></li>
-                        <li><a href="{{ url_for('register') }}" class="black-text">Register</a></li>
+                    <li><a href="{{ url_for('login') }}" class="black-text">Sign In</a></li>
+                    <li><a href="{{ url_for('register') }}" class="black-text">Register</a></li>
                     {% endif %}
                 </ul>
             </div>
@@ -54,17 +71,19 @@
         <!-- Mobile sidenav -->
         <ul class="sidenav" id="mobile-demo">
             <li>
-                <a href="{{ url_for('index') }}" ><img class="header-logo" src="{{ url_for('static', filename='images/logo/logo_original_on_transparent.png')}}" alt="Recipe Box Logo"></a>
+                <a href="{{ url_for('index') }}"><img class="header-logo"
+                        src="{{ url_for('static', filename='images/logo/logo_original_on_transparent.png')}}"
+                        alt="Recipe Box Logo"></a>
             </li>
             <li><a href="{{ url_for('index') }}" class="black-text">Home</a></li>
             <li><a href="{{ url_for('recipes') }}" class="black-text">Recipes</a></li>
             {% if session.user %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}" class="black-text">Profile</a></li>
-                <li><a href="{{ url_for('create_recipe') }}" class="black-text">Add Recipe</a></li>
-                <li><a href="{{ url_for('logout') }}" class="black-text">Sign Out</a></li>
+            <li><a href="{{ url_for('profile', username=session['user']) }}" class="black-text">Profile</a></li>
+            <li><a href="{{ url_for('create_recipe') }}" class="black-text">Add Recipe</a></li>
+            <li><a href="{{ url_for('logout') }}" class="black-text">Sign Out</a></li>
             {% else %}
-                <li><a href="{{ url_for('login') }}" class="black-text">Sign In</a></li>
-                <li><a href="{{ url_for('register') }}" class="black-text">Register</a></li>
+            <li><a href="{{ url_for('login') }}" class="black-text">Sign In</a></li>
+            <li><a href="{{ url_for('register') }}" class="black-text">Register</a></li>
             {% endif %}
         </ul>
     </header>
@@ -72,30 +91,30 @@
     <section>
         <!-- Flash messages -->
         {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="green darken-4 white-text center-align">{{ message }}</h4>
-                    </div>
-                {% endfor %}
-            {% endif %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="row flashes">
+            <h4 class="green darken-4 white-text center-align">{{ message }}</h4>
+        </div>
+        {% endfor %}
+        {% endif %}
         {% endwith %}
     </section>
 
     <main class="container">
 
-    <!-- Credit: help with writing search form functionality from https://stackoverflow.com/questions/62765928/how-to-submit-data-from-a-search-form-within-the-base-html-of-a-flask-app -->
-    <nav>
-        <div class="nav-wrapper">
-            <form action="{{ url_for('search') }}" method="GET">
-                <div class="input-field">
-                    <input id="search" type="search" name="query" required>
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                    <i class="material-icons">close</i>
-                </div>
-            </form>
-        </div>
-    </nav>
+        <!-- Credit: help with writing search form functionality from https://stackoverflow.com/questions/62765928/how-to-submit-data-from-a-search-form-within-the-base-html-of-a-flask-app -->
+        <nav>
+            <div class="nav-wrapper">
+                <form action="{{ url_for('search') }}" method="GET">
+                    <div class="input-field">
+                        <input id="search" type="search" name="query" required>
+                        <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        <i class="material-icons">close</i>
+                    </div>
+                </form>
+            </div>
+        </nav>
 
         {% block content %}
         {% endblock %}
