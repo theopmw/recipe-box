@@ -283,3 +283,59 @@ def search():
 The flash message is now only displayed when there are 0 result found for the users search query:
 
 ![Search results flash fix](assets/images/testing_screenshots/search_results_flash_fix.png)
+
+- ### Chevrons displayed when there are no search results
+
+Expected:    
+When a user search yeilds no search results, no chevrons are shown.
+
+Testing:    
+Submit a search into the search form.
+
+Results:    
+When the user submits a seach, the next page chevron is still displayed.
+
+![Search chevron bug](assets/images/testing_screenshots/search_chevron_bug.png)
+
+Fix:    
+Add an additional if statement (that wraps the full code for pagination) that will essentially disable pagination, including the chevrons, if total == 0.
+
+search.html code snippet:
+```
+{% if total > 0 %}
+<!-- Pagination -->
+<!-- Credit: code for pagination modified from code supplied by my Code Institute mentor: Spencer Barriball --> 
+<div class="pagination-container font-roboto">
+  <ul class="pagination center-align">
+    <!-- If page 1, hide left chevron -->
+    {% if page == 1 %}
+    <li class="hide"><a href="{{ url_for('search', query=query, page=page-1) }}"><i class="material-icons">chevron_left</i></a></li>
+    <!-- If page > 1, show left chevron and on click decrease page by 1 -->
+    {% else %}
+    <li class="waves-effect"><a href="{{ url_for('search', query=query, page=page-1) }}"><i class="material-icons">chevron_left</i></a></li>
+    {% endif %}
+      {% for pagenum in pages %}
+        <!-- If page is current page, display page as active -->
+        {% if pagenum == page %}
+          <li class="active white">
+            <span>{{ pagenum }}
+              <span class="sr-only">(current)</span>
+            </span>
+          </li>
+        {% else %}
+          <!-- If page not current page, allow user to click -->
+          <li class="waves-effect white"><a href="{{ url_for('search', query=query, page=pagenum) }}">{{ pagenum }}</a></li>
+        {% endif %}
+      {% endfor %}
+    {% if page == page_count %}
+      <!-- If last page, hide right chevron -->
+      <li class="hide"><a href="{{ url_for('search', query=query, page=page+1) }}"><i class="material-icons">chevron_right</i></a></li>
+    {% else %}
+      <!-- If last page, show right chevron and on click increase page by 1 -->
+      <li class="waves-effect"><a href="{{ url_for('search', query=query, page=page+1) }}"><i class="material-icons">chevron_right</i></a></li>
+    {% endif %}  
+  </ul>
+</div>
+{% endif %}
+{% endblock %}
+```
