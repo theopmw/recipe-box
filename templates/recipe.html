@@ -6,21 +6,25 @@
         <div class="col s12 m6">
             <img class="recipe-image" src="{{ recipe.image }}" alt="{{ recipe.recipe_name }}">
         </div>
-        <div class="col s12 m6">
-            <h5 class="recipe-page-heading">
+        <div class="col s12 m6 font-roboto">
+            <h5 class="page-heading font-rozha-one">
                 {{ recipe.recipe_name }}
             </h5>
-            <p class="recipe-user">Posted by: {{recipe.user}}</p>
-            <p class="recipe-description">{{ recipe.description }}</p>
-            <p class="recipe-prep-time"><i class="far fa-clock"></i> Prep: {{ recipe.prep_time }} mins </p>
-            <p class="recipe-cook-time"><i class="fas fa-clock"></i></i> Cook: {{ recipe.cook_time }} mins</p>
-            <p class="recipe-serves"><i class="fas fa-utensils"></i> Serves: {{ recipe.serves }}</p>
-            <p class="recipe-difficulty"><i class="far fa-smile"></i> Difficulty: {{ recipe.difficulty }}</p>
-            <p class="recipe-tags">Tags: {{ recipe.tags }}</p>
-            {% if session.user == recipe.user %}
-                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small green">Edit</a>
-                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small red">Delete</a>
-            {% endif %}
+            <div class="recipe-info font-roboto">
+                <p class="recipe-user">Posted by: {{recipe.user}}</p>
+                <p class="recipe-description">{{ recipe.description }}</p>
+                <p class="recipe-prep-time"><i class="far fa-clock"></i> Prep: {{ recipe.prep_time }} mins </p>
+                <p class="recipe-cook-time"><i class="fas fa-clock"></i></i> Cook: {{ recipe.cook_time }} mins</p>
+                <p class="recipe-serves"><i class="fas fa-utensils"></i> Serves: {{ recipe.serves }}</p>
+                <p class="recipe-difficulty"><i class="far fa-smile"></i> Difficulty: {{ recipe.difficulty }}</p>
+                <p class="recipe-tags">Tags: {{ recipe.tags }}</p>
+            </div>
+            <div class="recipe-buttons font-roboto">
+                {% if session.user == recipe.user %}
+                    <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small green">Edit</a>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small red">Delete</a>
+                {% endif %}
+            </div>
         </div>
     </div>
 
@@ -29,8 +33,8 @@
             <!-- https://jinja.palletsprojects.com/en/3.0.x/templates/ -->
             <!-- https://www.w3schools.com/python/ref_string_splitlines.asp -->
             <div class="ingredients-container">
-                <h4>Ingredients</h4>
-                <ul>
+                <h4 class="page-heading font-rozha-one">Ingredients</h4>
+                <ul class="font-roboto">
                     {% for line in recipe.ingredients.splitlines() %}
                     <li class="Ingredient">
                         <p>{{ line }}</p>
@@ -43,8 +47,8 @@
             <!-- https://jinja.palletsprojects.com/en/3.0.x/templates/ -->
             <!-- https://www.w3schools.com/python/ref_string_splitlines.asp -->
             <div class="method-container">
-                <h4>Method</h4>
-                <ul>
+                <h4 class="page-heading font-rozha-one">Method</h4>
+                <ul class="font-roboto">
                     {% for line in recipe.method.splitlines() %}
                     <li class="method">
                         <p>{{ line }}</p>
