@@ -35,14 +35,16 @@ mongo = PyMongo(app)
 @app.route("/index")
 def index():
     """Home page pulls 4 most viewed recipes from DB"""
-    top_four_recipes = list(
-        mongo.db.recipes.find().sort([('views', DESCENDING)]).limit(4))
+    top_six_recipes = list(
+        mongo.db.recipes.find().sort([('views', DESCENDING)]).limit(6))
 
     recipes = [
-        top_four_recipes[0],
-        top_four_recipes[1],
-        top_four_recipes[2],
-        top_four_recipes[3],
+        top_six_recipes[0],
+        top_six_recipes[1],
+        top_six_recipes[2],
+        top_six_recipes[3],
+        top_six_recipes[4],
+        top_six_recipes[5],
     ]
 
     return render_template(
