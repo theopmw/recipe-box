@@ -160,6 +160,10 @@ Header
   width: 75%;
 }
 
+.search-icon {
+  line-height: 52px !important;
+}
+
 /*
 ------------------------------------------
 Buttons
@@ -177,9 +181,11 @@ Home page
 ------------------------------------------
 */
 
+
+
 /* Carousel */
 
-.carousel-item {
+/* .carousel-item {
   position:relative;
 }
 
@@ -188,7 +194,7 @@ Home page
   inset: 0;
   z-index: -1;
   object-fit: contain;
-}
+} */
 /*
 ------------------------------------------
 Recipe page
@@ -264,10 +270,10 @@ Footer
 ------------------------------------------
 */
 
-footer,
+/* footer,
 .footer-social-links {
   text-align: center;
-}
+} */
 
 .footer-social-links i {
   font-size: 2.5rem;
@@ -297,27 +303,27 @@ MEDIA QUERIES
 
 @media screen and (min-width: 601px) {
   .footer-social-links i {
-    font-size: 1.875rem;
-    padding: 0.3125rem;
+    /* font-size: 2.5rem; */
+    padding: 1.25rem;
   }
 
-  .footer-mailing-list {
+  /* .footer-mailing-list {
     text-align: left;
-  }
+  } */
 
-  .footer-social-links {
+  /* .footer-social-links {
     text-align: right;
-  }
+  } */
 
-  .mail-submit-btn {
+  /* .mail-submit-btn {
     top: 1.375rem
-  }
+  } */
 
-  .footer-email-input {
+  /* .footer-email-input {
     width: 90% !important;
     margin-bottom: 0 !important;
     padding: 0 !important;
-  }
+  } */
 
   .select-wrapper
   input.select-dropdown {
@@ -362,8 +368,17 @@ MEDIA QUERIES
     width: 66%;
   }
 
-  .main-nav {
+  /* .main-nav {
     right: 16.5%;
+  } */
+
+  .sign-up {
+    text-align: left;
+  }
+
+  .footer-social-links {
+    text-align: right;
+    margin-top: 2.9rem;
   }
 
   .footer-social-links i {
@@ -371,9 +386,9 @@ MEDIA QUERIES
     padding: 0.9375rem;
   }
 
-  .footer-email-input {
+  /* .footer-email-input {
     width: 75% !important;
-  }
+  } */
 
   .select-wrapper
   input.select-dropdown {
@@ -409,9 +424,9 @@ MEDIA QUERIES
 
 @media screen and (min-width: 1200px) {
 
-  .footer-email-input {
+  /* .footer-email-input {
     width: 50% !important;
-  }
+  } */
 
   .recipe-card-image{
     /* min-height: 12rem; */
