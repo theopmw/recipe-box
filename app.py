@@ -322,12 +322,33 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+# ------------------- #
+#       Logout        #
+# ------------------- #
+
+
 @app.route("/logout")
 def logout():
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+# ------------------- #
+#   Error Handlers    #
+# ------------------- #
+
+@app.errorhandler(404)
+def handle_404(error):
+    return render_template(
+        '404.html'), 404
+
+
+@ app.errorhandler(500)
+def handle_500(error):
+    return render_template(
+        '500.html'), 500
 
 
 if __name__ == "__main__":
