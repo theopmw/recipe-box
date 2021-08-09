@@ -168,6 +168,10 @@ input[type="submit" i] {
   border: none;
 }
 
+#submit {
+  text-transform: uppercase;
+}
+
 /*
 ------------------------------------------
 Home page
