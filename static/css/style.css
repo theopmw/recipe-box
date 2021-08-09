@@ -306,6 +306,11 @@ Footer
   padding-left: 0.625rem;
 }
 
+.modal-text {
+  margin: 1.25rem 0 1.25rem 0;
+}
+
+
 /*
 ------------------------------------------
 MEDIA QUERIES
