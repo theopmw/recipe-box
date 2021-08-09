@@ -1,10 +1,7 @@
 $(document).ready(function(){
     $(".sidenav").sidenav({edge:"right"});
     $('select').formSelect();
-    $('.carousel.carousel-slider').carousel({
-      fullWidth: true,
-      indicators: true
-    });
+    $('.modal').modal();
   });
 
 /*
