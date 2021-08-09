@@ -73,6 +73,13 @@ flashes h4 {
 
 }
 
+/* Links */
+
+.link:hover {
+  text-decoration: underline;
+}
+
+
 /* Inputs */
 
 /* Credit: modified from https://stackoverflow.com/questions/37127123/change-color-of-underline-input-and-label-in-materialize-css-framework */
@@ -266,6 +273,17 @@ Recipes page
 
 /*
 ------------------------------------------
+Errors
+------------------------------------------
+*/
+
+.error-number {
+  font-size: 6.25rem;
+  margin: 1.25rem;
+}
+
+/*
+------------------------------------------
 Footer
 ------------------------------------------
 */
@@ -293,6 +311,7 @@ Footer
 MEDIA QUERIES
 ------------------------------------------
 */
+
 
 /* <600px - Materialize Mobile devices (s) */
 
