@@ -91,15 +91,25 @@ flashes h4 {
 /* Credit: modified from https://stackoverflow.com/questions/37127123/change-color-of-underline-input-and-label-in-materialize-css-framework */
 
 /* label focus color */
-/* .input-field input:focus + label {
+.input-field input:focus + label {
   color:#1b5e20 !important;
-} */
+} 
 /* label underline focus color */
-/* .row .input-field input:focus {
+.row .input-field input:focus {
   border-bottom: 1px solid#1b5e20 !important;
   box-shadow: 0 1px 0 0 #1b5e20 !important
-} */
+}
 
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #1b5e20 !important;
+  box-shadow: 0 1px 0 0 #1b5e20;
+  -webkit-box-shadow: 0 1px 0 0 #1b5e20;
+
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #1b5e20;
+}
 
 /* textarea focus color */
 /* .textarea input:focus + label {
@@ -150,6 +160,12 @@ Buttons
 .register-button,
 .login-button {
   text-align: center;
+}
+
+input[type="submit" i] {
+  color: white;
+  background-color: #1b5e20;
+  border: none;
 }
 
 /*
