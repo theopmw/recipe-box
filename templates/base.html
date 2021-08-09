@@ -22,8 +22,6 @@
 </head>
 
 <body>
-
-
     <header>
         <div class="row">
             <div class="col s12 center-align"">
@@ -132,7 +130,45 @@
                 <div class="col s12 l6 center-align">
                     <div class="sign-up font-roboto">
                         <p class="black-text">Sign up for weekly recipe ideas:</p>
-                        <a class="waves-effect waves-light btn-large green darken-4">Send me recipes!</a>
+                        <!-- Modal Trigger -->
+                        <a class="waves-effect waves-light btn-large green darken-4 modal-trigger" href="#modal1">Send me recipes!</a>
+                    </div>
+                    <!-- Modal -->
+                    <div id="modal1" class="modal">
+                        <div class="modal-content black-text">
+                            <h4 class="font-rozha-one modal-header">Join the Recipe Box mailing list</h4>
+                            <p class="modal-text">Sign up to get our top recipe recommendations direct to you inbox every week!</p>
+                            <div class="row">
+                                <form class="col s12">
+                                  <div class="row">
+                                    <div class="input-field col s12 m6">
+                                      <input id="first_name" type="text" class="validate">
+                                      <label for="first_name">First Name</label>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                      <input id="last_name" type="text" class="validate">
+                                      <label for="last_name">Last Name</label>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="input-field col s12">
+                                      <input id="email" type="email" class="validate">
+                                      <label for="email">Email</label>
+                                    </div>
+                                  </div>
+                                  <div class="row">
+                                    <div class="input-field col s12">
+                                        <button class="btn waves-effect waves-light green darken-4" type="submit" name="action">Submit
+                                            <i class="material-icons right">send</i>
+                                        </button>
+                                    </div>
+                                  </div>
+                                </form>
+                              </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancel</a>
+                        </div>
                     </div>
                 </div>
                 <div class="col s12 l6 center-align">
@@ -153,6 +189,8 @@
             </div>
         </div>
     </footer>
+
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
