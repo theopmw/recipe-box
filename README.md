@@ -52,3 +52,25 @@ If the site is successful and generates interest and traffic, there is scope to 
 * Improve knowledge of HTML, CSS & JavaScript.
 * Use Materialize CSS to develop a website.
 * Use Heroku to deploy the app.
+
+### Wireframes
+
+### Design
+
+The site takes inspiration form similar sites such as [BBC Good Food](https://www.bbcgoodfood.com/), [Olive Magazine](https://www.olivemagazine.com/) and [Delicious Magazine](https://www.deliciousmagazine.co.uk/). The aim was to keep the site asthetic clean and simple to provide a positive UX and keep the focal point on the food.
+
+#### Colour Scheme
+
+Dark green (#1b5e20), black (#00000) and white (#fffff) were the 3 colours used throughout the site. These colours were chosen as they complement each other well and creat a clean UI.
+
+### Typography
+
+Sonsie One and Rozha One were the two fonts used in the brand logo as they complement each other well. 
+
+Rozha One was used throughout the site for page headings and sub-headings as it is a bold font, is clear to read, and ties the headings in nicely with the branding of the site.
+
+Roboto was used for the main text of the site as it is very clear and legible. This font was used for the main blocks of text as it is very easy to read.
+
+### Imagery
+
+The imagery used throught the sita has been taken from a range of onl;ine sites, futher details and links can be found in the Acknowlegements section below
