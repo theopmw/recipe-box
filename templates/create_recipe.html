@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2 class="center-align">Create a Recipe</h2>
+<h2 class="center-align font-rozha-one page-heading">Create a Recipe</h2>
 
-<form action="" method="POST">
+<form action="" method="POST" class="font-roboto">
     {{ form.csrf_token }}
     <!-- recipe name -->
     <div class="row">
@@ -126,7 +126,7 @@
         <!-- submit button -->
         <div class="row">
             <div class="col s12 create-recipe-button center-align">
-                <button class="btn-large text-shadow">{{ form.submit() }}</button>
+                <button class="btn-large text-shadow green darken-4">{{ form.submit() }}</button>
             </div>
         </div>
 
