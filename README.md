@@ -25,32 +25,32 @@ If the site is successful and generates interest and traffic, there is scope to 
 **As a user, I would like to:**
 
 - [x] Access the site from mobile, tablet and desktop devices.
-- [x] Easily register to have my own profile
+- [x] Easily register to have my own profile   
 ![User Stories Register](assets/images/readme_screenshots/user_stories/user_stories_register.png)
-- [x] Easily log in to my profile
+- [x] Easily log in to my profile   
 ![User Stories Sign In](assets/images/readme_screenshots/user_stories/user_stories_signin.png)
-- [x] Easily log out of my profile
+- [x] Easily log out of my profile   
 ![User Stories Sign Out](assets/images/readme_screenshots/user_stories/user_stories_signout.png)
-- [x] Receive feedback when I Log In
+- [x] Receive feedback when I Log In   
 ![User Stories Sign In Feedback](assets/images/readme_screenshots/user_stories/user_stories_signin_confirmation.png
 )
-- [x] Receive feedback when I Log Out
+- [x] Receive feedback when I Log Out    
 ![User Stories Log Out Feedback](assets/images/readme_screenshots/user_stories/user_stories_signout_confirmation.png)
-- [x] Be able to browse all recipes submitted to the website
+- [x] Be able to browse all recipes submitted to the website   
 ![User Stories All Recipes](assets/images/readme_screenshots/user_stories/user_stories_all_recipes.png)
-- [x] Search recipes by ingredient, name or category
+- [x] Search recipes by ingredient, name or category   
 ![User Stories Search](assets/images/readme_screenshots/user_stories/user_stories_search.png)
-- [x] Add my own recipes
+- [x] Add my own recipes   
 ![User Stories Create Recipe](assets/images/readme_screenshots/user_stories/user_stories_create_recipe.png)
-- [x] Edit my own recipes
+- [x] Edit my own recipes   
 ![User Stories Edit Recipe](assets/images/readme_screenshots/user_stories/user_stories_edit_recipe.png)
-- [x] Delete my own recipes
+- [x] Delete my own recipes   
 ![User Stories Delete Recipe](assets/images/readme_screenshots/user_stories/user_stories_delete_recipe.png)
-- [x] Be given feedback when I have added, edited, or deleted a recipe
+- [x] Be given feedback when I have added, edited, or deleted a recipe   
 ![User Stories Add Recipe Feedback](assets/images/readme_screenshots/user_stories/user_story_add_recipe_feedback.png)
 ![User Stories Edit Recipe Feedback](assets/images/readme_screenshots/user_stories/user_stories_update_recipe_feedback.png)
 ![User Stories Delete Recipe Feedback](assets/images/readme_screenshots/user_stories/user_stories_delete_recipe_feedback.png)
-- [x] Have easy access to the recipes I have personally submitted
+- [x] Have easy access to the recipes I have personally submitted   
 ![User Stories User Recipes](assets/images/readme_screenshots/user_stories/user_stories_user_recipes.png)
 
 
