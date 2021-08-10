@@ -19,12 +19,13 @@
         <div class="confirm-delete-message center-align">
             <p>Confirm delete recipe?</p>
             <p>WARNING - This cannot be undone!</p>
+            <a class="link" href="{{ url_for('profile', username=session['user']) }}">Take me back!</a>
 
         </div>
 
         <div class="row">
             <div class="col s12 center-align">
-                <button class="btn-large red text-shadow">{{ form.submit() }} <i class="fas fa-trash-alt right"></i></button>
+                <button class="btn-large red text-shadow delete-button">{{ form.submit() }} <i class="fas fa-trash-alt right"></i></button>
             </div>
         </div>
 </form>
