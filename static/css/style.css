@@ -320,6 +320,11 @@ Footer
   padding: 0.9375rem;
 }
 
+.footer-social-links i:hover {
+  color: #fff;
+}
+
+
 .footer-copyright {
   padding: 0 !important;
 }
