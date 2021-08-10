@@ -128,9 +128,18 @@ Forms
 ------------------------------------------
 */
 
-/* Select input text font-size/color */
-.select-wrapper input.select-dropdown {
-  font-size: 14.5px;
+/* Input text font-size/color */
+.select-wrapper input.select-dropdown,
+.input-field>label,
+#recipe_name,
+#create-description,
+#prep_time,
+#cook_time,
+#tags,
+#image,
+#create-ingredients,
+#create-method {
+  font-size: 1.25rem;
   color: #9e9e9e;
 }
 
