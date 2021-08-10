@@ -88,6 +88,19 @@
             <li><a href="{{ url_for('login') }}" class="black-text">Sign In</a></li>
             <li><a href="{{ url_for('register') }}" class="black-text">Register</a></li>
             {% endif %}
+            <li>
+                <!-- Credit: code for search bar modified from: https://ampersandacademy.com/tutorials/materialize-css/navbar-with-autocomplete-search-box -->
+                <!-- Credit: code for writing search form functionality modified from https://stackoverflow.com/questions/62765928/how-to-submit-data-from-a-search-form-within-the-base-html-of-a-flask-app -->
+                <div id="mobilesearch">
+                    <form action="{{ url_for('search') }}" method="GET">
+                        <div class="input-field black-text">
+                            <i class="black-text material-icons prefix search-icon">search</i>
+                            <input type="text" placeholder="search recipes" class="black-text"
+                                id="search" name="query" required>
+                        </div>
+                    </form>
+                </div>
+            </li>
         </ul>
     </header>
 
