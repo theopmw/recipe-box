@@ -271,6 +271,6 @@ This site utilises [MongoDB Atlas](https://www.mongodb.com/) for data storage.
 
 See below for the schema of the site:
 
-
+![Database Schema](assets/images/readme_screenshots/information_architecture/info_architecture_schema.png)
 
 There is scope to further expand this in the following ways:
