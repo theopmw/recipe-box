@@ -93,6 +93,8 @@ The imagery used throught the site have been taken from a range of online recipe
 
 ## Features
 
+### **Page Features**
+
 ### Consistent Site Features and Components
 
 - All pages of the site contain the same **Header** and **Footer** components.
@@ -235,3 +237,40 @@ The imagery used throught the site have been taken from a range of online recipe
 - The **Seach Page** acts in a similar way to the all recipes page, but only displays recipes that match the search query.
 - It also utilises Materialize cards to display the recipes and paginates the results if there are more than 6 results for the specific search query.
 
+### **Responsive Design Features**
+
+### Responsive for Device Size
+
+The Materialize CSS framework was used to ensure the site is responsive on all device sizes.
+
+#### **Mobile Devices**
+
+- On mobile devices, the Materialze Grid System was utilised to stack information vertically on small device sizes to provide positive and efficient UX and allow information to be read easily by the user. The navigation controls are launched though a hamburger icon/menu toggler to provide a clean UX.   
+
+![Responsive Design Mobile](assets/images/readme_screenshots/responsive_design/responsive_design_mobile_1.png)
+
+![Responsive Design Mobile Menu](assets/images/readme_screenshots/responsive_design/responsive_design_mobile_2.png)
+
+#### **Tablet Devices**
+
+- At tablet size, the Materialze Grid System was used to display 2 recipe cards per row. The hamburger icon/menu toggler was retained to keep the UI clean and clear.
+
+![Responsive Design Tablet](assets/images/readme_screenshots/responsive_design/responsive_design_tablet_1.png)
+
+![Responsive Design Tablet Menu](assets/images/readme_screenshots/responsive_design/responsive_design_tablet_2.png)
+
+#### **Desktop Devices**
+
+At desktop size, the Materialze Grid System was used to display 3 recipe cards per row.
+
+![Reponsive Design Desktop](assets/images/readme_screenshots/responsive_design/responsive_design_desktop.png)
+
+## Information Architecture
+
+This site utilises [MongoDB Atlas](https://www.mongodb.com/) for data storage.
+
+See below for the schema of the site:
+
+
+
+There is scope to further expand this in the following ways:
