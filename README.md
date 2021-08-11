@@ -107,7 +107,7 @@ The imagery used throught the site have been taken from a range of online recipe
 
     - Aligned to the right of the navigation menu is a search bar that allows users to search for recipes by name, ingredient or tag.
 
-    - The navigation menu is condensed into a hamburger icon on tablet devices and smaller to provide positive UX and not overcrowd the UI.
+    - The navigation menu is condensed into a hamburger icon on tablet devices and smaller, to provide positive UX and not overcrowd the UI.
 
 - **Footer**
     - The footer consists of a newletter signup button that launches a modal containing the signup form and links to Recipe Box social media (note that as Recipe Box is for eductional purposes only and therefore does not have social media, the links redirect to the specific platform home page)
@@ -195,15 +195,37 @@ The imagery used throught the site have been taken from a range of online recipe
 - The **Add Recipe Page** features a form, handled by [WTForms](https://wtforms.readthedocs.io/en/2.3.x/) (covered in further detail below) and styled using [Materialize CSS](https://materializecss.com/).
 
 - The form features the following fields:
-    - **Recipe Name**: WTForms StringField
-    - **Recipe Description**: WTForms TextAreaField
-    - **Prep Time**: WTForms StringField
-    - **Cook Time**: WTForms StringField
-    - **Servings**: WTForms SelectField
-    - **Tags**: WTForms StringField
-    - **Difficulty**: WTForms SelectField
-    - **Image Link**: WTForms StringField
-    - **Ingredients**: WTForms TextAreaField
-    - **Method**: WTForms TextAreaField
+    - **Recipe Name**: WTForms StringField, styled with a [Materialze input field](https://materializecss.com/text-inputs.html)
+    - **Recipe Description**: WTForms TextAreaField, styled with a [Materialze text area input field](https://materializecss.com/text-inputs.html)
+    - **Prep Time**: WTForms StringField, styled with a [Materialze input field](https://materializecss.com/text-inputs.html)
+    - **Cook Time**: WTForms StringField, styled with a [Materialze input field](https://materializecss.com/text-inputs.html)
+    - **Servings**: WTForms SelectField, styled with a [Materialze select field](https://materializecss.com/select.html)
+    - **Tags**: WTForms StringField, styled with a [Materialze input field](https://materializecss.com/text-inputs.html)
+    - **Difficulty**: WTForms SelectField, styled with a [Materialze select field](https://materializecss.com/select.html)
+    - **Image Link**: WTForms StringField, styled with a [Materialze input field](https://materializecss.com/text-inputs.html)
+    - **Ingredients**: WTForms TextAreaField, styled with a [Materialze text area input field](https://materializecss.com/text-inputs.html)
+        - Each ingredient is to be input on it's own line (instruction given to user in the form input label) and the splitline() method is applied in the recipe.html template to render the ingredient list correctly in the DOM, with each ingredient on its own line.
+        - This field has been designed as a text area to provide a simple, intuitive UX. By recording the infomation in this way, the user can easily edit the information and there are less keystrokes required to input the information. The idea was for the field to act in a similar way to a traditional word processor so that is is familiar to the user.
+    - **Method**: WTForms TextAreaField, styled with a [Materialze text area input field](https://materializecss.com/text-inputs.html)
+        - Each step is to be input on it's own line (instruction given to user in the form input label) and the splitline() method is applied in the recipe.html template to render the steps correctly in the DOM, with each step on its own line.
+        - This field has been designed as a text area to provide a simple, intuitive UX. By recording the infomation in this way, the user can easily edit the information and there are less keystrokes required to input the information. The idea was for the field to act in a similar way to a traditional word processor so that is is familiar to the user and easy to understand.
+    - **Add Recipe** WTForms SubmitField, styled with a Materialize button
 
 - The validation of all fields is handled by [WTForms Built-in Validators](https://wtforms.readthedocs.io/en/2.3.x/validators/#built-in-validators) and error messages are displayed to the user if ther input does not meet the field criteria.
+
+- After a recipe has been successfully added to the DB, the user is redirected to the Profile Page and a flash message is displayed to provide feedback: "Recipe Added Successfully".
+
+### Edit Recipe Page (Only available to user that owns the recipe and admin user)
+
+- The **Edit Recipe Page** behaves in the exact same way as the Add Recipe Page, other than that the form fields are alredy pre-filled with the recipe information the user provided when adding/previously editing the recipe, this had been pulled from the recipe document in the DB.
+
+- Beneath the form fields are 2 Buttons:
+    - A **"Cancel"** button which redirects the user back to the Recipes Page.
+    - An **"Update Recipe"** button (WTForms SubmitField) for the user to update there changes to the recipe.
+   
+
+### Delete Recipe Page (Only available to user that owns the recipe and admin user)
+
+- The **Delete Recipe Page** features the name of the recipe to be deleted, followed by a message to warn the user that this action cannot be undone. This is followed by 2 buttons:
+    - A **"Cancel"** button to cancel the delete process and redirect the user back to the Recipes Page
+    - A **"Delete Recipe"** button, to confirm and delete the recipe. This redirects the user to their Profile Page and flashes a message to conirm the recipe has been deleted.
