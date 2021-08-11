@@ -180,7 +180,7 @@ The imagery used throught the site have been taken from a range of online recipe
 
 - After successful registration, the user is redirected to thier profile page and a flash message is displayed to welcome them to the site: "Welcome, \<username>".
 
-### Profile Page (Only available to registered users)
+### Profile Page (only available to registered users)
 
 - Upon successful loggin, the user is directed to their **Profile Page**.
 
@@ -190,7 +190,7 @@ The imagery used throught the site have been taken from a range of online recipe
 
 - Below these headings Materialize cards displaying the recipes submitted by the user in session (same layout as described in "Recipes Page" section above).
 
-### Add Recipe Page (Only available to registered users)
+### Add Recipe Page (only available to registered users)
 
 - The **Add Recipe Page** features a form, handled by [WTForms](https://wtforms.readthedocs.io/en/2.3.x/) (covered in further detail below) and styled using [Materialize CSS](https://materializecss.com/).
 
@@ -215,7 +215,7 @@ The imagery used throught the site have been taken from a range of online recipe
 
 - After a recipe has been successfully added to the DB, the user is redirected to the Profile Page and a flash message is displayed to provide feedback: "Recipe Added Successfully".
 
-### Edit Recipe Page (Only available to user that owns the recipe and admin user)
+### Edit Recipe Page (only available to user that owns the recipe and admin user)
 
 - The **Edit Recipe Page** behaves in the exact same way as the Add Recipe Page, other than that the form fields are alredy pre-filled with the recipe information the user provided when adding/previously editing the recipe, this had been pulled from the recipe document in the DB.
 
@@ -224,8 +224,14 @@ The imagery used throught the site have been taken from a range of online recipe
     - An **"Update Recipe"** button (WTForms SubmitField) for the user to update there changes to the recipe.
    
 
-### Delete Recipe Page (Only available to user that owns the recipe and admin user)
+### Delete Recipe Page (only available to user that owns the recipe and admin user)
 
 - The **Delete Recipe Page** features the name of the recipe to be deleted, followed by a message to warn the user that this action cannot be undone. This is followed by 2 buttons:
     - A **"Cancel"** button to cancel the delete process and redirect the user back to the Recipes Page
     - A **"Delete Recipe"** button, to confirm and delete the recipe. This redirects the user to their Profile Page and flashes a message to conirm the recipe has been deleted.
+
+### Search Page (available to all users, no need to register account)
+
+- The **Seach Page** acts in a similar way to the all recipes page, but only displays recipes that match the search query.
+- It also utilises Materialize cards to display the recipes and paginates the results if there are more than 6 results for the specific search query.
+
