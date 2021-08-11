@@ -56,7 +56,8 @@ If the site is successful and generates interest and traffic, there is scope to 
 
 **As an admin I would like to do all of the above and additionally:**
 
-- [x] Access, edit and delete ALL recipes
+- [x] Access, edit and delete ALL recipes   
+![User Stories Admin Access](assets/images/readme_screenshots/user_stories/user_stories_admin_access.png)
 
 ### Developer goals
 
