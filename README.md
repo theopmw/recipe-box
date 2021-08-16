@@ -393,3 +393,35 @@ $ git clone https://github.com/theopmw/recipe-box
 ```
 
 7. Press Enter and your local clone will be created.
+
+## Credits
+
+### Code
+
+* My Mentor, Spencer Barriball for providing support, guidance and inspiration - especially regarding the use of Flask-WTForms.
+* [Materialize CSS](https://materializecss.com/): Materialize Library used throughout the project for the Materialize Grid System, to make the site responsive and for select Materialize Components.
+* Various online resources utilised for guidance throught the project - [CSS Tricks](https://css-tricks.com/), [Stack Overflow](https://stackoverflow.com/), [W3 Schools](https://www.w3schools.com/).
+    * All code modified from external sources to suit the needs of the project are attributed via comments above the code throughout the project.
+* The Code Institute Tutor Team for assistance with the creation of the site.
+
+### Content
+
+* All content was written by the developer.
+
+### Media
+
+#### Favicon: 
+
+* The page favicon was generated using https://favicon.io/.
+
+#### Imagery:
+
+### Acknowledgements
+
+* My Mentor, Spencer Barriball, for continuous feedback, support, guidance and inspiration.
+* Code Institute Tutor Support, for their continuous support and guidance.
+* Code Institute Assesment team, for providing insightful feedback, reducing any re-ocurring errors that may have carried over from my MS1 project, [Done London](https://github.com/theopmw/Done-London) and MS2 project, [Top Spots London](https://github.com/theopmw/Top-Spots-London).
+
+### Disclaimer
+
+All content on this site was developed for educational purposes only.
