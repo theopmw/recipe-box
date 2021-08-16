@@ -342,3 +342,31 @@ Git branching was also utilised to isolate the production of new features and me
     * When the branch had been merged with the master and was no longer needed, ```git branch -d new-branch``` was used to delete the branch.
 
 Parts of this section used the following article for reference: [How To Use Git: A Reference Guide](https://dev.to/digitalocean/how-to-use-git-a-reference-guide-6b6).
+
+## Deployment
+
+### Heroku
+
+Heroku was used as the deployment platform for this site using the following steps:
+
+* Within the IDE, set up files needed to run the app:
+    * Tell Heroku which applications and dependencies are required to run our app by typing ``pip3 freeze --local > requirements.txt`` into the terminal.
+    * Create a Procfile to tell Heroku which file runs the app, and how to run it by typing ``echo web: python app.py > Procfile`` into the terminal.
+* Check that the files have been set up correctly and that the requirements.txt file contains the dependencies that are needed.
+* Check the Procfile has been set up correctly (it can add a blank line at the bottom and this can sometimes cause problems when running the app on Heroku, so remove that and save the file before proceeding).
+* Log into Heroku and 'Create new app' from the Dashboard. 
+    * The app name must be unique.
+    * When choosing a region, select the region closest to you.
+* There are several different options to create a new app for this project, for the purpose of this project, Automatic Deployment from our GitHub repository was set up.
+    * To do this, under 'Deployment method' select the GitHub option.
+* Make sure your GitHub profile is displayed, add your repository name, then click 'Search'.
+* Once it finds the repo, click 'Connect' to connect to this app.
+* Click on the 'Settings' tab for the app, and then click on 'Reveal Config Vars' in order to securely tell Heroku which variables are required.
+* The env.py file contains a few different variables (make sure not to include any "quotes" for the key, or the value)
+    * Add all the variables from the env.py file to the Config Vars in Heroku.
+* Before deploying, ensure the requirements.txt and Procfile have been pushed to the repository.
+* Return to the Heroku 'Deploy' tab and click on 'Enable Automatic Deployment'.
+* Ensure the GitHub branch is set to master and click the 'Deploy Branch' button.
+* Heroku will now recieve the code from GitHub and start building the app using the required packages.
+* Once complete, 'Your app was successfully deployed' will be displayed.
+* Click 'View' to launch the app.
