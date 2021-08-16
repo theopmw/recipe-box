@@ -370,3 +370,26 @@ Heroku was used as the deployment platform for this site using the following ste
 * Heroku will now recieve the code from GitHub and start building the app using the required packages.
 * Once complete, 'Your app was successfully deployed' will be displayed.
 * Click 'View' to launch the app.
+
+### Forking the GitHub Repository
+
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps:
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/theopmw/recipe-box)
+2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3. You should now have a copy of the original repository in your GitHub account.
+
+### Making a Local Clone
+
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/theopmw/recipe-box).
+2. Under the repository name, click "Clone or download".
+3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+4. Open Git Bash.
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type "git clone", and then paste the URL you copied in Step 3:
+
+```
+$ git clone https://github.com/theopmw/recipe-box
+```
+
+7. Press Enter and your local clone will be created.
