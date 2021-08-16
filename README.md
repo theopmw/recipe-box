@@ -303,3 +303,7 @@ There is scope to further expand this in the following ways:
 * [Balsamiq](https://balsamiq.com/) - **Balsamiq** was used to create the wireframes during the design process.
 * [Web Formatter](https://webformatter.com/) - **Web Formatter** was used to beautify code.
 * [Am I Responsive](http://ami.responsivedesign.is/) - **Am I Reponsive** was used to test page layouts during the build process.
+
+## Testing
+
+Detailed testing information can be found in separate [TESTING.md](https://github.com/theopmw/recipe-box/blob/master/TESTING.md) file.
