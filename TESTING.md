@@ -4,8 +4,25 @@
 
 The user stories are annotated below to describe funtionality and highlight the way in which the project fulfills the objectives set out. Relevant screenshots relating to each of the user stories below can be found in the main [README.md](https://github.com/theopmw/recipe-box) file.
 
-* Access the site from mobile, tablet and desktop devices.
-    - [x] Materialize CSS has been used throughout the site to ensure all pages render correctly on all devices. This has been tested on a wide range of devices to ensure the UX is consistent and the application behaves as expected.
+* Access the site from mobile, tablet and desktop devices
+
+    - [x] Materialize CSS has been used throughout the site to ensure all pages render correctly on all devices. This has been tested on a wide range of devices to ensure the UX is consistent, the site is reponsive at all sizes and the application behaves as expected.   
+
+* Easily register to have my own profile
+
+    - [x] The Register page is clearly visible on the navigation menu.
+
+    - [x] The form will check that the username is unique. If it isn't an error message will be displayed to the user: "Sorry, that username is already taken. Please try another"
+
+    - [x] If the username is unique, the form will check if passwords match. If they don't, an error message will be displayed to the user: "Passwords do not match, please try again"
+
+    - [x] If there are no errors the user account will be set up, credentials added to the DB and the user will be directed to their profile page and flash message will be dispayed: "Registration Successful!".
+
+* Easily log in to my profile
+
+    - [x] 
+
+
 
 
 ## Bugs
