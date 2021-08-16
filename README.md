@@ -274,3 +274,32 @@ See below for the schema of the site:
 ![Database Schema](assets/images/readme_screenshots/information_architecture/info_architecture_schema.png)
 
 There is scope to further expand this in the following ways:
+
+## Technologies Used
+
+### Languages Used
+
+* HTML
+* CSS
+* JavaScript
+* Python
+
+### Frameworks, Libraries and Programs Used
+
+* [Gitpod](https://gitpod.io/) - **Gitpod** was used for the IDE while building the website.
+* [Git](https://git-scm.com/) - **Git** was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+* [GitHub](https://github.com/) - **GitHub** is used to store the projects code after being pushed from Git.
+* [Heroku](https://id.heroku.com/login) - **Heroku** was used as the deployment platform for this project.
+* [Materialize CSS 1.0.0](https://materializecss.com/) - **Materialize CSS** was used to assist with the responsiveness and styling of the website.
+* [JQuery](https://jquery.com/) - **JQuery** JavaScript library was used to simplify JavaScript code.
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/) - **Flask** WSGI web application framework was used to simplify the application build.
+    * [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) - **Jinja** templating engine was used to was used for templating and simplifying the design process.
+    * [Flask-WTForms](https://wtforms.readthedocs.io/en/2.3.x/) - **Flask-WTForms** was used as the flexible forms validation and rendering library (discussed in further detail below).
+* [Mongo DB](https://www.mongodb.com/) _ **Mongo DB** was used to store the data for the project.
+* [Favicon.io](https://favicon.io/) - **Favicon.io** was used to create the favicon for the website.
+* [Font Awesome](https://fontawesome.com/) - **Font Awesome** was used on all pages throughout the website to add icons for aesthetic and UX purposes.
+* [Google Fonts](https://fonts.google.com/) - **Google Fonts** were used to import the 'Sonsie One', 'Rozha One and 'Roboto' fonts into the style.css file to style the fonts used on all pages of the project.
+* [EmailJS](https://www.emailjs.com/) - **EmialJS** was used for the newsletter subscribe functionality.
+* [Balsamiq](https://balsamiq.com/) - **Balsamiq** was used to create the wireframes during the design process.
+* [Web Formatter](https://webformatter.com/) - **Web Formatter** was used to beautify code.
+* [Am I Responsive](http://ami.responsivedesign.is/) - **Am I Reponsive** was used to test page layouts during the build process.
