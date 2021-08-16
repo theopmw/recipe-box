@@ -307,3 +307,38 @@ There is scope to further expand this in the following ways:
 ## Testing
 
 Detailed testing information can be found in separate [TESTING.md](https://github.com/theopmw/recipe-box/blob/master/TESTING.md) file.
+
+## Git and Version Control
+
+This project is managed using Git version control system.
+
+For each meaningful change made, Git is used to stage, commit and push the files to the [Recipe Box repository](https://github.com/theopmw/recipe-box) on GitHub.
+
+For each change made, the following process was followed, a description of the different commands used throughout the project and their uses has also been provided:
+
+* Staging:
+    * When a file has been modified and it must be marked to go it to your next commit.
+    * To check the status of your Git repository, including files that are not staged and files that are staged, the ```git status``` command is used.
+    * To stage modified files, the ```add``` command is used, which can be run multiple times before a commit. 
+        * You can either specify the specific file with ```add```. For example: "```git add my_file.html```". Or add stage all files in the current directory with "```git add .```".
+        * You can also remove files from staging without losing the changes made to the file using ```reset```. For example: "```git reset my_file.html```".
+* Committing:
+    * Once updates have been staged, you are ready to commit them, which will record the changes made to the repository.
+    * Run the ```commit``` command to commit staged files, a meaningful commit message must be included to track commits. For example: "```git commit -m "Meaningful commit message" "```.
+    * You can stage and commit all tracked files with a condensed message: "```git commit -am "Meaningful commit message" "```.
+    * The commit message can be modified using the ```--amend``` flag. For example: "```git commit --amend -m "New commit message""```.
+* Pushing:
+    * Once files have been committed and a commit message has been provided, they are pushed to the remote repository using the ```push``` command.
+    * "```git push```" will trasnsmit the local commits to the remote repository.
+
+Git branching was also utilised to isolate the production of new features and merge them with the master branch throughout the development cycle of the project.
+
+* Branches
+    * New branches were created using ```git branch new-branch```.
+    * ```git switch new-branch``` was used to swich to the new branch.
+    * A feature was then worked on in the new branch and modifications were staged, committed and pushed.
+    * ```git switch master``` was used to switch back to the master branch.
+    * The branch was then merged with the master using ```git merge new-branch```
+    * When the branch had been merged with the master and was no longer needed, ```git branch -d new-branch``` was used to delete the branch.
+
+Parts of this section used the following article for reference: [How To Use Git: A Reference Guide](https://dev.to/digitalocean/how-to-use-git-a-reference-guide-6b6).
