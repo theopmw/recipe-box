@@ -1,3 +1,13 @@
+# Testing
+
+## User Stories
+
+The user stories are annotated below to describe funtionality and highlight the way in which the project fulfills the objectives set out. Relevant screenshots relating to each of the user stories below can be found in the main [README.md](https://github.com/theopmw/recipe-box) file.
+
+* Access the site from mobile, tablet and desktop devices.
+    - [x] Materialize CSS has been used throughout the site to ensure all pages render correctly on all devices. This has been tested on a wide range of devices to ensure the UX is consistent and the application behaves as expected.
+
+
 ## Bugs
 ---
 
