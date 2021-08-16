@@ -4,29 +4,86 @@
 
 The user stories are annotated below to describe funtionality and highlight the way in which the project fulfills the objectives set out. Relevant screenshots relating to each of the user stories below can be found in the main [README.md](https://github.com/theopmw/recipe-box) file.
 
-* Access the site from mobile, tablet and desktop devices
+* **Access the site from mobile, tablet and desktop devices**
 
     - [x] Materialize CSS has been used throughout the site to ensure all pages render correctly on all devices. This has been tested on a wide range of devices to ensure the UX is consistent, the site is reponsive at all sizes and the application behaves as expected.   
 
-* Easily register to have my own profile
+* **Easily register to have my own profile**
 
-    - [x] The Register page is clearly visible on the navigation menu.
+    - [x] The Register Page is clearly visible on the navigation menu, there is no user in session (on all devices).
 
-    - [x] The form will check that the username is unique. If it isn't an error message will be displayed to the user: "Sorry, that username is already taken. Please try another"
+    - [x] The form will check that the username is unique and is not already registered in the DB. If it isn't, an error message will be displayed to the user: "Sorry, that username is already taken. Please try another"
 
     - [x] If the username is unique, the form will check if passwords match. If they don't, an error message will be displayed to the user: "Passwords do not match, please try again"
 
-    - [x] If there are no errors the user account will be set up, credentials added to the DB and the user will be directed to their profile page and flash message will be dispayed: "Registration Successful!".
+    - [x] If there are no errors the user account will be set up, credentials added to the DB and the user will be redirected to their profile page and flash message will be dispayed: "Registration Successful!".
 
-* Easily log in to my profile
+    - [x] If the user is alrady registered there is a link beneath the form to redirect them to the Sign In Page.
 
-    - [x] 
+* **Easily log in to my profile**
+
+    - [x] The Sign In Page is clearly visible on the navigation menu, there is no user in session  (on all devices).
+
+    - [x] If the user inputs login credentials that do not match with any stored in the DB, the form will clear and a flash message will display: "Invalid username/password combination. Please try again.".
+        * This has been done to not give away whether the user has input partially correct credentials, to improve defensive programming and stop a user potentially forcing their way into the site with another users login credentials.
+    
+    - [x] Once logged in and a registered user is in session, they will have access to the Profile, Add Recipe, and Sign Out buttons on the navigation menu.
+
+    - [x] If the user is does not have an account registered, there is a link beneath the form to redirect them to the Register Page.
+
+* **Easily log out of my profile**
+
+    - [x] When a registered user is in session, the Sign Out menu item is displayed in the navigation menu. On user click, they are logged out, redirected to the Sign In page and a flash message is displayed: "You have been logged out".
+
+    - [x] Once logged out and no registered user is in session, the Profile, Add Recipe, and Sign Out buttons are hidden on the navigation menu and the Sign In and Register buttons are available to allow users to register an account or log in if they have created one previously.
+    
+
+* **Receive feedback when I log in**
+
+    - [x] When a registered user has sucessfully logged in, they are redirected to their profile page and a flash message will display: "Welcome, ``<username>``".
+
+* **Receive feedback when I log out**
+
+    - [x] When a registered user clicks the Sign Out button in the navigation menu, they are redirected to the sign in page and a flash message will display: "You have been logged out".
+
+* **Be able to browse all recipes submitted to the website**
+
+    - [x] The Recipes page is available to all users, whether registered or not, and is easily accessible from the navigation menu from all pages.
+    - [x] Each recipe card has a link to the full recipe, situated at the bottom of the specific card.
+
+* **Search recipes by ingredient, name or category**
+
+    - [x] The search bar is clearly visible to the right of the navigation menu on desktop and at the bottom of the collapsible navigation menu on tablet and mobile devices.
+
+    - [x] The search functionality will take a query that includes any part of the recipe name, tag or ingredient.
+
+* **Add my own recipes**
+
+    - [x] When in session, a registered user has access to the Add Recipe Page.
+
+    - [x] The Create Recipe form has been designed to be as intuitive and user-fiendly as possible and provides feeback if errors are made by the user.
+
+    - [x] Once sucessfully submitted, the user is redirected to thier profile and a flash message is dispalyed: "Recipe Added Successfully!".
+
+* **Edit my own recipes**
+
+    - [x] From the Recipe Page, the user can click the edit button, situated beneath the recipe information to edit their recipe (only available to the owner of the recipe or the admin user).
+
+    - [x] The Edit Recipe form will then be rendered and pre-loaded with the recipe content.
+
+    - [x] The user can then make any ammendments they want and click the "UPDATE RECIPE" button to  submit their changes, or click the "CANCEL" button to be redirected to the Recipes Page.
+
+* **Delete my own recipes**
+
+    - [x] From the Recipe Page, the user can click the delete button, situated beneath the recipe information to delete their recipe (only available to the owner of the recipe or the admin user).
+
+    - [x] This will redirect the user to the delete Recipe Page, the name of the recipe is displayed, followed by a message informing the user that this action cannot be undone. The user can then click the "DELETE RECIPE" button to permanantly delete the recipe, or click the "CANCEL" button to be returned to their profile.
+
 
 
 
 
 ## Bugs
----
 
 - ### ```<textarea>``` inputs not working correctly in create_recipe.html
 
