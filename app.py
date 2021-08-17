@@ -34,21 +34,11 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/index")
 def index():
-    """Home page pulls 4 most viewed recipes from DB"""
-    top_six_recipes = list(
-        mongo.db.recipes.find().sort([('views', DESCENDING)]).limit(6))
-
-    recipes = [
-        top_six_recipes[0],
-        top_six_recipes[1],
-        top_six_recipes[2],
-        top_six_recipes[3],
-        top_six_recipes[4],
-        top_six_recipes[5],
-    ]
+    """Home page pulls 6 most viewed recipes from DB"""
+    top_six_recipes = mongo.db.recipes.find().sort([('views', DESCENDING)]).limit(6)
 
     return render_template(
-        'index.html', recipes=recipes)
+        'index.html', recipes=top_six_recipes)
 
 
 # ------------------- #
@@ -295,7 +285,7 @@ def login():
 
         else:
             # flash message if username doesn't exist
-            flash('Invalid username/password combination. Please try again.')
+            flash('Invalid username/password combination. Please try again')
             # redirect back to login page
             return redirect(url_for("login"))
 
