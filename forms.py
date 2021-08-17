@@ -4,7 +4,7 @@ from wtforms import (
     BooleanField, SelectField, IntegerField,
     SubmitField, TextAreaField)
 from wtforms.validators import (
-    DataRequired, Length, EqualTo, 
+    DataRequired, Length, EqualTo,
     Email, InputRequired)
 
 
@@ -32,8 +32,10 @@ class CreateRecipeForm(FlaskForm):
         'Recipe Name', validators=[DataRequired(), Length(max=50)])
     description = TextAreaField(
         'Recipe Description', validators=[DataRequired(), Length(max=100)])
-    prep_time = StringField('Prep Time (minutes)', validators=[DataRequired(), Length(max=3)])
-    cook_time = StringField('Cook Time (minutes)', validators=[DataRequired(), Length(max=3)])
+    prep_time = StringField(
+        'Prep Time (minutes)', validators=[DataRequired(), Length(max=3)])
+    cook_time = StringField(
+        'Cook Time (minutes)', validators=[DataRequired(), Length(max=3)])
     serves = SelectField(
         '', choices=[(None, "Servings (choose an option)"), (2, "2"), (4, "4"), (6, "6"), (8, "8"), (10, "10")],
         validate_choice=True, validators=[DataRequired()])
@@ -44,16 +46,20 @@ class CreateRecipeForm(FlaskForm):
     image = StringField('Image link', validators=[DataRequired()])
     ingredients = TextAreaField(
         'Ingredients (one per line)', validators=[DataRequired()])
-    method = TextAreaField('Method (one step per line)', validators=[DataRequired()])
+    method = TextAreaField(
+        'Method (one step per line)', validators=[DataRequired()])
     submit = SubmitField('Add Recipe')
 
 
 class EditRecipeForm(FlaskForm):
-    recipe_name = StringField('Recipe Name', validators=[DataRequired()])
+    recipe_name = StringField(
+        'Recipe Name', validators=[DataRequired(), Length(max=50)])
     description = TextAreaField(
-        'Recipe Description', validators=[DataRequired()])
-    prep_time = StringField('Prep Time (minutes)', validators=[DataRequired()])
-    cook_time = StringField('Cook Time (minutes)', validators=[DataRequired()])
+        'Recipe Description', validators=[DataRequired(), Length(max=100)])
+    prep_time = StringField(
+        'Prep Time (minutes)', validators=[DataRequired(), Length(max=3)])
+    cook_time = StringField(
+        'Cook Time (minutes)', validators=[DataRequired(), Length(max=3)])
     serves = SelectField(
         '', choices=[(None, "Servings (choose an option)"), (2, "2"), (4, "4"), (6, "6"), (8, "8"), (10, "10")],
         validate_choice=True, validators=[DataRequired()])
