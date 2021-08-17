@@ -71,15 +71,106 @@ The user stories are annotated below to describe funtionality and highlight the 
 
     - [x] The Edit Recipe form will then be rendered and pre-loaded with the recipe content.
 
-    - [x] The user can then make any ammendments they want and click the "UPDATE RECIPE" button to  submit their changes, or click the "CANCEL" button to be redirected to the Recipes Page.
+    - [x] The user can then make any ammendments they want and click the "UPDATE RECIPE" button to  submit their changes, or click the "CANCEL" button to be redirected to their profile.
 
 * **Delete my own recipes**
 
-    - [x] From the Recipe Page, the user can click the delete button, situated beneath the recipe information to delete their recipe (only available to the owner of the recipe or the admin user).
+    - [x] From the Recipe Page, the user can click the delete button, situated beneath the recipe information, to delete their recipe (only available to the owner of the recipe or the admin user).
 
     - [x] This will redirect the user to the delete Recipe Page, the name of the recipe is displayed, followed by a message informing the user that this action cannot be undone. The user can then click the "DELETE RECIPE" button to permanantly delete the recipe, or click the "CANCEL" button to be returned to their profile.
 
+* **Be given feedback when I have added, edited, or deleted a recipe**
 
+    - [x] The following feedback by way of flash messages after the below actions are performed:
+
+        * Add Recipe: "Recipe Added Successfully!"
+
+        * Edit Recipe: "Recipe Updated Successfully!"
+
+        * Delete Recipe: "Recipe Deleted Sucessfully!"
+
+ 
+* **Have easy access to the recipes I have personally submitted**
+
+    - [x] Each individual useres recipies are clearly displyed on their profile page.
+
+* **(ADMIN ONLY) Access, edit and delete ALL recipes**
+
+    - [x] The admibn user is able to access the "EDIT" and "DELETE" recipe buttons on all recipes submitted to the site.
+
+## Manual Testing
+
+### Navigation menu
+
+- [x] Test all navigation menu items wok on all screensizes.
+
+- [x] Log in and out and check correct navigation menu items are shown.
+
+### Footer
+
+- [x] Test footer social links, all open in new tab.
+
+### Search
+
+- [x] Search a recipe by name,tag or ingredient or a combinbation.
+
+- [x] Perform a search that yeilds no results and check for flash message: " Sorry! No Recipes Found, Please Try Another Search."
+
+### Home Page
+
+- [x] Test Home Page displays top 6 viewed recipes and all links to recipes are working correctly.
+
+- [x] Test "MORE RECIPES HERE" button redirects to Recipes Page and all recipes are displayed.
+
+### Register Page
+
+- [x] Attempt to register with empty form input fields, a "Please fill in this field" tooltip is displayed.
+
+- [x] Attempt to register with 2 passwords that don't match, a "Passwords do not match, please try again" error message is displayed.
+
+- [x] Attempt to register with a username or password that is too long or too short, a "Field must be between x and y characters long." error message is displayed.
+
+- [x] Attempt to register with a username that already exists in the DB, a flash message "Sorry, that username is already taken. Please try another" is displayed.
+
+- [x] Register with a unique username and matching passwords, user is redirected to their profile page and a flash message "Registration Successful!" is displayed.
+
+- [x] Click "Already Registered? Log In" link, user is redirected to Sign In page.
+
+### Sign In Page
+
+- [x] Attempt to sign in with empty form input fields, a "Please fill in this field" tooltip is displayed.
+
+- [x] Attempt to sign in with incorrect credentials, a flash message "Invalid username/password combination. Please try again" is displayed.
+
+- [x] Sign in with valid credentials, user redirected to profile page and "Welcome, \<username>" flash message displayed.
+
+- [x] Click "New Here? Register Account" link, user is redirected to Register page.
+
+### Profile Page
+
+- [x] Test all user recipes are dispayed correctly and links work as expected.
+
+- [x] Test pagination works correctly.
+
+## Recipes Page
+
+- [x] Test all recipes render correctly and links work as expected.
+
+- [x] Test pagination works correctly.
+
+## Recipe Page
+
+- [x] Test page renders correctly.
+
+- [x] Test "EDIT"/"DELETE" buttons are only availabe to recipe owner/admin user and link to the correct pages.
+
+## Create Recipe Page
+
+- [x] Attempt to add a recipe with empty form input fields, a "Please fill in this field" tooltip is displayed.
+
+- [x] Attempt to submit a recipe with a field that is too long or too short, a "Field must be between x and y characters long." error message is displayed.
+
+- [ ] Attempt to submit a form with empty select field, form will be submitted and select field values will be set to "None". This is due to the way WTForms handles select fields and could not currently be avoided. A fix will be researched and implemented at a later date.
 
 
 
