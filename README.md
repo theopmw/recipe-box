@@ -1,6 +1,6 @@
 # Recipe Box
 
-Hungry? [Recipe Box]() has you covered! 
+Hungry? [Recipe Box](https://recipe-box-theopmw.herokuapp.com/) has you covered! 
 
 ## **Site Goals**
 
@@ -24,7 +24,7 @@ If the site is successful and generates interest and traffic, there is scope to 
 
 **As a user, I would like to:**
 
-- [x] Access the site from mobile, tablet and desktop devices.
+- [x] Access the site from mobile, tablet and desktop devices
 - [x] Easily register to have my own profile   
 ![User Stories Register](assets/images/readme_screenshots/user_stories/user_stories_register.png)
 - [x] Easily log in to my profile   
@@ -269,7 +269,7 @@ At desktop size, the Materialze Grid System was used to display 3 recipe cards p
 
 This site utilises [MongoDB Atlas](https://www.mongodb.com/) for data storage.
 
-See below for the schema of the site:
+See below for the data schema of the site:
 
 ![Database Schema](assets/images/readme_screenshots/information_architecture/info_architecture_schema.png)
 
