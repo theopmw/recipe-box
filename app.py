@@ -270,7 +270,6 @@ def login():
                             existing_user['password'],
                             request.form['password']):
                 session["user"] = request.form['username']
-                print(session["user"])
                 flash("Welcome, {}".format(request.form['username']))
 
                 # redirect to profile when successfully logged in
@@ -299,17 +298,26 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+    """Logic for user recipes list and pagination"""
     # grab session user's username from DB
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    # Grab recipes from DB
-    recipes = mongo.db.recipes.find()
-
-    if session["user"]:
-        return render_template(
-            "profile.html", username=username, recipes=recipes)
-
-    return redirect(url_for("login"))
+    # number of recipes per page
+    per_page = 6
+    page = int(request.args.get('page', 1))
+    # count total number of recipes
+    total = mongo.db.recipes.count_documents({})
+    # logic for what recipes to return
+    user_recipes = mongo.db.recipes.find({'user': session['user']}).skip(
+        (page - 1)*per_page).limit(per_page)
+    pages = range(1, int(math.ceil(total / per_page)))
+    # store total number of pages
+    page_count = len(pages)
+    return render_template(
+        'profile.html', recipes=user_recipes,
+        page=page, pages=pages, page_count=page_count,
+        total=total, username=username)
+    # return redirect(url_for("login"))
 
 
 # ------------------- #

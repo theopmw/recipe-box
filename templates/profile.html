@@ -47,5 +47,39 @@
     {% endfor %}
 </div>
 
+<!-- Pagination -->
+<!-- Credit: code for pagination modified from code supplied by my Code Institute mentor: Spencer Barriball --> 
+<div class="pagination-container font-roboto">
+    <ul class="pagination center-align">
+      <!-- If page 1, hide left chevron -->
+      {% if page == 1 %}
+      <li class="hide"><a href="{{  url_for('profile', username=session.user, page=page-1) }}"><i class="material-icons">chevron_left</i></a></li>
+      <!-- If page > 1, show left chevron and on click decrease page by 1 -->
+      {% else %}
+      <li class="waves-effect"><a href="{{ url_for('profile', username=session.user, page=page-1) }}"><i class="material-icons">chevron_left</i></a></li>
+      {% endif %}
+        {% for pagenum in pages %}
+          <!-- If page is current page, display page as active -->
+          {% if pagenum == page %}
+            <li class="active white">
+              <span>{{ pagenum }}
+                <span class="sr-only">(current)</span>
+              </span>
+            </li>
+          {% else %}
+            <!-- If page not current page, allow user to click -->
+            <li class="waves-effect white"><a href="{{ url_for('profile', username=session.user, page=pagenum) }}">{{ pagenum }}</a></li>
+          {% endif %}
+        {% endfor %}
+      {% if page == page_count %}
+        <!-- If last page, hide right chevron -->
+        <li class="hide"><a href="{{ url_for('profile', username=session.user, page=page+1) }}"><i class="material-icons">chevron_right</i></a></li>
+      {% else %}
+        <!-- If last page, show right chevron and on click increase page by 1 -->
+        <li class="waves-effect"><a href="{{ url_for('profile', username=session.user, page=page+1) }}"><i class="material-icons">chevron_right</i></a></li>
+      {% endif %}  
+    </ul>
+  </div>
+
 
 {% endblock %}
