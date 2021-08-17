@@ -171,8 +171,35 @@ The user stories are annotated below to describe funtionality and highlight the 
 - [x] Attempt to submit a recipe with a field that is too long or too short, a "Field must be between x and y characters long." error message is displayed.
 
 - [ ] Attempt to submit a form with empty select field, form will be submitted and select field values will be set to "None". This is due to the way WTForms handles select fields and could not currently be avoided. A fix will be researched and implemented at a later date.
+ 
+- [x] Submit a fully filled out form, user is redirected to their profile page and the recipe is added to the DB.
+
+## Edit Recipe Page
+
+- [x] Test thaht when edit recipe button is clicked, form is preloaded with all information from DB.
+
+- [x] Clear fields and check for "Please fill in this field" tooltip.
+
+- [x] Attempt to submit a recipe with a field that is too long or too short, a "Field must be between x and y characters long." error message is displayed.
+
+- [x] Submit a form with edits made and check changes have been made and are displayed correctly.
+
+- [x] Click cancel button and confirm user is returned to profile page.
+
+## Delete Recipe Page
+
+- [x] Confirm recipe name is displayed correctly.
+
+- [x] Test delete button and confirm recipe has been deleted.
+
+- [x] Test cancel button and confirm user is returmed to profile page.
 
 
+## Error Pages
+
+- [x] Force 404/500 errors and test pages are rendered correctly.
+
+- [x] Test "Take me home!" link returns user to the Home Page.
 
 ## Bugs
 
