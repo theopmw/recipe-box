@@ -201,6 +201,22 @@ The user stories are annotated below to describe funtionality and highlight the 
 
 - [x] Test "Take me home!" link returns user to the Home Page.
 
+## Automated Testing
+
+The following automated tools/linters were used to test the project code throughout the development process:
+
+### W3C Markup Validation (HTML)
+
+* Only warnings/errors displayed by [W3C Markup Validation Service](https://validator.w3.org/) relate to the use of Jinja throughout .html files.
+
+### W3C CSS Validation (CSS)
+
+* No errors or warnings were found when the styles.css file was tested using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/).
+
+### JSHint (JavaScript)
+
+[JSHint](https://jshint.com/) was used to JavaScript files, no errors or warnings were found.
+
 ## Bugs
 
 - ### ```<textarea>``` inputs not working correctly in create_recipe.html
@@ -388,6 +404,77 @@ Below is a screenshot, after some CSS styling (not yet complete). To illustrate 
 
 ![index.html carousel](assets/images/testing_screenshots/index.html_carousel_fix.png)
 
+Notes:   
+The carousel was replaced with Materialize cards to display the top 6 viewed recipes on the site. This was done to improve the UX and link the Home page in with the design style used throughout the rest of the site. The code was refactored since the orignal code pulled the recipes as a dictionary, converted them to a list, then back to a dictionary. the final code for home page cards is displayed below:
+
+app.py index route snippet:
+
+```
+@app.route("/")
+@app.route("/index")
+def index():
+    """Home page pulls 6 most viewed recipes from DB"""
+    top_six_recipes = mongo.db.recipes.find().sort([('views', DESCENDING)]).limit(6)
+
+    return render_template(
+        'index.html', recipes=top_six_recipes)
+```
+
+index.html template snippet:
+```
+<div class="row font-roboto">
+    {% for recipe in recipes %}
+    <div class="col s12 m6 l4">
+        
+        <div class="card hoverable">
+            <div class="card-image recipe-card-image-container">
+                <!-- Recipe Image -->
+                <img class="recipe-card-image responsive-img" src="{{ recipe.image }}"
+                    alt="{{ recipe.recipe_name }}">
+                <!-- Recipe Name -->
+                <span class="card-title white-text text-shadow">{{ recipe.recipe_name }}</span>
+            </div>
+            <div class="card-content">
+                <div class="recipe-card-description">
+                    <!-- Recipe description -->
+                    <p>{{ recipe.description }}</p>
+                </div>
+                <br>
+                <div class="recipe-card-info">
+                    <div class="recipe-card-time">
+                        <!-- Recipe prep time -->
+                        <p><i class="fas fa-clock"></i> Prep: {{ recipe.prep_time }} mins</p>
+                        <!-- Recipe cook time -->
+                        <p><i class="far fa-clock"></i> Cook: {{ recipe.cook_time }} mins</p>
+                    </div>
+                    <div class="recipe-card-serves">
+                        <!-- Recipe servings -->
+                        <p><i class="fas fa-utensils"></i> Serves: {{ recipe.serves }}</p>
+                    </div>
+                    <div class="recipe-card-difficulty">
+                        <!-- Recipe difficulty -->
+                        <p><i class="far fa-smile"></i> Difficulty: {{ recipe.difficulty }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-action">
+                <!-- Link to full recipe -->
+                <a class="green-text text-darken-4 link" href="{{ url_for('recipe', recipe_id=recipe._id) }}">See full
+                    recipe</a>
+            </div>
+        </div>
+        
+    </div>
+    {% endfor %}
+</div>
+```
+
+Final index.html page screenshot (with top 6 cards instead of top 4 carousel):
+
+![index.html cards](assets/images/testing_screenshots/index.html_cards_fix.png)
+
+
+
 - ### Search flash message displayed whether there are mutiple results or 0
 
 Expected:   
@@ -440,6 +527,8 @@ def search():
             'search.html', query=orig_query, results=results, page=1)
 
 ```
+
+
 
 With the above code, the flash message is displayed even when there are results relvant to the users search query:
 
