@@ -35,7 +35,8 @@ mongo = PyMongo(app)
 @app.route("/index")
 def index():
     """Home page pulls 6 most viewed recipes from DB"""
-    top_six_recipes = mongo.db.recipes.find().sort([('views', DESCENDING)]).limit(6)
+    top_six_recipes = mongo.db.recipes.find().sort(
+        [('views', DESCENDING)]).limit(6)
 
     return render_template(
         'index.html', recipes=top_six_recipes)
@@ -58,7 +59,7 @@ def recipes():
     total = mongo.db.recipes.count_documents({})
     # logic for what recipes to return
     all_recipes = mongo.db.recipes.find().skip(
-        (page - 1)*per_page).limit(per_page)
+        (page - 1) * per_page).limit(per_page)
     pages = range(1, int(math.ceil(total / per_page)) + 1)
     # store total number of pages
     page_count = len(pages)
@@ -102,7 +103,7 @@ def search():
             {'tags': query},
             {'ingredients': query},
         ]
-    }).skip((page - 1)*per_page).limit(per_page)
+    }).skip((page - 1) * per_page).limit(per_page)
     total = results.count()
     pages = range(1, int(math.ceil(total / per_page)) + 1)
     # store total number of pages
@@ -267,8 +268,8 @@ def login():
         if existing_user:
             # check hashed password matches user input
             if check_password_hash(
-                            existing_user['password'],
-                            request.form['password']):
+                    existing_user['password'],
+                    request.form['password']):
                 session["user"] = request.form['username']
                 flash("Welcome, {}".format(request.form['username']))
 
@@ -309,7 +310,7 @@ def profile(username):
     total = mongo.db.recipes.count_documents({})
     # logic for what recipes to return
     user_recipes = mongo.db.recipes.find({'user': session['user']}).skip(
-        (page - 1)*per_page).limit(per_page)
+        (page - 1) * per_page).limit(per_page)
     pages = range(1, int(math.ceil(total / per_page)))
     # store total number of pages
     page_count = len(pages)
