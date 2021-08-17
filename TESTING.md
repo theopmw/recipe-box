@@ -405,7 +405,7 @@ Below is a screenshot, after some CSS styling (not yet complete). To illustrate 
 ![index.html carousel](assets/images/testing_screenshots/index.html_carousel_fix.png)
 
 Notes:   
-The carousel was replaced with Materialize cards to display the top 6 viewed recipes on the site. This was done to improve the UX and link the Home page in with the design style used throughout the rest of the site. The code was refactored since the orignal code pulled the recipes as a dictionary, converted them to a list, then back to a dictionary. the final code for home page cards is displayed below:
+The carousel was replaced with Materialize cards to display the top 6 viewed recipes on the site. This was done to improve the UX and link the Home page in with the design style used throughout the rest of the site. The code was refactored since the orignal code pulled the recipes as a dictionary, converted them to a list, then back to a dictionary. The final code for home page cards is displayed below:
 
 app.py index route snippet:
 
@@ -630,3 +630,11 @@ search.html code snippet:
 {% endif %}
 {% endblock %}
 ```
+
+## Known Bugs and Issues
+
+### Select Fields can me left blank and display "None" when page renders
+
+Due to the way Flask-WTForms manages select fields, the user is able to leave the "Serves" and "Dificulty" select fields blank. This will need to be researched and corrected at a later date. Although it does not drastically affect the UX, it could be improved.
+
+![Select field issue](assets/images/testing_screenshots/issues_select_fields.png)
