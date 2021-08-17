@@ -103,8 +103,6 @@ flashes h4 {
 textarea.materialize-textarea:focus:not([readonly]) {
   border-bottom: 1px solid #1b5e20 !important;
   box-shadow: 0 1px 0 0 #1b5e20;
-  -webkit-box-shadow: 0 1px 0 0 #1b5e20;
-
 }
 
 .dropdown-content li>a, .dropdown-content li>span {
@@ -187,6 +185,10 @@ input[type="submit" i] {
 
 .delete-button #submit {
   background-color: #f44336;
+}
+
+.profile-add-recipe-button {
+  margin: 1.25rem;
 }
 
 /*
