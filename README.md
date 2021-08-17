@@ -295,6 +295,7 @@ There is scope to further expand this in the following ways:
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/) - **Flask** WSGI web application framework was used to simplify the application build.
     * [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) - **Jinja** templating engine was used to was used for templating and simplifying the design process.
     * [Flask-WTForms](https://wtforms.readthedocs.io/en/2.3.x/) - **Flask-WTForms** was used as the flexible forms validation and rendering library (discussed in further detail below).
+    * [Autopep8](https://pypi.org/project/autopep8/) - **Autopep8** used to format Python code to be PEP8 compliant.
 * [Mongo DB](https://www.mongodb.com/) _ **Mongo DB** was used to store the data for the project.
 * [Favicon.io](https://favicon.io/) - **Favicon.io** was used to create the favicon for the website.
 * [Font Awesome](https://fontawesome.com/) - **Font Awesome** was used on all pages throughout the website to add icons for aesthetic and UX purposes.
@@ -303,6 +304,18 @@ There is scope to further expand this in the following ways:
 * [Balsamiq](https://balsamiq.com/) - **Balsamiq** was used to create the wireframes during the design process.
 * [Web Formatter](https://webformatter.com/) - **Web Formatter** was used to beautify code.
 * [Am I Responsive](http://ami.responsivedesign.is/) - **Am I Reponsive** was used to test page layouts during the build process.
+
+### Notes on Flask-WTForms
+
+After some research, Flask-WTForms was chosen to simplify form generation and validation for the site.
+
+The following articles helped with the decision and to develop a better understanding of the uses of Flask-WTForms:
+
+[BetterProgramming](https://betterprogramming.pub/how-to-use-flask-wtforms-faab71d5a034)
+
+[OWASP.org](https://owasp.org/www-community/attacks/csrf)
+
+
 
 ## Testing
 
