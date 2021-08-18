@@ -59,7 +59,7 @@ def recipes():
     total = mongo.db.recipes.count_documents({})
     # logic for what recipes to return
     all_recipes = mongo.db.recipes.find().skip(
-        (page - 1) * per_page).limit(per_page)
+        (page - 1)*per_page).limit(per_page)
     pages = range(1, int(math.ceil(total / per_page)) + 1)
     # store total number of pages
     page_count = len(pages)
@@ -103,7 +103,7 @@ def search():
             {'tags': query},
             {'ingredients': query},
         ]
-    }).skip((page - 1) * per_page).limit(per_page)
+    }).skip((page - 1)*per_page).limit(per_page)
     total = results.count()
     pages = range(1, int(math.ceil(total / per_page)) + 1)
     # store total number of pages
@@ -268,8 +268,8 @@ def login():
         if existing_user:
             # check hashed password matches user input
             if check_password_hash(
-                    existing_user['password'],
-                    request.form['password']):
+                            existing_user['password'],
+                            request.form['password']):
                 session["user"] = request.form['username']
                 flash("Welcome, {}".format(request.form['username']))
 
@@ -306,19 +306,21 @@ def profile(username):
     # number of recipes per page
     per_page = 6
     page = int(request.args.get('page', 1))
-    # count total number of recipes
-    total = mongo.db.recipes.count_documents({})
     # logic for what recipes to return
-    user_recipes = mongo.db.recipes.find({'user': session['user']}).skip(
-        (page - 1) * per_page).limit(per_page)
-    pages = range(1, int(math.ceil(total / per_page)))
+    user_recipes = mongo.db.recipes.find(
+        {'user': session['user']}).skip((page - 1) * per_page).limit(per_page)
+    # count total number of recipes
+    total = user_recipes.count()
+    print(total)
+    pages = range(1, int(math.ceil(total / per_page)) + 1)
     # store total number of pages
+    print(pages)
     page_count = len(pages)
+    print(page_count)
     return render_template(
         'profile.html', recipes=user_recipes,
         page=page, pages=pages, page_count=page_count,
         total=total, username=username)
-    # return redirect(url_for("login"))
 
 
 # ------------------- #
