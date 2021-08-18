@@ -185,6 +185,10 @@ The site has been tested on a range of devices and browsers to confirm funcional
 
 - [x] Sign in with valid credentials, user redirected to profile page and "Welcome, \<username>" flash message displayed.
 
+- [x] Check that session value updates to a unique value in DevTools Appliction tab on log in.
+
+- [x] Check that session value updates to a unique value in DevTools Appliction tab on log out.
+
 - [x] Click "New Here? Register Account" link, user is redirected to Register page.
 
 ### Profile Page
