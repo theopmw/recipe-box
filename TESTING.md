@@ -266,7 +266,7 @@ The following automated tools/linters were used to test the project code through
 
 [JSHint](https://jshint.com/) was used to JavaScript files, no errors or warnings were found.
 
-# PEP8 Testing
+### PEP8 Testing
 (Python)
 
 [Autopep8](https://pypi.org/project/autopep8/) was used to help with Python formatting to meet PEP8 compliance guidelines.
