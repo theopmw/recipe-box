@@ -1,5 +1,7 @@
 # Testing
 
+![Am I Responsive](assets/images/testing_screenshots/am_i_responsive.png)
+
 ## User Stories
 
 The user stories are annotated below to describe funtionality and highlight the way in which the project fulfills the objectives set out. Relevant screenshots relating to each of the user stories below can be found in the main [README.md](https://github.com/theopmw/recipe-box) file.
@@ -110,6 +112,10 @@ The user stories are annotated below to describe funtionality and highlight the 
 
 - [x] Test footer social links, all open in new tab.
 
+- [x] Test that signup modal works.
+
+- [x] Test that form inpust work as they should and tolltip prompts user to input an email.
+
 ### Search
 
 - [x] Search a recipe by name,tag or ingredient or a combinbation.
@@ -216,6 +222,17 @@ The following automated tools/linters were used to test the project code through
 ### JSHint (JavaScript)
 
 [JSHint](https://jshint.com/) was used to JavaScript files, no errors or warnings were found.
+
+# PEP8 Testing (Python)
+
+[Autopep8](https://pypi.org/project/autopep8/) was used to help with Python formatting to meet PEP8 compliance guidelines.
+
+[PEP8 Online](http://pep8online.com/) was used to check all python code.
+ Issues flagged: 
+
+* 1 line in env.py too long as this set the MONGO_URI and couldn't be avoided.
+
+* 1 line in app.py - 'env' imported but unused as this file was hidden using .gitignore.
 
 ## Bugs
 
