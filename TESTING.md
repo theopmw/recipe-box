@@ -2,6 +2,38 @@
 
 ![Am I Responsive](assets/images/testing_screenshots/am_i_responsive.png)
 
+- [Testing](#testing)
+  * [User Stories](#user-stories)
+  * [Manual Testing](#manual-testing)
+    + [Navigation menu](#navigation-menu)
+    + [Footer](#footer)
+    + [Search](#search)
+    + [Home Page](#home-page)
+    + [Register Page](#register-page)
+    + [Sign In Page](#sign-in-page)
+    + [Profile Page](#profile-page)
+  * [Recipes Page](#recipes-page)
+  * [Recipe Page](#recipe-page)
+  * [Create Recipe Page](#create-recipe-page)
+  * [Edit Recipe Page](#edit-recipe-page)
+  * [Delete Recipe Page](#delete-recipe-page)
+  * [Error Pages](#error-pages)
+  * [Automated Testing](#automated-testing)
+    + [W3C Markup Validation](#w3c-markup-validation)
+    + [W3C CSS Validation](#w3c-css-validation)
+    + [JSHint](#jshint)
+- [PEP8 Testing](#pep8-testing)
+  * [Bugs](#bugs)
+    + [Textarea inputs not working correctly in create_recipe.html](#textarea-inputs-not-working-correctly-in-create-recipehtml)
+    + [Top 4 recipes not pulling into index.html carousel from DB correctly](#top-4-recipes-not-pulling-into-indexhtml-carousel-from-db-correctly)
+    + [Search flash message displayed whether there are multiple results or 0](#search-flash-message-displayed-whether-there-are-multiple-results-or-0)
+    + [Chevrons displayed when there are no search results](#chevrons-displayed-when-there-are-no-search-results)
+  * [Known Bugs and Issues](#known-bugs-and-issues)
+    + [Select Fields can me left blank and display "None" when page renders](#select-fields-can-me-left-blank-and-display--none--when-page-renders)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
 ## User Stories
 
 The user stories are annotated below to describe functionality and highlight the way in which the project fulfils the objectives set out. Relevant screenshots relating to each of the user stories below can be found in the main [README.md](https://github.com/theopmw/recipe-box) file.
@@ -211,19 +243,23 @@ The user stories are annotated below to describe functionality and highlight the
 
 The following automated tools/linters were used to test the project code throughout the development process:
 
-### W3C Markup Validation (HTML)
+### W3C Markup Validation
+(HTML)
 
 * Only warnings/errors displayed by [W3C Markup Validation Service](https://validator.w3.org/) relate to the use of Jinja throughout .html files.
 
-### W3C CSS Validation (CSS)
+### W3C CSS Validation
+(CSS)
 
 * No errors or warnings were found when the styles.css file was tested using the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/).
 
-### JSHint (JavaScript)
+### JSHint
+(JavaScript)
 
 [JSHint](https://jshint.com/) was used to JavaScript files, no errors or warnings were found.
 
-# PEP8 Testing (Python)
+# PEP8 Testing
+(Python)
 
 [Autopep8](https://pypi.org/project/autopep8/) was used to help with Python formatting to meet PEP8 compliance guidelines.
 
@@ -236,7 +272,7 @@ The following automated tools/linters were used to test the project code through
 
 ## Bugs
 
-- ### ```<textarea>``` inputs not working correctly in create_recipe.html
+- ### Textarea inputs not working correctly in create_recipe.html
 
 Expected:  
 When the **Create Recipe** form is filled out and the submit button clicked, the user is redirected to their profile page, the recipe is added to the recipes collection in MongoDB, is visible on the recipes.html page and its own recipe.html page is generated.
