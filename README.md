@@ -17,6 +17,7 @@ If the site is successful and generates interest and traffic, there is scope to 
 - Add a way for users to be able to comment on recipes
 - Add ability for users to generate an easily printable version of a recipe
 - Add a way for users to easily be able to share recipes on social media or via email
+- Add functional newletter to email users weekly/monthly recipes
 
 ## **UX**
 
@@ -304,7 +305,6 @@ There is scope to further expand this in the following ways:
 * [Favicon.io](https://favicon.io/) - **Favicon.io** was used to create the favicon for the website.
 * [Font Awesome](https://fontawesome.com/) - **Font Awesome** was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 * [Google Fonts](https://fonts.google.com/) - **Google Fonts** were used to import the 'Sonsie One', 'Rozha One and 'Roboto' fonts into the style.css file to style the fonts used on all pages of the project.
-* [EmailJS](https://www.emailjs.com/) - **EmialJS** was used for the newsletter subscribe functionality.
 * [Balsamiq](https://balsamiq.com/) - **Balsamiq** was used to create the wireframes during the design process.
 * [Web Formatter](https://webformatter.com/) - **Web Formatter** was used to beautify code.
 * [Am I Responsive](http://ami.responsivedesign.is/) - **Am I Reponsive** was used to test page layouts during the build process.
@@ -424,13 +424,13 @@ $ git clone https://github.com/theopmw/recipe-box
 
 * All content was written by the developer.
 
-### Media
-
 #### Favicon: 
 
 * The page favicon was generated using https://favicon.io/.
 
 #### Imagery:
+
+* All imagery was sourced from a wide variety of recipe sites.
 
 ### Acknowledgements
 
