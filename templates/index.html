@@ -9,47 +9,45 @@
 
 <div class="row font-roboto">
     {% for recipe in recipes %}
-    <div class="col s12 m6 l4">
-        
-        <div class="card hoverable">
-            <div class="card-image recipe-card-image-container">
-                <!-- Recipe Image -->
-                <img class="recipe-card-image responsive-img" src="{{ recipe.image }}"
-                    alt="{{ recipe.recipe_name }}">
-                <!-- Recipe Name -->
-                <span class="card-title white-text text-shadow">{{ recipe.recipe_name }}</span>
-            </div>
-            <div class="card-content">
-                <div class="recipe-card-description">
-                    <!-- Recipe description -->
-                    <p>{{ recipe.description }}</p>
+        <div class="col s12 m6 l4">
+            <div class="card hoverable">
+                <div class="card-image recipe-card-image-container">
+                    <!-- Recipe Image -->
+                    <img class="recipe-card-image responsive-img" src="{{ recipe.image }}"
+                        alt="{{ recipe.recipe_name }}">
+                    <!-- Recipe Name -->
+                    <span class="card-title white-text text-shadow">{{ recipe.recipe_name }}</span>
                 </div>
-                <br>
-                <div class="recipe-card-info">
-                    <div class="recipe-card-time">
-                        <!-- Recipe prep time -->
-                        <p><i class="fas fa-clock"></i> Prep: {{ recipe.prep_time }} mins</p>
-                        <!-- Recipe cook time -->
-                        <p><i class="far fa-clock"></i> Cook: {{ recipe.cook_time }} mins</p>
+                <div class="card-content">
+                    <div class="recipe-card-description">
+                        <!-- Recipe description -->
+                        <p>{{ recipe.description }}</p>
                     </div>
-                    <div class="recipe-card-serves">
-                        <!-- Recipe servings -->
-                        <p><i class="fas fa-utensils"></i> Serves: {{ recipe.serves }}</p>
-                    </div>
-                    <div class="recipe-card-difficulty">
-                        <!-- Recipe difficulty -->
-                        <p><i class="far fa-smile"></i> Difficulty: {{ recipe.difficulty }}</p>
+                    <br>
+                    <div class="recipe-card-info">
+                        <div class="recipe-card-time">
+                            <!-- Recipe prep time -->
+                            <p><i class="fas fa-clock"></i> Prep: {{ recipe.prep_time }} mins</p>
+                            <!-- Recipe cook time -->
+                            <p><i class="far fa-clock"></i> Cook: {{ recipe.cook_time }} mins</p>
+                        </div>
+                        <div class="recipe-card-serves">
+                            <!-- Recipe servings -->
+                            <p><i class="fas fa-utensils"></i> Serves: {{ recipe.serves }}</p>
+                        </div>
+                        <div class="recipe-card-difficulty">
+                            <!-- Recipe difficulty -->
+                            <p><i class="far fa-smile"></i> Difficulty: {{ recipe.difficulty }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card-action">
-                <!-- Link to full recipe -->
-                <a class="green-text text-darken-4 link" href="{{ url_for('recipe', recipe_id=recipe._id) }}">See full
-                    recipe</a>
+                <div class="card-action">
+                    <!-- Link to full recipe -->
+                    <a class="green-text text-darken-4 link" href="{{ url_for('recipe', recipe_id=recipe._id) }}">See full
+                        recipe</a>
+                </div>
             </div>
         </div>
-        
-    </div>
     {% endfor %}
 </div>
 
