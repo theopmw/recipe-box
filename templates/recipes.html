@@ -26,7 +26,7 @@
           <div class="recipe-card-info">
             <div class="recipe-card-time">
               <!-- Recipe prep time -->
-              <p><i class="fas fa-clock"></i></i> Prep: {{ recipe.prep_time }} mins</p>
+              <p><i class="fas fa-clock"></i> Prep: {{ recipe.prep_time }} mins</p>
               <!-- Recipe cook time -->
               <p><i class="far fa-clock"></i> Cook: {{ recipe.cook_time }} mins</p>
             </div>
@@ -55,10 +55,10 @@
   <ul class="pagination center-align">
     <!-- If page 1, hide left chevron -->
     {% if page == 1 %}
-    <li class="hide"><a href="{{ url_for('recipes', page=page-1) }}"><i class="material-icons">chevron_left</i></a></li>
-    <!-- If page > 1, show left chevron and on click decrease page by 1 -->
+      <li class="hide"><a href="{{ url_for('recipes', page=page-1) }}"><i class="material-icons">chevron_left</i></a></li>
     {% else %}
-    <li class="waves-effect"><a href="{{ url_for('recipes', page=page-1) }}"><i class="material-icons">chevron_left</i></a></li>
+      <!-- If page > 1, show left chevron and on click decrease page by 1 -->
+      <li class="waves-effect"><a href="{{ url_for('recipes', page=page-1) }}"><i class="material-icons">chevron_left</i></a></li>
     {% endif %}
       {% for pagenum in pages %}
         <!-- If page is current page, display page as active -->
