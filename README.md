@@ -4,6 +4,53 @@ Hungry? [Recipe Box](https://recipe-box-theopmw.herokuapp.com/) has you covered!
 
 ![Recipe Box Logo](static/images/logo/logo_original.png)
 
+- [Recipe Box](#recipe-box)
+  * [**Site Goals**](#--site-goals--)
+  * [**UX**](#--ux--)
+    + [User Stories](#user-stories)
+    + [Developer goals](#developer-goals)
+    + [Wireframes](#wireframes)
+    + [Design](#design)
+      - [Colour Scheme](#colour-scheme)
+    + [Typography](#typography)
+    + [Imagery](#imagery)
+  * [Features](#features)
+    + [Consistent Site Features and Components](#consistent-site-features-and-components)
+    + [Home Page](#home-page)
+    + [Recipes Page](#recipes-page)
+    + [Recipe Page](#recipe-page)
+    + [Sign In Page](#sign-in-page)
+    + [Register Page](#register-page)
+    + [Profile Page](#profile-page)
+    + [Add Recipe Page](#add-recipe-page)
+    + [Edit Recipe Page](#edit-recipe-page)
+    + [Delete Recipe Page](#delete-recipe-page)
+    + [Search Page](#search-page)
+    + [Responsive Design Features](#responsive-design-features)
+      - [Mobile Devices](#mobile-devices)
+      - [Tablet Devices](#tablet-devices)
+      - [Desktop Devices](#desktop-devices)
+  * [Information Architecture](#information-architecture)
+  * [Technologies Used](#technologies-used)
+    + [Languages Used](#languages-used)
+    + [Frameworks, Libraries and Programs Used](#frameworks--libraries-and-programs-used)
+    + [Notes on Flask-WTForms](#notes-on-flask-wtforms)
+  * [Testing](#testing)
+  * [Git and Version Control](#git-and-version-control)
+  * [Deployment](#deployment)
+    + [Heroku](#heroku)
+    + [Forking the GitHub Repository](#forking-the-github-repository)
+    + [Making a Local Clone](#making-a-local-clone)
+  * [Credits](#credits)
+    + [Code](#code)
+    + [Content](#content)
+      - [Favicon:](#favicon-)
+      - [Imagery:](#imagery-)
+    + [Acknowledgements](#acknowledgements)
+    + [Disclaimer](#disclaimer)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 ## **Site Goals**
 
 This project is part of my [Code Institute](https://codeinstitute.net/) Full Stack Software Development Diploma, specifically for the **Data Centric Development** Module. The objective of this project is to "build a full-stack site that allows users to manage a common dataset about a particular domain" using **CRUD** operations - **C**reate, **R**ead, **U**pdate and **D**elete.
@@ -99,8 +146,6 @@ The imagery used throughout the site has been taken from a range of online recip
 
 ## Features
 
-### **Page Features**
-
 ### Consistent Site Features and Components
 
 - All pages of the site contain the same **Header** and **Footer** components.
@@ -122,13 +167,15 @@ The imagery used throughout the site has been taken from a range of online recip
 
     - Below this, the site copyright information is displayed
 
-### Home Page (available to all users, no need to register account)
+### Home Page 
+(available to all users, no need to register account)
 
 - The **Home Page** features 6 Materialize cards displaying the top 6 recipes based on user views. Each time a user clicks on a recipe card to view the full recipe, a view is added to the DB and the recipes with the most views are rendered on the page.
 
 - Below the top 6 recipes is a "MORE RECIPES HERE" button that redirects the user to the Recipes Page, which features all recipes stored on the site (see below).
 
-### Recipes Page (available to all users, no need to register account)
+### Recipes Page 
+(available to all users, no need to register account)
 
 - The **Recipes Page** displays Materialize cards featuring all recipes on the site. This section features pagination to display 6 recipes per page. 
 
@@ -145,7 +192,8 @@ The imagery used throughout the site has been taken from a range of online recip
 
 - The pagination is designed to only show the left chevron when the page is greater than 1 and the right chevron when on any page except the last. The active page is also made clear to the user so they can easily see which page they are currently viewing.
 
-### Recipe Page (available to all users, no need to register account)
+### Recipe Page 
+(available to all users, no need to register account)
 
 - Once a user clicks the **"SEE FULL RECIPE"** link at the bottom of a recipe card, the **Recipe Page** is launched to display the full recipe instructions.
 
@@ -162,7 +210,8 @@ The imagery used throughout the site has been taken from a range of online recip
     - The recipe instructions
     - The recipe method
 
-### Sign In Page (available to all users, no need to register account)
+### Sign In Page 
+(available to all users, no need to register account)
 
 - The **Sign In** page features a form, handled by [WTForms](https://wtforms.readthedocs.io/en/2.3.x/) (covered in further detail below) and styled using [Materialize CSS](https://materializecss.com/).
 
@@ -174,7 +223,8 @@ The imagery used throughout the site has been taken from a range of online recip
 
 - After successful registration, the user is redirected to their profile page and a flash message is displayed to welcome them to the site: "Welcome, \<username>".
 
-### Register Page (available to all users, no need to register account)
+### Register Page 
+(available to all users, no need to register account)
 
 - The **Register Page** features a form, handled by [WTForms](https://wtforms.readthedocs.io/en/2.3.x/) (covered in further detail below) and styled using [Materialize CSS](https://materializecss.com/).
 
@@ -188,7 +238,8 @@ The imagery used throughout the site has been taken from a range of online recip
 
 - After successful registration, the user is redirected to their profile page and a flash message is displayed to welcome them to the site: "Welcome, \<username>".
 
-### Profile Page (only available to registered users)
+### Profile Page 
+(only available to registered users)
 
 - Upon successful login, the user is directed to their **Profile Page**.
 
@@ -198,7 +249,8 @@ The imagery used throughout the site has been taken from a range of online recip
 
 - Below these headings Materialize cards displaying the recipes submitted by the user in session (same layout as described in "Recipes Page" section above).
 
-### Add Recipe Page (only available to registered users)
+### Add Recipe Page 
+(only available to registered users)
 
 - The **Add Recipe Page** features a form, handled by [WTForms](https://wtforms.readthedocs.io/en/2.3.x/) (covered in further detail below) and styled using [Materialize CSS](https://materializecss.com/).
 
@@ -223,7 +275,8 @@ The imagery used throughout the site has been taken from a range of online recip
 
 - After a recipe has been successfully added to the DB, the user is redirected to the Profile Page and a flash message is displayed to provide feedback: "Recipe Added Successfully".
 
-### Edit Recipe Page (only available to user that owns the recipe and admin user)
+### Edit Recipe Page 
+(only available to user that owns the recipe and admin user)
 
 - The **Edit Recipe Page** behaves in the exact same way as the Add Recipe Page, other than that the form fields are already pre-filled with the recipe information the user provided when adding/previously editing the recipe, this had been pulled from the recipe document in the DB.
 
@@ -232,24 +285,24 @@ The imagery used throughout the site has been taken from a range of online recip
     - An **"Update Recipe"** button (WTForms SubmitField) for the user to update there changes to the recipe.
    
 
-### Delete Recipe Page (only available to user that owns the recipe and admin user)
+### Delete Recipe Page 
+(only available to user that owns the recipe and admin user)
 
 - The **Delete Recipe Page** features the name of the recipe to be deleted, followed by a message to warn the user that this action cannot be undone. This is followed by 2 buttons:
     - A **"Cancel"** button to cancel the delete process and redirect the user back to the Recipes Page
     - A **"Delete Recipe"** button, to confirm and delete the recipe. This redirects the user to their Profile Page and flashes a message to confirm the recipe has been deleted.
 
-### Search Page (available to all users, no need to register account)
+### Search Page 
+(available to all users, no need to register account)
 
 - The **Search Page** acts in a similar way to the all recipes page, but only displays recipes that match the search query.
 - It also utilises Materialize cards to display the recipes and paginates the results if there are more than 6 results for the specific search query.
 
-### **Responsive Design Features**
-
-### Responsive for Device Size
+### Responsive Design Features
 
 The Materialize CSS framework was used to ensure the site is responsive on all device sizes.
 
-#### **Mobile Devices**
+#### Mobile Devices
 
 - On mobile devices, the Materialze Grid System was utilised to stack information vertically on small device sizes to provide positive and efficient UX and allow information to be read easily by the user. The navigation controls are launched though a hamburger icon/menu toggler to provide a clean UX.   
 
@@ -257,7 +310,7 @@ The Materialize CSS framework was used to ensure the site is responsive on all d
 
 ![Responsive Design Mobile Menu](assets/images/readme_screenshots/responsive_design/responsive_design_mobile_2.png)
 
-#### **Tablet Devices**
+#### Tablet Devices
 
 - At tablet size, the Materialze Grid System was used to display 2 recipe cards per row. The hamburger icon/menu toggler was retained to keep the UI clean and clear.
 
@@ -265,7 +318,7 @@ The Materialize CSS framework was used to ensure the site is responsive on all d
 
 ![Responsive Design Tablet Menu](assets/images/readme_screenshots/responsive_design/responsive_design_tablet_2.png)
 
-#### **Desktop Devices**
+#### Desktop Devices
 
 At desktop size, the Materialze Grid System was used to display 3 recipe cards per row.
 
