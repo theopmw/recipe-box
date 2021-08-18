@@ -279,8 +279,6 @@ See below for the data schema of the site:
 
 ![Database Schema](assets/images/readme_screenshots/information_architecture/info_architecture_schema.png)
 
-There is scope to further expand this in the following ways:
-
 ## Technologies Used
 
 ### Languages Used
