@@ -4,30 +4,30 @@
 
 ## User Stories
 
-The user stories are annotated below to describe funtionality and highlight the way in which the project fulfills the objectives set out. Relevant screenshots relating to each of the user stories below can be found in the main [README.md](https://github.com/theopmw/recipe-box) file.
+The user stories are annotated below to describe functionality and highlight the way in which the project fulfils the objectives set out. Relevant screenshots relating to each of the user stories below can be found in the main [README.md](https://github.com/theopmw/recipe-box) file.
 
 * **Access the site from mobile, tablet and desktop devices**
 
-    - [x] Materialize CSS has been used throughout the site to ensure all pages render correctly on all devices. This has been tested on a wide range of devices to ensure the UX is consistent, the site is reponsive at all sizes and the application behaves as expected.   
+    - [x] Materialize CSS has been used throughout the site to ensure all pages render correctly on all devices. This has been tested on a wide range of devices to ensure the UX is consistent, the site is responsive at all sizes and the application behaves as expected.   
 
 * **Easily register to have my own profile**
 
-    - [x] The Register Page is clearly visible on the navigation menu, there is no user in session (on all devices).
+    - [x] The Register Page is clearly visible on the navigation menu, when there is no user in session (on all devices).
 
     - [x] The form will check that the username is unique and is not already registered in the DB. If it isn't, an error message will be displayed to the user: "Sorry, that username is already taken. Please try another"
 
     - [x] If the username is unique, the form will check if passwords match. If they don't, an error message will be displayed to the user: "Passwords do not match, please try again"
 
-    - [x] If there are no errors the user account will be set up, credentials added to the DB and the user will be redirected to their profile page and flash message will be dispayed: "Registration Successful!".
+    - [x] If there are no errors the user account will be set up, credentials added to the DB and the user will be redirected to their profile page and flash message will be displayed: "Registration Successful!".
 
-    - [x] If the user is alrady registered there is a link beneath the form to redirect them to the Sign In Page.
+    - [x] If the user is already registered there is a link beneath the form to redirect them to the Sign In Page.
 
 * **Easily log in to my profile**
 
-    - [x] The Sign In Page is clearly visible on the navigation menu, there is no user in session  (on all devices).
+    - [x] The Sign In Page is clearly visible on the navigation menu, when there is no user in session (on all devices).
 
     - [x] If the user inputs login credentials that do not match with any stored in the DB, the form will clear and a flash message will display: "Invalid username/password combination. Please try again.".
-        * This has been done to not give away whether the user has input partially correct credentials, to improve defensive programming and stop a user potentially forcing their way into the site with another users login credentials.
+        * This has been done to not give away whether the user has input partially correct credentials, to improve defensive programming and stop a user potentially forcing their way into the site with another user’s login credentials.
     
     - [x] Once logged in and a registered user is in session, they will have access to the Profile, Add Recipe, and Sign Out buttons on the navigation menu.
 
@@ -42,7 +42,7 @@ The user stories are annotated below to describe funtionality and highlight the 
 
 * **Receive feedback when I log in**
 
-    - [x] When a registered user has sucessfully logged in, they are redirected to their profile page and a flash message will display: "Welcome, ``<username>``".
+    - [x] When a registered user has successfully logged in, they are redirected to their profile page and a flash message will display: "Welcome, ``<username>``".
 
 * **Receive feedback when I log out**
 
@@ -51,6 +51,7 @@ The user stories are annotated below to describe funtionality and highlight the 
 * **Be able to browse all recipes submitted to the website**
 
     - [x] The Recipes page is available to all users, whether registered or not, and is easily accessible from the navigation menu from all pages.
+    
     - [x] Each recipe card has a link to the full recipe, situated at the bottom of the specific card.
 
 * **Search recipes by ingredient, name or category**
@@ -63,9 +64,9 @@ The user stories are annotated below to describe funtionality and highlight the 
 
     - [x] When in session, a registered user has access to the Add Recipe Page.
 
-    - [x] The Create Recipe form has been designed to be as intuitive and user-fiendly as possible and provides feeback if errors are made by the user.
+    - [x] The Create Recipe form has been designed to be as intuitive and user-friendly as possible and provides feedback if errors are made by the user.
 
-    - [x] Once sucessfully submitted, the user is redirected to thier profile and a flash message is dispalyed: "Recipe Added Successfully!".
+    - [x] Once successfully submitted, the user is redirected to their profile and a flash message is displayed: "Recipe Added Successfully!".
 
 * **Edit my own recipes**
 
@@ -73,13 +74,13 @@ The user stories are annotated below to describe funtionality and highlight the 
 
     - [x] The Edit Recipe form will then be rendered and pre-loaded with the recipe content.
 
-    - [x] The user can then make any ammendments they want and click the "UPDATE RECIPE" button to  submit their changes, or click the "CANCEL" button to be redirected to their profile.
+    - [x] The user can then make any amendments they want and click the "UPDATE RECIPE" button to submit their changes, or click the "CANCEL" button to be redirected to their profile.
 
 * **Delete my own recipes**
 
     - [x] From the Recipe Page, the user can click the delete button, situated beneath the recipe information, to delete their recipe (only available to the owner of the recipe or the admin user).
 
-    - [x] This will redirect the user to the delete Recipe Page, the name of the recipe is displayed, followed by a message informing the user that this action cannot be undone. The user can then click the "DELETE RECIPE" button to permanantly delete the recipe, or click the "CANCEL" button to be returned to their profile.
+    - [x] This will redirect the user to the delete Recipe Page, the name of the recipe is displayed, followed by a message informing the user that this action cannot be undone. The user can then click the "DELETE RECIPE" button to permanently delete the recipe, or click the "CANCEL" button to be returned to their profile.
 
 * **Be given feedback when I have added, edited, or deleted a recipe**
 
@@ -89,22 +90,22 @@ The user stories are annotated below to describe funtionality and highlight the 
 
         * Edit Recipe: "Recipe Updated Successfully!"
 
-        * Delete Recipe: "Recipe Deleted Sucessfully!"
+        * Delete Recipe: "Recipe Deleted Successfully!"
 
  
 * **Have easy access to the recipes I have personally submitted**
 
-    - [x] Each individual useres recipies are clearly displyed on their profile page.
+    - [x] Each individual user’s recipes are clearly displayed on their profile page.
 
 * **(ADMIN ONLY) Access, edit and delete ALL recipes**
 
-    - [x] The admibn user is able to access the "EDIT" and "DELETE" recipe buttons on all recipes submitted to the site.
+    - [x] The admin user is able to access the "EDIT" and "DELETE" recipe buttons on all recipes submitted to the site.
 
 ## Manual Testing
 
 ### Navigation menu
 
-- [x] Test all navigation menu items wok on all screensizes.
+- [x] Test all navigation menu items wok on all screen sizes.
 
 - [x] Log in and out and check correct navigation menu items are shown.
 
@@ -114,15 +115,15 @@ The user stories are annotated below to describe funtionality and highlight the 
 
 - [x] Test that signup modal works.
 
-- [x] Test that form inpust work as they should and tolltip prompts user to input an email.
+- [x] Test that form inputs work as they should and tooltip prompts user to input an email.
 
 ### Search
 
-- [x] Search a recipe by name,tag or ingredient or a combinbation.
+- [x] Search a recipe by name, tag or ingredient or a combination.
 
-- [x] Perform a search that yeilds no results and check for flash message: " Sorry! No Recipes Found, Please Try Another Search."
+- [x] Perform a search that yields no results and check for flash message: " Sorry! No Recipes Found, Please Try Another Search."
 
-### Home Page
+### Home Page
 
 - [x] Test Home Page displays top 6 viewed recipes and all links to recipes are working correctly.
 
@@ -154,11 +155,11 @@ The user stories are annotated below to describe funtionality and highlight the 
 
 ### Profile Page
 
-- [x] Test all user recipes are dispayed correctly and links work as expected.
+- [x] Test all user recipes are displayed correctly and links work as expected.
 
 - [x] Test pagination works correctly.
 
-## Recipes Page
+## Recipes Page
 
 - [x] Test all recipes render correctly and links work as expected.
 
@@ -168,7 +169,7 @@ The user stories are annotated below to describe funtionality and highlight the 
 
 - [x] Test page renders correctly.
 
-- [x] Test "EDIT"/"DELETE" buttons are only availabe to recipe owner/admin user and link to the correct pages.
+- [x] Test "EDIT"/"DELETE" buttons are only available to recipe owner/admin user and link to the correct pages.
 
 ## Create Recipe Page
 
@@ -182,7 +183,7 @@ The user stories are annotated below to describe funtionality and highlight the 
 
 ## Edit Recipe Page
 
-- [x] Test thaht when edit recipe button is clicked, form is preloaded with all information from DB.
+- [x] Test that when edit recipe button is clicked, form is preloaded with all information from DB.
 
 - [x] Clear fields and check for "Please fill in this field" tooltip.
 
@@ -198,8 +199,7 @@ The user stories are annotated below to describe funtionality and highlight the 
 
 - [x] Test delete button and confirm recipe has been deleted.
 
-- [x] Test cancel button and confirm user is returmed to profile page.
-
+- [x] Test cancel button and confirm user is returned to profile page.
 
 ## Error Pages
 
@@ -239,7 +239,7 @@ The following automated tools/linters were used to test the project code through
 - ### ```<textarea>``` inputs not working correctly in create_recipe.html
 
 Expected:  
-When the **Create Recipe** form is filled out and the submit button clicked, the user is redirected to their profile page, the recipe is added to the recipes collection in MongoDB, is visible on the recipes.html page and it's own recipe.html page is generated.
+When the **Create Recipe** form is filled out and the submit button clicked, the user is redirected to their profile page, the recipe is added to the recipes collection in MongoDB, is visible on the recipes.html page and its own recipe.html page is generated.
 
 Testing:  
 The form was completely filled out and the **Add Recipe** button was clicked.
@@ -250,8 +250,7 @@ Result:
 ![Textarea bug error image](assets/images/testing_screenshots/form_textarea_error_bug.png)
 
 Fix:  
-For the ```<textarea>``` elements, only the label was being provided and not the actual form fields. The form fields also had to then have the extra attributes added for them to render correctly. The original ```<textarea>```  in the "Before" code snippet below was not part of the actual form so when the form was submitted, the form didn't actually have anything to read from those fields - because they didn't belong to the form. These errors were corrected, as is illustrated in the "After" code snippet below.
-
+For the ```<textarea>``` elements, only the label was being provided and not the actual form fields. The form fields also had to then have the extra attributes added for them to render correctly. The original ```<textarea>``` in the "Before" code snippet below was not part of the actual form so when the form was submitted, the form didn't actually have anything to read from those fields - because they didn't belong to the form. These errors were corrected, as is illustrated in the "After" code snippet below.
 
 Below are the changes made to each of the 3 ```<textarea>``` elements to fix the bug:
 
@@ -330,7 +329,7 @@ create_recipe.html code snippet (after):
 
 ```
 
-- ###  Top 4 recipes not pulling into index.html carousel from DB correctly
+- ### Top 4 recipes not pulling into index.html carousel from DB correctly
 
 Expected:  
 The @app.route for index.html pulls the top 4 most viewed recipes from the DB to then be displayed in a Materialize carousel on the home page.
@@ -365,7 +364,7 @@ Result:
 The carrousel did not render correctly and the DB data was not being pulled into the carousel.
 
 Fix:   
-To solve this, the recipes were refered to by index and these were used to pull the correct data into the index.html carousel.
+To solve this, the recipes were referred to by index and these were used to pull the correct data into the index.html carousel.
 
 app.py code snippet:
 ```
@@ -422,7 +421,7 @@ Below is a screenshot, after some CSS styling (not yet complete). To illustrate 
 ![index.html carousel](assets/images/testing_screenshots/index.html_carousel_fix.png)
 
 Notes:   
-The carousel was replaced with Materialize cards to display the top 6 viewed recipes on the site. This was done to improve the UX and link the Home page in with the design style used throughout the rest of the site. The code was refactored since the orignal code pulled the recipes as a dictionary, converted them to a list, then back to a dictionary. The final code for home page cards is displayed below:
+The carousel was replaced with Materialize cards to display the top 6 viewed recipes on the site. This was done to improve the UX and link the Home page in with the design style used throughout the rest of the site. The code was refactored since the original code pulled the recipes as a dictionary, converted them to a list, then back to a dictionary. The final code for home page cards is displayed below:
 
 app.py index route snippet:
 
@@ -491,17 +490,16 @@ Final index.html page screenshot (with top 6 cards instead of top 4 carousel):
 ![index.html cards](assets/images/testing_screenshots/index.html_cards_fix.png)
 
 
-
-- ### Search flash message displayed whether there are mutiple results or 0
+- ### Search flash message displayed whether there are multiple results or 0
 
 Expected:   
 If 0 results are returned when a user submits a search query, a flash message is displayed to tell them that there are no matches for their search and to search again. If there are search results, there is no flash message and the results are displayed.
 
 Testing:  
-Try seaching for items that exist and dont exist to test whether the search functionality is working correctly.
+Try searching for items that exist and don’t exist to test whether the search functionality is working correctly.
 
 Result:    
-The flash message is displayed even when there are search results that match a users search query. 
+The flash message is displayed even when there are search results that match a user’s search query. 
 
 app.py search route snippet:
 
@@ -546,8 +544,7 @@ def search():
 ```
 
 
-
-With the above code, the flash message is displayed even when there are results relvant to the users search query:
+With the above code, the flash message is displayed even when there are results relevant to the users search query:
 
 ![Search results flash bug](assets/images/testing_screenshots/search_results_flash_bug.png)
 
@@ -595,13 +592,13 @@ The flash message is now only displayed when there are 0 result found for the us
 - ### Chevrons displayed when there are no search results
 
 Expected:    
-When a user search yeilds no search results, no chevrons are shown.
+When a user search yields no search results, no chevrons are shown.
 
 Testing:    
 Submit a search into the search form.
 
 Results:    
-When the user submits a seach, the next page chevron is still displayed.
+When the user submits a search, the next page chevron is still displayed.
 
 ![Search chevron bug](assets/images/testing_screenshots/search_chevron_bug.png)
 
@@ -652,6 +649,7 @@ search.html code snippet:
 
 ### Select Fields can me left blank and display "None" when page renders
 
-Due to the way Flask-WTForms manages select fields, the user is able to leave the "Serves" and "Dificulty" select fields blank. This will need to be researched and corrected at a later date. Although it does not drastically affect the UX, it could be improved.
+Due to the way Flask-WTForms manages select fields, the user is able to leave the "Serves" and "Difficulty" select fields blank. This will need to be researched and corrected at a later date. Although it does not drastically affect the UX, it could be improved.
 
 ![Select field issue](assets/images/testing_screenshots/issues_select_fields.png)
+
