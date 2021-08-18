@@ -71,6 +71,10 @@ If the site is successful and generates interest and traffic, there is scope to 
 
 ### Wireframes
 
+Research was conducted by browsing a wide range of recipe sites and looking at their layout, overall design and funtionality. The wireframes were used as a guide throughout the design process and some minor deviations were made, most notably adapting the top recipes on the homepage to a range of recipe cards rather than a carousel to improve UX, allow the user to access important information more quickly and keep the overall design and feel inline with the rest of the site.
+
+[Wireframes](assets/wireframes/recipe_box_wireframes.pdf)
+
 ### Design
 
 The site takes inspiration form similar sites such as [BBC Good Food](https://www.bbcgoodfood.com/), [Olive Magazine](https://www.olivemagazine.com/) and [Delicious Magazine](https://www.deliciousmagazine.co.uk/). The aim was to keep the site asthetic clean and simple to provide a positive UX and keep the focal point on the food and ensure recipe instrutions are clear and easy to follow.
@@ -307,14 +311,13 @@ There is scope to further expand this in the following ways:
 
 ### Notes on Flask-WTForms
 
-After some research, Flask-WTForms was chosen to simplify form generation and validation for the site.
+After some research, Flask-WTForms was chosen to simplify form generation and validation (eg avoidance of Cross-Site Request Forgery (CSRF)) for the site.
 
-The following articles helped with the decision and to develop a better understanding of the uses of Flask-WTForms:
+The following articles helped with the decision and to develop a better understanding of the uses and capabilities of Flask-WTForms:
 
 [BetterProgramming](https://betterprogramming.pub/how-to-use-flask-wtforms-faab71d5a034)
 
 [OWASP.org](https://owasp.org/www-community/attacks/csrf)
-
 
 
 ## Testing
