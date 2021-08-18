@@ -8,249 +8,50 @@
 </div>
 
 <div class="row font-roboto">
-    <!-- Top recipe 1 -->
+    {% for recipe in recipes %}
     <div class="col s12 m6 l4">
+        
         <div class="card hoverable">
             <div class="card-image recipe-card-image-container">
                 <!-- Recipe Image -->
-                <img class="recipe-card-image responsive-img" src="{{ recipes[0].image }}"
-                    alt="{{ recipes[0].recipe_name }}">
+                <img class="recipe-card-image responsive-img" src="{{ recipe.image }}"
+                    alt="{{ recipe.recipe_name }}">
                 <!-- Recipe Name -->
-                <span class="card-title white-text text-shadow">{{ recipes[0].recipe_name }}</span>
+                <span class="card-title white-text text-shadow">{{ recipe.recipe_name }}</span>
             </div>
             <div class="card-content">
                 <div class="recipe-card-description">
                     <!-- Recipe description -->
-                    <p>{{ recipes[0].description }}</p>
+                    <p>{{ recipe.description }}</p>
                 </div>
                 <br>
                 <div class="recipe-card-info">
                     <div class="recipe-card-time">
                         <!-- Recipe prep time -->
-                        <p><i class="fas fa-clock"></i></i> Prep: {{ recipes[0].prep_time }} mins</p>
+                        <p><i class="fas fa-clock"></i> Prep: {{ recipe.prep_time }} mins</p>
                         <!-- Recipe cook time -->
-                        <p><i class="far fa-clock"></i> Cook: {{ recipes[0].cook_time }} mins</p>
+                        <p><i class="far fa-clock"></i> Cook: {{ recipe.cook_time }} mins</p>
                     </div>
                     <div class="recipe-card-serves">
                         <!-- Recipe servings -->
-                        <p><i class="fas fa-utensils"></i> Serves: {{ recipes[0].serves }}</p>
+                        <p><i class="fas fa-utensils"></i> Serves: {{ recipe.serves }}</p>
                     </div>
                     <div class="recipe-card-difficulty">
                         <!-- Recipe difficulty -->
-                        <p><i class="far fa-smile"></i> Difficulty: {{ recipes[0].difficulty }}</p>
+                        <p><i class="far fa-smile"></i> Difficulty: {{ recipe.difficulty }}</p>
                     </div>
                 </div>
             </div>
             <div class="card-action">
                 <!-- Link to full recipe -->
-                <a class="green-text text-darken-4 link" href="{{ url_for('recipe', recipe_id=recipes[0]._id) }}">See full
+                <a class="green-text text-darken-4 link" href="{{ url_for('recipe', recipe_id=recipe._id) }}">See full
                     recipe</a>
             </div>
         </div>
+        
     </div>
-    <!-- Top recipe 2 -->
-    <div class="col s12 m6 l4">
-        <div class="card hoverable">
-            <div class="card-image recipe-card-image-container">
-                <!-- Recipe Image -->
-                <img class="recipe-card-image responsive-img" src="{{ recipes[1].image }}"
-                    alt="{{ recipes[1].recipe_name }}">
-                <!-- Recipe Name -->
-                <span class="card-title white-text text-shadow">{{ recipes[1].recipe_name }}</span>
-            </div>
-            <div class="card-content">
-                <div class="recipe-card-description">
-                    <!-- Recipe description -->
-                    <p>{{ recipes[1].description }}</p>
-                </div>
-                <br>
-                <div class="recipe-card-info">
-                    <div class="recipe-card-time">
-                        <!-- Recipe prep time -->
-                        <p><i class="fas fa-clock"></i></i> Prep: {{ recipes[1].prep_time }} mins</p>
-                        <!-- Recipe cook time -->
-                        <p><i class="far fa-clock"></i> Cook: {{ recipes[1].cook_time }} mins</p>
-                    </div>
-                    <div class="recipe-card-serves">
-                        <!-- Recipe servings -->
-                        <p><i class="fas fa-utensils"></i> Serves: {{ recipes[1].serves }}</p>
-                    </div>
-                    <div class="recipe-card-difficulty">
-                        <!-- Recipe difficulty -->
-                        <p><i class="far fa-smile"></i> Difficulty: {{ recipes[1].difficulty }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-action">
-                <!-- Link to full recipe -->
-                <a class="green-text text-darken-4 link" href="{{ url_for('recipe', recipe_id=recipes[1]._id) }}">See full
-                    recipe</a>
-            </div>
-        </div>
-    </div>
-    <!-- Top recipe 3 -->
-    <div class="col s12 m6 l4">
-        <div class="card hoverable">
-            <div class="card-image recipe-card-image-container">
-                <!-- Recipe Image -->
-                <img class="recipe-card-image responsive-img" src="{{ recipes[2].image }}"
-                    alt="{{ recipes[1].recipe_name }}">
-                <!-- Recipe Name -->
-                <span class="card-title white-text text-shadow">{{ recipes[2].recipe_name }}</span>
-            </div>
-            <div class="card-content">
-                <div class="recipe-card-description">
-                    <!-- Recipe description -->
-                    <p>{{ recipes[2].description }}</p>
-                </div>
-                <br>
-                <div class="recipe-card-info">
-                    <div class="recipe-card-time">
-                        <!-- Recipe prep time -->
-                        <p><i class="fas fa-clock"></i></i> Prep: {{ recipes[2].prep_time }} mins</p>
-                        <!-- Recipe cook time -->
-                        <p><i class="far fa-clock"></i> Cook: {{ recipes[2].cook_time }} mins</p>
-                    </div>
-                    <div class="recipe-card-serves">
-                        <!-- Recipe servings -->
-                        <p><i class="fas fa-utensils"></i> Serves: {{ recipes[2].serves }}</p>
-                    </div>
-                    <div class="recipe-card-difficulty">
-                        <!-- Recipe difficulty -->
-                        <p><i class="far fa-smile"></i> Difficulty: {{ recipes[2].difficulty }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-action">
-                <!-- Link to full recipe -->
-                <a class="green-text text-darken-4 link" href="{{ url_for('recipe', recipe_id=recipes[2]._id) }}">See full
-                    recipe</a>
-            </div>
-        </div>
-    </div>
-    <!-- Top recipe 4 -->
-    <div class="col s12 m6 l4">
-        <div class="card hoverable">
-            <div class="card-image recipe-card-image-container">
-                <!-- Recipe Image -->
-                <img class="recipe-card-image responsive-img" src="{{ recipes[3].image }}"
-                    alt="{{ recipes[0].recipe_name }}">
-                <!-- Recipe Name -->
-                <span class="card-title white-text text-shadow">{{ recipes[3].recipe_name }}</span>
-            </div>
-            <div class="card-content">
-                <div class="recipe-card-description">
-                    <!-- Recipe description -->
-                    <p>{{ recipes[3].description }}</p>
-                </div>
-                <br>
-                <div class="recipe-card-info">
-                    <div class="recipe-card-time">
-                        <!-- Recipe prep time -->
-                        <p><i class="fas fa-clock"></i></i> Prep: {{ recipes[3].prep_time }} mins</p>
-                        <!-- Recipe cook time -->
-                        <p><i class="far fa-clock"></i> Cook: {{ recipes[3].cook_time }} mins</p>
-                    </div>
-                    <div class="recipe-card-serves">
-                        <!-- Recipe servings -->
-                        <p><i class="fas fa-utensils"></i> Serves: {{ recipes[3].serves }}</p>
-                    </div>
-                    <div class="recipe-card-difficulty">
-                        <!-- Recipe difficulty -->
-                        <p><i class="far fa-smile"></i> Difficulty: {{ recipes[3].difficulty }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-action">
-                <!-- Link to full recipe -->
-                <a class="green-text text-darken-4 link" href="{{ url_for('recipe', recipe_id=recipes[3]._id) }}">See full
-                    recipe</a>
-            </div>
-        </div>
-    </div>
-    <!-- Top recipe 5 -->
-    <div class="col s12 m6 l4">
-        <div class="card hoverable">
-            <div class="card-image recipe-card-image-container">
-                <!-- Recipe Image -->
-                <img class="recipe-card-image responsive-img" src="{{ recipes[4].image }}"
-                    alt="{{ recipes[1].recipe_name }}">
-                <!-- Recipe Name -->
-                <span class="card-title white-text text-shadow">{{ recipes[4].recipe_name }}</span>
-            </div>
-            <div class="card-content">
-                <div class="recipe-card-description">
-                    <!-- Recipe description -->
-                    <p>{{ recipes[4].description }}</p>
-                </div>
-                <br>
-                <div class="recipe-card-info">
-                    <div class="recipe-card-time">
-                        <!-- Recipe prep time -->
-                        <p><i class="fas fa-clock"></i></i> Prep: {{ recipes[4].prep_time }} mins</p>
-                        <!-- Recipe cook time -->
-                        <p><i class="far fa-clock"></i> Cook: {{ recipes[4].cook_time }} mins</p>
-                    </div>
-                    <div class="recipe-card-serves">
-                        <!-- Recipe servings -->
-                        <p><i class="fas fa-utensils"></i> Serves: {{ recipes[4].serves }}</p>
-                    </div>
-                    <div class="recipe-card-difficulty">
-                        <!-- Recipe difficulty -->
-                        <p><i class="far fa-smile"></i> Difficulty: {{ recipes[4].difficulty }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-action">
-                <!-- Link to full recipe -->
-                <a class="green-text text-darken-4 link" href="{{ url_for('recipe', recipe_id=recipes[4]._id) }}">See full
-                    recipe</a>
-            </div>
-        </div>
-    </div>
-    <!-- Top recipe 6 -->
-    <div class="col s12 m6 l4">
-        <div class="card hoverable">
-            <div class="card-image recipe-card-image-container">
-                <!-- Recipe Image -->
-                <img class="recipe-card-image responsive-img" src="{{ recipes[5].image }}"
-                    alt="{{ recipes[1].recipe_name }}">
-                <!-- Recipe Name -->
-                <span class="card-title white-text text-shadow">{{ recipes[5].recipe_name }}</span>
-            </div>
-            <div class="card-content">
-                <div class="recipe-card-description">
-                    <!-- Recipe description -->
-                    <p>{{ recipes[5].description }}</p>
-                </div>
-                <br>
-                <div class="recipe-card-info">
-                    <div class="recipe-card-time">
-                        <!-- Recipe prep time -->
-                        <p><i class="fas fa-clock"></i></i> Prep: {{ recipes[5].prep_time }} mins</p>
-                        <!-- Recipe cook time -->
-                        <p><i class="far fa-clock"></i> Cook: {{ recipes[5].cook_time }} mins</p>
-                    </div>
-                    <div class="recipe-card-serves">
-                        <!-- Recipe servings -->
-                        <p><i class="fas fa-utensils"></i> Serves: {{ recipes[5].serves }}</p>
-                    </div>
-                    <div class="recipe-card-difficulty">
-                        <!-- Recipe difficulty -->
-                        <p><i class="far fa-smile"></i> Difficulty: {{ recipes[5].difficulty }}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="card-action">
-                <!-- Link to full recipe -->
-                <a class="green-text text-darken-4 link" href="{{ url_for('recipe', recipe_id=recipes[5]._id) }}">See full
-                    recipe</a>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
 </div>
-
-
 
 <div class="row">
     <div class="col s12 center-align">
