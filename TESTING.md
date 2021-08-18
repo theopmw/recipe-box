@@ -193,19 +193,19 @@ The site has been tested on a range of devices and browsers to confirm funcional
 
 - [x] Test pagination works correctly.
 
-## Recipes Page
+### Recipes Page
 
 - [x] Test all recipes render correctly and links work as expected.
 
 - [x] Test pagination works correctly.
 
-## Recipe Page
+### Recipe Page
 
 - [x] Test page renders correctly.
 
 - [x] Test "EDIT"/"DELETE" buttons are only available to recipe owner/admin user and link to the correct pages.
 
-## Create Recipe Page
+### Create Recipe Page
 
 - [x] Attempt to add a recipe with empty form input fields, a "Please fill in this field" tooltip is displayed.
 
@@ -215,7 +215,7 @@ The site has been tested on a range of devices and browsers to confirm funcional
  
 - [x] Submit a fully filled out form, user is redirected to their profile page and the recipe is added to the DB.
 
-## Edit Recipe Page
+### Edit Recipe Page
 
 - [x] Test that when edit recipe button is clicked, form is preloaded with all information from DB.
 
@@ -227,7 +227,7 @@ The site has been tested on a range of devices and browsers to confirm funcional
 
 - [x] Click cancel button and confirm user is returned to profile page.
 
-## Delete Recipe Page
+### Delete Recipe Page
 
 - [x] Confirm recipe name is displayed correctly.
 
@@ -235,7 +235,7 @@ The site has been tested on a range of devices and browsers to confirm funcional
 
 - [x] Test cancel button and confirm user is returned to profile page.
 
-## Error Pages
+### Error Pages
 
 - [x] Force 404/500 errors and test pages are rendered correctly.
 
