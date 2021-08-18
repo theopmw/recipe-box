@@ -135,6 +135,8 @@ The user stories are annotated below to describe functionality and highlight the
 
 ## Manual Testing
 
+The site has been tested on a range of devices and browsers to confirm funcionality. Only issue found was that some recipe images were not displayed correctly in Safari, in these cases, the alt text attribute was correctly displayed.
+
 ### Navigation menu
 
 - [x] Test all navigation menu items wok on all screen sizes.
