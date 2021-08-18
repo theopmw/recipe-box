@@ -239,6 +239,12 @@ The user stories are annotated below to describe functionality and highlight the
 
 - [x] Test "Take me home!" link returns user to the Home Page.
 
+404 error page:
+![404 Error](assets/images/testing_screenshots/404_error.png)
+
+500 error page:
+![500 Error](assets/images/testing_screenshots/500_error.png)
+
 ## Automated Testing
 
 The following automated tools/linters were used to test the project code throughout the development process:
