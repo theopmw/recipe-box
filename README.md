@@ -2,6 +2,8 @@
 
 Hungry? [Recipe Box](https://recipe-box-theopmw.herokuapp.com/) has you covered! 
 
+![Recipe Box Logo](static/images/logo/logo_original.png)
+
 ## **Site Goals**
 
 This project is part of my [Code Institute](https://codeinstitute.net/) Full Stack Software Development Diploma, specifically for the **Data Centric Development** Module. The objective of this project is to "build a full-stack site that allows users to manage a common dataset about a particular domain" using **CRUD** operations - **C**reate, **R**ead, **U**pdate and **D**elete.
