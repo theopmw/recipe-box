@@ -23,13 +23,8 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-# ------------------- #
-#      Home Page      #
-# ------------------- #
-
-
 # Create index.html file in templates directory and extend from base
-# Credit: code to pull top 4 recipes modified from code
+# Credit: code to pull top 6 recipes modified from code
 # suggested by my Code Institute mentor: Spencer Barriball
 @app.route("/")
 @app.route("/index")
@@ -41,10 +36,6 @@ def index():
     return render_template(
         'index.html', recipes=top_six_recipes)
 
-
-# ------------------- #
-#    Recipe Pages     #
-# ------------------- #
 
 # all recipes
 # Credit: code for pagination modified from code
@@ -82,15 +73,11 @@ def recipe(recipe_id):
     return render_template('recipe.html', recipe=recipe_db)
 
 
-# ------------------- #
-#       Search        #
-# ------------------- #
-
 # Credit: code for search logic modified from code supplied by my
 # Code Institute mentor: Spencer Barriball
 @app.route('/search', methods=['GET', 'POST'])
 def search():
-    """Logic for recipe search"""
+    """Logic for recipe search and pagination"""
     # pull query from the form
     orig_query = request.args.get("query", "")
 
@@ -121,10 +108,6 @@ def search():
             'search.html', query=orig_query, results=results, total=total)
 
 
-# ------------------- #
-#    Create Recipe    #
-# ------------------- #
-
 @app.route('/create_recipe', methods=["GET", "POST"])
 def create_recipe():
     """Creates a recipe and adds to DB recipes collection"""
@@ -153,14 +136,9 @@ def create_recipe():
         'create_recipe.html', form=form)
 
 
-# ------------------- #
-#     Edit Recipe     #
-# ------------------- #
-
-
 @app.route('/edit_recipe/<recipe_id>', methods=['GET', 'POST'])
 def edit_recipe(recipe_id):
-    """Allows User to edit their own recipes"""
+    """Allows user to edit their own recipes"""
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
     if request.method == 'GET':
         form = EditRecipeForm(data=recipe_db)
@@ -190,11 +168,6 @@ def edit_recipe(recipe_id):
     return render_template('edit_recipe.html', recipe=recipe_db, form=form)
 
 
-# ------------------- #
-#    Delete Recipe    #
-# ------------------- #
-
-
 @app.route('/delete_recipe/<recipe_id>', methods=['GET', 'POST'])
 def delete_recipe(recipe_id):
     """Allows session user to delete one of their recipes with confirmation"""
@@ -212,11 +185,6 @@ def delete_recipe(recipe_id):
         flash('Recipe Deleted Successfully!')
         return redirect(url_for("profile", username=session["user"]))
     return render_template('delete_recipe.html', recipe=recipe_db, form=form)
-
-
-# ------------------- #
-#       Register      #
-# ------------------- #
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -247,11 +215,6 @@ def register():
         flash('Sorry, that username is already taken. Please try another')
         return redirect(url_for('register'))
     return render_template('register.html', form=form)
-
-
-# ------------------- #
-#        Log In       #
-# ------------------- #
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -292,11 +255,6 @@ def login():
     return render_template("login.html", form=form)
 
 
-# ------------------- #
-#       Profile       #
-# ------------------- #
-
-
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     """Logic for user recipes list and pagination"""
@@ -323,31 +281,25 @@ def profile(username):
         total=total, username=username)
 
 
-# ------------------- #
-#       Logout        #
-# ------------------- #
-
-
 @app.route("/logout")
 def logout():
+    """Handles Logout funtionality"""
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
 
 
-# ------------------- #
-#   Error Handlers    #
-# ------------------- #
-
 @app.errorhandler(404)
 def handle_404(error):
+    """404 error handler"""
     return render_template(
         '404.html'), 404
 
 
 @ app.errorhandler(500)
 def handle_500(error):
+    """500 error handler"""
     return render_template(
         '500.html'), 500
 
