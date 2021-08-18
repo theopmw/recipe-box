@@ -1,11 +1,9 @@
 from flask_wtf import FlaskForm
 from wtforms import (
     StringField, PasswordField,
-    BooleanField, SelectField, IntegerField,
-    SubmitField, TextAreaField)
+    SelectField, SubmitField, TextAreaField)
 from wtforms.validators import (
-    DataRequired, Length, EqualTo,
-    Email, InputRequired)
+    DataRequired, Length, EqualTo)
 
 
 class RegisterForm(FlaskForm):
@@ -13,10 +11,11 @@ class RegisterForm(FlaskForm):
         'Username', validators=[DataRequired(),
                                 Length(min=4, max=20)])
     password = PasswordField(
-        'Password', validators=[DataRequired(), Length(min=6, max=20),
-                                EqualTo(
-                                    'password2',
-                                    message='Passwords do not match, please try again')])
+        'Password', validators=[
+            DataRequired(), Length(
+                min=6, max=20), EqualTo(
+                'password2',
+                message='Passwords do not match, please try again')])
     password2 = PasswordField('Repeat Password')
     submit = SubmitField('Register')
 
@@ -37,10 +36,37 @@ class CreateRecipeForm(FlaskForm):
     cook_time = StringField(
         'Cook Time (minutes)', validators=[DataRequired(), Length(max=3)])
     serves = SelectField(
-        '', choices=[(None, "Servings (choose an option)"), (2, "2"), (4, "4"), (6, "6"), (8, "8"), (10, "10")],
-        validate_choice=True, validators=[DataRequired()])
+        '',
+        choices=[
+            (None,
+             "Servings (choose an option)"),
+            (2,
+             "2"),
+            (4,
+             "4"),
+            (6,
+             "6"),
+            (8,
+             "8"),
+            (10,
+             "10")],
+        validate_choice=True,
+        validators=[
+            DataRequired()])
     difficulty = SelectField(
-        '', choices=[(None, "Difficulty (choose an option)"), ("Easy", "Easy"), ("Medium", "Medium"), ("Hard", "Hard")], validate_choice=True, validators=[DataRequired()])
+        '',
+        choices=[
+            (None,
+             "Difficulty (choose an option)"),
+            ("Easy",
+             "Easy"),
+            ("Medium",
+             "Medium"),
+            ("Hard",
+             "Hard")],
+        validate_choice=True,
+        validators=[
+            DataRequired()])
     tags = StringField(
         'Tags (separate each with a comma)', validators=[DataRequired()])
     image = StringField('Image link', validators=[DataRequired()])
@@ -61,10 +87,36 @@ class EditRecipeForm(FlaskForm):
     cook_time = StringField(
         'Cook Time (minutes)', validators=[DataRequired(), Length(max=3)])
     serves = SelectField(
-        '', choices=[(None, "Servings (choose an option)"), (2, "2"), (4, "4"), (6, "6"), (8, "8"), (10, "10")],
-        validate_choice=True, validators=[DataRequired()])
+        '',
+        choices=[
+            (None,
+             "Servings (choose an option)"),
+            (2,
+             "2"),
+            (4,
+             "4"),
+            (6,
+             "6"),
+            (8,
+             "8"),
+            (10,
+             "10")],
+        validate_choice=True,
+        validators=[
+            DataRequired()])
     difficulty = SelectField(
-        '', choices=[(None, "Difficulty (choose an option)"), ("Easy", "Easy"), ("Medium", "Medium"), ("Hard", "Hard")], validators=[DataRequired()])
+        '',
+        choices=[
+            (None,
+             "Difficulty (choose an option)"),
+            ("Easy",
+             "Easy"),
+            ("Medium",
+             "Medium"),
+            ("Hard",
+             "Hard")],
+        validators=[
+            DataRequired()])
     tags = StringField(
         'Tags (separate each with a comma)', validators=[DataRequired()])
     image = StringField('Image link', validators=[DataRequired()])
