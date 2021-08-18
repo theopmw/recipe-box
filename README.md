@@ -71,7 +71,7 @@ If the site is successful and generates interest and traffic, there is scope to 
 
 ### Wireframes
 
-Research was conducted by browsing a wide range of recipe sites and looking at their layout, overall design and funtionality. The wireframes were used as a guide throughout the design process and some minor deviations were made, most notably adapting the top recipes on the homepage to a range of recipe cards rather than a carousel to improve UX, allow the user to access important information more quickly and keep the overall design and feel inline with the rest of the site.
+Research was conducted by browsing a wide range of recipe sites and looking at their layout, overall design and funtionality. The wireframes were used as a guide throughout the design process and some minor deviations were made, most notably adapting the top recipes on the homepgit add README.mdage to a range of recipe cards rather than a carousel to improve UX, allow the user to access important information more quickly and keep the overall design and feel inline with the rest of the site.
 
 [Wireframes](assets/wireframes/recipe_box_wireframes.pdf)
 
