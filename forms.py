@@ -68,7 +68,8 @@ class CreateRecipeForm(FlaskForm):
         validators=[
             DataRequired()])
     tags = StringField(
-        'Tags (separate each with a comma)', validators=[DataRequired()])
+        'Tags (separate each with a comma)',
+        validators=[DataRequired(), Length(max=50)])
     image = StringField('Image link', validators=[DataRequired()])
     ingredients = TextAreaField(
         'Ingredients (one per line)', validators=[DataRequired()])
@@ -118,7 +119,8 @@ class EditRecipeForm(FlaskForm):
         validators=[
             DataRequired()])
     tags = StringField(
-        'Tags (separate each with a comma)', validators=[DataRequired()])
+        'Tags (separate each with a comma)',
+        validators=[DataRequired(), Length(max=50)])
     image = StringField('Image link', validators=[DataRequired()])
     ingredients = TextAreaField(
         'Ingredients (one per line)', validators=[DataRequired()])
