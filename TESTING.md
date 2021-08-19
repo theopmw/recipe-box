@@ -185,9 +185,9 @@ The site has been tested on a range of devices and browsers to confirm funcional
 
 - [x] Sign in with valid credentials, user redirected to profile page and "Welcome, \<username>" flash message displayed.
 
-- [x] Check that session value updates to a unique value in DevTools Appliction tab on log in.
+- [x] Check that session cookie value updates to a unique value in DevTools Appliction tab on log in.
 
-- [x] Check that session value updates to a unique value in DevTools Appliction tab on log out.
+- [x] Check that session cookie value updates to a unique value in DevTools Appliction tab on log out.
 
 - [x] Click "New Here? Register Account" link, user is redirected to Register page.
 
@@ -695,9 +695,8 @@ search.html code snippet:
 
 ## Known Bugs and Issues
 
-### Select Fields can me left blank and display "None" when page renders
+### Select Fields can be left blank and display "None" when page renders
 
 Due to the way Flask-WTForms manages select fields, the user is able to leave the "Serves" and "Difficulty" select fields blank. This will need to be researched and corrected at a later date. Although it does not drastically affect the UX, it could be improved.
 
 ![Select field issue](assets/images/testing_screenshots/issues_select_fields.png)
-
